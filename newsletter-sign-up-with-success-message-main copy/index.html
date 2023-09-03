@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+
+		<title>
+			Frontend Mentor | Newsletter sign-up form with success message
+		</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+         :root {
+            --white: hsl(0, 0%, 100%);
+            --grey: hsl(231, 7%, 60%);
+            --charcoal-grey: hsl(235, 18%, 26%);
+            --dark-slate-grey: hsl(234, 29%, 20%);
+            font-size: 16px;
+         }
+
+			body {
+				padding: 0;
+				margin: 0;
+				border: 0;
+				outline: 0;
+				font-family: 'Roboto', sans-serif;
+				display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: hsl(234, 29%, 20%);
+			}
+
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+
+			.newsletter-container {
+				outline: 1px red solid;
+				width: 1440px;
+            display: flex;
+            background-color: hsl(234, 29%, 20%);
+            background-color: var(--white);
+			}
+
+		</style>
+	</head>
+	<body>
+		<!-- Sign-up form start -->
+
+		<div class="newsletter-container">
+			<div class="landing-container">
+				<h1>Stay updated!</h1>
+				<p>Join 60,000+ product managers receiving monthly updates on:</p>
+				<div>
+					<div>Product discovery and building what matters</div>
+					<div>Measuring to ensure updates area success</div>
+					<div>And much more!</div>
+				</div>
+
+				<div>
+					<p>Email address</p>
+					<input
+						type="text"
+						placeholder="email@company.com"
+					/>
+					<button>Subscribe to monthly newsletter</button>
+				</div>
+			</div>
+			<div class="image-container">
+				<object
+					data="./assets/images/illustration-sign-up-desktop.svg"
+					type="image/svg+xml"
+					id="svgObject"
+				>
+					Your browser does not support SVG
+				</object>
+			</div>
+		</div>
+
+		<!-- Sign-up form end -->
+
+		<!-- Success message start -->
+
+		<!-- Thanks for subscribing! A confirmation email has been sent to
+		ash@loremcompany.com. Please open it and click the button inside to confirm
+		your subscription. Dismiss message -->
+
+		<!-- Success message end -->
+
+		<!-- <div class="attribution">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+				rel="noopener"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>.
+		</div> -->
+	</body>
+</html>
