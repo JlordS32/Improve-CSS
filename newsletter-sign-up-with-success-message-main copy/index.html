@@ -21,13 +21,15 @@
 
 		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 		<style>
-         :root {
-            --white: hsl(0, 0%, 100%);
-            --grey: hsl(231, 7%, 60%);
-            --charcoal-grey: hsl(235, 18%, 26%);
-            --dark-slate-grey: hsl(234, 29%, 20%);
-            font-size: 16px;
-         }
+			:root {
+				--white: hsl(0, 0%, 100%);
+				--grey: hsl(231, 7%, 60%);
+				--charcoal-grey: hsl(235, 18%, 26%);
+				--dark-slate-grey: hsl(234, 29%, 20%);
+				--text: var(--charcoal-grey);
+				--bg: var(--dark-slate-grey);
+				font-size: 16px;
+			}
 
 			body {
 				padding: 0;
@@ -36,10 +38,10 @@
 				outline: 0;
 				font-family: 'Roboto', sans-serif;
 				display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: hsl(234, 29%, 20%);
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				background-color: hsl(234, 29%, 20%);
 			}
 
 			.attribution {
@@ -51,45 +53,145 @@
 			}
 
 			.newsletter-container {
-				outline: 1px red solid;
 				width: 1440px;
-            display: flex;
-            background-color: hsl(234, 29%, 20%);
-            background-color: var(--white);
+				background-color: var(--dark-slate-grey);
 			}
 
+			.newsletter-wrapper {
+				display: flex;
+				justify-content: space-between;
+				margin: 0 auto;
+				width: 60%;
+				background-color: hsl(234, 29%, 20%);
+				background-color: var(--white);
+				padding: 20px;
+				border-radius: 30px;
+			}
+
+			.newsletter-wrapper .landing-container {
+				width: 45%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin-left: 30px;
+			}
+
+			.newsletter-wrapper .landing-container > h1 {
+				font-size: 3.5rem;
+				color: var(--text);
+				margin: 0;
+				padding: 0;
+				border: 0;
+				margin-bottom: 1rem;
+			}
+
+			.newsletter-wrapper .landing-container > p {
+				margin-bottom: 2rem;
+			}
+
+			.checklist-wrapper {
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+
+			.checklist {
+				display: flex;
+				gap: 10px;
+				margin-bottom: 10px;
+				width: 100%;
+			}
+
+			.checklist > p {
+				padding: 0;
+				margin: 0;
+			}
+
+			label {
+				display: block; 
+				margin-bottom: 5px; 
+				font-size: 0.75rem;
+				font-weight: 600;
+			}
+
+			input {
+				display: block; 
+				width: 100%;
+				box-sizing: border-box;
+				padding: 1rem 1.5rem;
+				font-size: 1rem;
+				border-radius: 10px;
+				border: 1px solid var(--grey);
+			}
+
+			.form {
+				width: 100%;
+			}
+
+			.form > button {
+				width: 100%;
+				margin-top: 1rem;
+				border: 0;
+				color: var(--white);
+				background-color: var(--bg);
+				padding: 20px 0;
+				font-size: 1rem;
+				border-radius: 10px;
+				font-weight: 600;
+			}
 		</style>
 	</head>
 	<body>
 		<!-- Sign-up form start -->
 
 		<div class="newsletter-container">
-			<div class="landing-container">
-				<h1>Stay updated!</h1>
-				<p>Join 60,000+ product managers receiving monthly updates on:</p>
-				<div>
-					<div>Product discovery and building what matters</div>
-					<div>Measuring to ensure updates area success</div>
-					<div>And much more!</div>
-				</div>
+			<div class="newsletter-wrapper">
+				<div class="landing-container">
+					<h1>Stay updated!</h1>
+					<p>Join 60,000+ product managers receiving monthly updates on:</p>
+					<div class="checklist-wrapper">
+						<div class="checklist">
+							<img
+								src="./assets/images/icon-list.svg"
+								alt="img"
+							/>
+							<p>Product discovery and building what matters</p>
+						</div>
+						<div class="checklist">
+							<img
+								src="./assets/images/icon-list.svg"
+								alt="img"
+							/>
+							<p>Measuring to ensure updates area success</p>
+						</div>
+						<div class="checklist">
+							<img
+								src="./assets/images/icon-list.svg"
+								alt="img"
+							/>
+							<p>And much more!</p>
+						</div>
+					</div>
 
-				<div>
-					<p>Email address</p>
-					<input
-						type="text"
-						placeholder="email@company.com"
-					/>
-					<button>Subscribe to monthly newsletter</button>
+					<div class="form">
+						<label for="email">Email address</label>
+						<input
+							type="text"
+							placeholder="email@company.com"
+							name="email"
+						/>
+						<button onclick="{alert('hello')}">Subscribe to monthly newsletter</button>
+					</div>
 				</div>
-			</div>
-			<div class="image-container">
-				<object
-					data="./assets/images/illustration-sign-up-desktop.svg"
-					type="image/svg+xml"
-					id="svgObject"
-				>
-					Your browser does not support SVG
-				</object>
+				<div class="image-container">
+					<object
+						data="./assets/images/illustration-sign-up-desktop.svg"
+						type="image/svg+xml"
+						id="svgObject"
+					>
+						Your browser does not support SVG
+					</object>
+				</div>
 			</div>
 		</div>
 
