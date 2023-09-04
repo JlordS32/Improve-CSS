@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+		<link
+			href="styles.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="confirmation-container">
+			<img
+				src="./assets/images/icon-success.svg"
+				alt="success-logo"
+			/>
+			<h1>Thanks for subscribing!</h1>
+			<p>
+				A confirmation email has been sent to
+				<strong><span id="display-email"></span></strong>. Please open it and
+				click the button inside to confirm your subscription.
+			</p>
+			<button class="dismiss">Dismiss message</button>
+		</div>
+	</body>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const email = urlParams.get('email');
+			const dismiss = document.querySelector('.dismiss');
+
+			if (email) {
+				document.getElementById('display-email').textContent = email;
+			}
+
+			dismiss.addEventListener('click', () => {
+				window.location.href = './index.html';
+			});
+		});
+	</script>
+</html>
