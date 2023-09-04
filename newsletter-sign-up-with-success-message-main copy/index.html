@@ -56,7 +56,7 @@
 						</div>
 					</div>
 
-					<form class="form">
+					<form class="form" action="success.html" method="GET">
 						<div class="email-labels">
 							<label for="email">Email address</label>
 							<label
@@ -82,14 +82,6 @@
 
 		<!-- Sign-up form end -->
 
-		<!-- Success message start -->
-
-		<!-- Thanks for subscribing! A confirmation email has been sent to
-		ash@loremcompany.com. Please open it and click the button inside to confirm
-		your subscription. Dismiss message -->
-
-		<!-- Success message end -->
-
 		<!-- <div class="attribution">
 			Challenge by
 			<a
@@ -103,7 +95,6 @@
 	<script>
 		const emailInput = document.getElementById('email');
 		const invalidLabel = document.getElementById('test');
-		const form = document.querySelector('.form');
 
 		emailInput.addEventListener('input', () => {
 			if (emailInput.validity.valid) {
@@ -112,14 +103,6 @@
 			} else {
 				emailInput.classList.add('invalid');
 				invalidLabel.classList.add('invalid');
-			}
-		});
-
-		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-
-			if (emailInput.validity.valid) {
-				window.location.href = "success.html"; 
 			}
 		});
 	</script>
