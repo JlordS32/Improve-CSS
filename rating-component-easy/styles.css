@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* SCREEN SIZES */
+    --mobile: 375px;
+    --desktop: 1440px;
+
+    /* COLORS */
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --medium-grey: hsl(216, 12%, 54%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+    
+    /* TYPOGRAPHY */
+    --text: 'Overpass', sans-serif;
+    --bold: 700;
+    --normal: 400;
+
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--text);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: var(--very-dark-blue);
+    color: var(--white);
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
+.rating-container {
+    background-color: var(--dark-blue);
+    padding: 2rem 2rem;
+    border-radius: 40px;
+}
+
+.rate {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rate > .rate-number {
+    padding: 1rem 1.4rem;
+    text-align: center;
+    border-radius: 100px;
+    background-color: var(--medium-grey);
+}
+
+.rating-container > button {
+    outline: 0;
+    border: 0;
+    background-color: var(--orange);
+    width: 100%;
+    font-size: 1.25;
+    text-transform: uppercase;
+    font-weight: var(--bold);
+    color: var(--white);
+    margin-top: 2rem;
+    padding: 1em 0;
+    border-radius: 20px;
+}
+
