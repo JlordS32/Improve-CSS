@@ -74,6 +74,10 @@ h1 {
 	margin: 2rem 0;
 }
 
+.content > p {
+    color: var(--light-grey);
+}
+
 .rate {
 	display: flex;
 	justify-content: space-around;
@@ -161,7 +165,7 @@ h1 {
     padding: 0;
 }
 
-.thankyou-container h1, p {
+.thankyou-container > h1, .thankyou-container > p {
     text-align: center;
 }
 
