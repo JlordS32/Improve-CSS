@@ -57,8 +57,7 @@ h1 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 400px;
-    max-width: 100%;
+	width: clamp(350px, 200px, 400px);
 }
 
 .rating-container,
@@ -83,7 +82,7 @@ h1 {
 }
 
 .rate > .rate-number {
-	padding: 1rem 1.4rem;
+	padding: 1rem 1.3rem;
 	text-align: center;
 	border-radius: 100px;
 	background-color: var(--light-dark-blue);
