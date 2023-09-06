@@ -1,88 +1,171 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    /* SCREEN SIZES */
-    --mobile: 375px;
-    --desktop: 1440px;
+	/* SCREEN SIZES */
+	--mobile: 375px;
+	--desktop: 1440px;
 
-    /* COLORS */
-    --orange: hsl(25, 97%, 53%);
-    --white: hsl(0, 0%, 100%);
-    --light-grey: hsl(217, 12%, 63%);
-    --medium-grey: hsl(216, 12%, 54%);
-    --dark-blue: hsl(213, 19%, 18%);
-    --very-dark-blue: hsl(216, 12%, 8%);
-    
-    /* TYPOGRAPHY */
-    --text: 'Overpass', sans-serif;
-    --bold: 700;
-    --normal: 400;
+	/* COLORS */
+	--orange: hsl(25, 97%, 53%);
+	--white: hsl(0, 0%, 100%);
+	--light-grey: hsl(217, 12%, 63%);
+	--medium-grey: hsl(216, 12%, 54%);
+	--light-dark-blue: #353c46;
+	--dark-blue: hsl(213, 19%, 18%);
+	--very-dark-blue: hsl(216, 12%, 8%);
 
-    font-size: 15px;
-    font-weight: 400;
-    font-family: var(--text);
+	/* TYPOGRAPHY */
+	--text: 'Overpass', sans-serif;
+	--bold: 700;
+	--normal: 400;
+
+	font-size: 15px;
+	font-weight: 400;
+	font-family: var(--text);
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: var(--very-dark-blue);
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: var(--very-dark-blue);
+	color: var(--white);
+	height: 100vh;
+	box-sizing: border-box;
+	position: relative;
+}
+
+::selection {
+    background-color: var(--orange);
     color: var(--white);
-    height: 100vh;
-    box-sizing: border-box;
-    position: relative;
 }
 
 h1 {
-    margin: 0;
+	margin: 0;
 }
 
 .attribution {
-    font-size: 11px;
-    text-align: center;
+	font-size: 11px;
+	text-align: center;
 }
 .attribution a {
-    color: hsl(228, 45%, 44%);
+	color: hsl(228, 45%, 44%);
 }
 
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+    max-width: 100%;
 }
 
-.rating-container {
-    background-color: var(--dark-blue);
-    padding: 2rem 2rem;
-    border-radius: 40px;
+.rating-container,
+.thankyou-container {
+	background-color: var(--dark-blue);
+	padding: 2rem 2rem;
+	border-radius: 40px;
+	box-shadow: inset 0px -100px 94px 40px hsl(216, 12%, 8%, 0.3),
+		inset 0px 77px 87px -37px hsl(216, 12%, 54%, 0.125),
+		0px 18px 13px 4px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+	margin: 2rem 0;
 }
 
 .rate {
-    display: flex;
-    justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
+	width: auto;
+    margin-top: 1rem;
 }
 
 .rate > .rate-number {
-    padding: 1rem 1.4rem;
-    text-align: center;
-    border-radius: 100px;
-    background-color: var(--medium-grey);
+	padding: 1rem 1.4rem;
+	text-align: center;
+	border-radius: 100px;
+	background-color: var(--light-dark-blue);
+    transition: 100ms ease-in-out;
 }
 
-.rating-container > button {
-    outline: 0;
-    border: 0;
+.rate > .rate-number:hover {
+	background-color: var(--medium-grey);
+	cursor: pointer;
+    transform: scale(1.05);
+}
+
+.rate > .rate-number:active {
+    transform: scale(0.9);
+}
+
+.rate > .rate-number.selected {
     background-color: var(--orange);
-    width: 100%;
-    font-size: 1.25;
-    text-transform: uppercase;
-    font-weight: var(--bold);
-    color: var(--white);
-    margin-top: 2rem;
-    padding: 1em 0;
-    border-radius: 20px;
 }
 
+.submit {
+	outline: 0;
+	border: 0;
+	background-color: var(--orange);
+	width: 100%;
+	font-size: 1.25;
+	text-transform: uppercase;
+	font-weight: var(--bold);
+	color: var(--white);
+	margin-top: 2rem;
+	padding: 1em 0;
+	border-radius: 20px;
+    transition: 100ms ease-in-out;
+}
+
+.submit:hover {
+    color: var(--orange);
+    cursor: pointer;
+    background-color: var(--white);
+    transform: scale(1.01);
+}
+
+.submit:active {
+    transform: scale(1);
+    color: var(--white);
+    background-color: var(--orange);
+}
+
+.image-container > img {
+	background-color: var(--light-dark-blue);
+	border-radius: 100px;
+	padding: 13px;
+}
+
+.thankyou-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thankyou-img > img {
+    width: 162px;
+}
+
+.thankyou-img .selected-rating-text {
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin: 2rem 0;
+    background-color: var(--light-dark-blue);
+    color: hsl(25, 97%, 53%, 0.7);
+}
+
+.thankyou-img .selected-rating-text > p {
+    margin: 0;
+    padding: 0;
+}
+
+.thankyou-container h1, p {
+    text-align: center;
+}
+
+.thankyou-container > p {
+    color: var(--light-grey);
+}

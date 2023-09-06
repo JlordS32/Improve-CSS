@@ -15,7 +15,10 @@
 			href="./images/favicon-32x32.png"
 		/>
 
-      <link href="styles.css" rel="stylesheet" />
+		<link
+			href="styles.css"
+			rel="stylesheet"
+		/>
 
 		<title>Frontend Mentor | Interactive rating component</title>
 	</head>
@@ -24,22 +27,29 @@
 
 		<div class="container">
 			<div class="rating-container">
-            <div class="image-container">
-               <img src="./images/icon-star.svg" alt="star" />
-            </div>
-				<h1>How did we do?</h1>
-				<p>
-					Please let us know how we did with your support request. All feedback
-					is appreciated to help us improve our offering!
-				</p>
-				<div class="rate">
-               <div class="rate-number">1</div>
-               <div class="rate-number">2</div>
-               <div class="rate-number">3</div>
-               <div class="rate-number">4</div>
-               <div class="rate-number">5</div>
-            </div>
-            <button>Submit</button>
+				<div class="image-container">
+					<img
+						src="./images/icon-star.svg"
+						alt="star"
+					/>
+				</div>
+				<div class="content">
+					<h1>How did we do?</h1>
+					<p>
+						Please let us know how we did with your support request. All
+						feedback is appreciated to help us improve our offering!
+					</p>
+				</div>
+				<form action="thankyou.html">
+					<div class="rate">
+						<div class="rate-number">1</div>
+						<div class="rate-number">2</div>
+						<div class="rate-number">3</div>
+						<div class="rate-number">4</div>
+						<div class="rate-number">5</div>
+					</div>
+					<button class="submit">Submit</button>
+				</form>
 			</div>
 		</div>
 
@@ -51,7 +61,32 @@
 				href="https://www.frontendmentor.io?ref=challenge"
 				target="_blank"
 				>Frontend Mentor</a
-			>. Coded by <a href="#">Your Name Here</a>.
+			>. Coded by <a href="https://github.com/JlordS32">Jaylou Rasonabe</a>.
 		</div> -->
 	</body>
+	<script>
+		const rateNumbers = document.querySelectorAll('.rate-number');
+		const submit = document.querySelector('.submit');
+		let selectedRating;
+
+		rateNumbers.forEach((rateNumber) => {
+			rateNumber.addEventListener('click', () => {
+				// Remove selected class from all elements
+				rateNumbers.forEach((rateNumber) => {
+					rateNumber.classList.remove('selected');
+				});
+
+				// Add selected class to the selected element
+				rateNumber.classList.add('selected');
+
+				selectedRating = rateNumber.textContent;
+			});
+		});
+
+		submit.addEventListener('click', () => {
+			if (selectedRating) {
+				localStorage.setItem('rate-number', selectedRating);
+			}
+		});
+	</script>
 </html>

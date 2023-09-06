@@ -1,8 +1,42 @@
-<!-- Thank you state start -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Frontend Mentor | Interactive rating component</title>
+		<link
+			href="styles.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- Thank you state start -->
+		<div class="container">
+			<div class="thankyou-container">
+				<div class="thankyou-img">
+					<img
+						src="./images/illustration-thank-you.svg"
+						alt="thankyoulogo"
+					/>
+					<div class="selected-rating-text">
+						<p>You selected <span class="selectedRating"></span> out of 5</p>
+					</div>
+				</div>
+				<h1>Thank you!</h1>
+				<p>
+					We appreciate you taking the time to give a rating. If you ever need
+					more support, don’t hesitate to get in touch!
+				</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		const rating = localStorage.getItem('rate-number');
+		const selectedRating = document.querySelector('.selectedRating');
 
-You selected
-<!-- Add rating here -->
-out of 5 Thank you! We appreciate you taking the time to give a rating. If you
-ever need more support, don’t hesitate to get in touch!
-
-<!-- Thank you state end -->
+        selectedRating.textContent = rating;
+	</script>
+</html>
