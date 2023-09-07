@@ -17,31 +17,9 @@ body {
 	position: relative;
 	background-color: var(--dark-cyan);
     height: 100vh;
-}
-
-body::before,
-body::after {
-	content: '';
-	position: fixed;
-	width: 50%; /* Divide the width into two equal parts for left and right images */
-	height: 50%; /* Divide the height into two equal parts for top and bottom images */
-	background-repeat: no-repeat;
-	background-size: cover;
-	z-index: -1;
-}
-
-body::before {
-	top: 0;
-	left: 0;
-	background-image: url('./images/bg-pattern-top.svg');
-    height: 100%;
-    background-size: contain;
-}
-
-body::after {
-	bottom: 0;
-	right: 0;
-	background-image: url('./images/bg-pattern-bottom.svg');
+    background-image: url('images/bg-pattern-top.svg'), url('images/bg-pattern-bottom.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
 }
 
 .attribution {
@@ -96,8 +74,12 @@ body::after {
 	flex-direction: column;
 }
 
-.user-desc .name-age span:first-child {
+.user-desc .name-age > span:first-child {
 	font-weight: 700;
+}
+
+.user-desc .name-age > span:last-child {
+    color: var(--dark-gray);
 }
 
 .user-desc p {
