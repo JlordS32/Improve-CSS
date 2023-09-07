@@ -41,7 +41,7 @@ body {
 	color: var(--white);
 	position: relative;
 	margin: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .container {
@@ -86,7 +86,7 @@ body {
 }
 
 .main-content h1 {
-   font-size: 2.3rem;
+   font-size: clamp(1.9rem, 4vw, 2.3rem);
 }
 
 .main-content h1 > span {
@@ -96,6 +96,14 @@ body {
 .main-content > p,
 .stats-preview > div > span {
 	color: var(--slightly-transparent-white);
+}
+
+.stats-preview > div > h1 {
+   font-size: 1.7rem;
+}
+
+.stats-preview > div > span {
+   font-size: 0.85rem;
 }
 
 .stats-preview {
@@ -113,9 +121,9 @@ body {
 
    .container {
       width: 450px;
-      margin-top: 100px;
       margin-bottom: 100px;
-      min-height: 775px;
+      min-height: 790px;
+      top: 70%;
    }
 
    .wrapper {
@@ -139,6 +147,7 @@ body {
       margin: 0;
       padding: 0 3rem;
       order: 1;
+      margin-top: 1rem;
    }
 
    .main-content > p, .main-content > h1 {
