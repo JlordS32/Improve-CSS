@@ -19,6 +19,7 @@
 	--montserrat: 'Montserrat', sans-serif;
 
 	--bg: var(--cream);
+    color: var(--very-dark-blue);
 }
 
 body {
@@ -116,6 +117,7 @@ body {
 	display: flex;
 	align-items: center;
 	margin-left: 1rem;
+    color: var(--dark-grayish-blue);
 }
 
 .product-overview .price-tag > div:last-child > span {
@@ -125,6 +127,7 @@ body {
 .addtocard-btn {
 	border-radius: 9px;
 	overflow: hidden;
+    transition: 100ms;
 }
 
 .addtocard-btn > button {
@@ -139,11 +142,24 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
+    transition: 100ms;
 }
 
 .addtocard-btn > button:hover {
 	cursor: pointer;
 	background-color: hsla(159, 36%, 19%, 1);
+}
+
+.addtocard-btn > button:active {
+	cursor: pointer;
+	background-color: var(--dark-cyan);
+}
+
+.addtocard-btn:hover {
+    transform: translateY(-4%) scale(1.01);
+}
+.addtocard-btn:active {
+    transform: translateY(0%) scale(1);
 }
 
 @media screen and (max-width: 768px) {
