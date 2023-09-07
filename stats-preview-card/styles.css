@@ -67,6 +67,7 @@ body {
 .img-container {
 	position: relative;
 	overflow: hidden;
+   box-shadow: -7px 0px 16px 0px rgba(0,0,0,0.2);
 }
 
 .img-container::before {
@@ -137,6 +138,7 @@ body {
       order: -1; 
       width: 100%;
       aspect-ratio: 16/9;
+      box-shadow: 0px 20px 50px 0px rgba(0,0,0,0.2);
    }
 
    .img-container > img {
