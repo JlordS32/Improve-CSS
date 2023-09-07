@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+:root {
+	/* PRIMARY */
+	--very-dark-blue: hsl(233, 47%, 7%);
+	--dark-desaturated-blue: hsl(244, 38%, 16%);
+	--soft-violet: hsl(277, 64%, 61%);
+
+	/* NEUTRAL */
+	--white: hsl(0, 0%, 100%);
+	--slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+	--slightly-transparent-white: hsla(0, 0%, 100%, 0.6);
+
+	/* TYPOGRAPHY */
+	font-size: 15px;
+	font-family: var(--inter);
+	font-weight: 400;
+
+	--inter: 'Inter', sans-serif;
+	--lexend-deca: 'Lexend Deca', sans-serif;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+body {
+	height: 100vh;
+	box-sizing: border-box;
+	background-color: var(--very-dark-blue);
+	color: var(--white);
+	position: relative;
+   margin: 20px;
+}
+
+.container {
+	display: flex;
+	outline: 1px red solid;
+	width: 1050px;
+   max-width: 100%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--dark-desaturated-blue);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.img-container, .main-content {
+   width: 50%;
+}
+
+.img-container {
+   position: relative;
+   overflow: hidden;
+}
+
+.img-container::before {
+   content: '';
+   position: absolute;
+   outline: 1px red solid;
+   width: 100%;
+   height: 100%;
+   background-color: hsla(277, 77%, 40%, 0.3);
+   filter: saturate(170%) contrast(200%);
+}
+
+@media screen and (max-width: 578px) {
+   .container {
+      flex-direction: column;
+      height: 90%;
+   }
+
+   .img-container {
+      order: -1;
+      width: 100%;
+   }
+}
+
