@@ -34,15 +34,14 @@ body {
 	background-color: var(--very-dark-blue);
 	color: var(--white);
 	position: relative;
-   margin: 20px;
+	margin: 0 20px;
+	overflow: scroll;
 }
 
 .container {
-	display: flex;
-	outline: 1px red solid;
 	width: 1050px;
-   max-width: 100%;
-	height: auto;
+	max-width: 100%;
+	height: 440px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -50,36 +49,90 @@ body {
 	background-color: var(--dark-desaturated-blue);
 	border-radius: 10px;
 	overflow: hidden;
+	box-sizing: border-box;
 }
 
-.img-container, .main-content {
-   width: 50%;
+.wrapper {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .img-container {
-   position: relative;
-   overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .img-container::before {
-   content: '';
-   position: absolute;
-   outline: 1px red solid;
-   width: 100%;
-   height: 100%;
-   background-color: hsla(277, 77%, 40%, 0.3);
-   filter: saturate(170%) contrast(200%);
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(277, 77%, 40%, 0.3);
+	filter: saturate(170%) contrast(200%);
 }
 
-@media screen and (max-width: 578px) {
-   .container {
-      flex-direction: column;
-      height: 90%;
-   }
-
-   .img-container {
-      order: -1;
-      width: 100%;
-   }
+.main-content {
+	height: auto;
+	margin: 3rem 5rem;
+	display: flex;
+	flex-direction: column;
 }
 
+.main-content h1 > span {
+	color: var(--soft-violet);
+}
+
+.main-content > p,
+.stats-preview > div > span {
+	color: var(--slightly-transparent-white);
+}
+
+.stats-preview {
+	display: flex;
+	justify-content: space-between;
+	margin-top: auto;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 870px) {
+	.container {
+		width: 450px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		min-height: 775px;
+	}
+
+	.wrapper {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: 1fr;
+		max-width: 100%;
+	}
+
+	.img-container {
+		order: -1; /* Ensure the image container appears first */
+		width: 100%;
+		aspect-ratio: 16/9;
+	}
+
+	.img-container > img {
+		width: 100%;
+	}
+
+	.main-content {
+		margin-top: 17rem;
+		order: 1;
+	}
+
+	.main-content > p {
+		text-align: center;
+	}
+
+	.stats-preview {
+		flex-direction: column;
+		font-size: 0.8rem;
+		margin: 0 auto;
+		gap: 20px;
+	}
+}
