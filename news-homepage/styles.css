@@ -1,0 +1,56 @@
+:root {
+   font-size: 15px;
+}
+
+* {
+   outline: 1px red solid;
+}
+
+body {
+   margin: 0;
+   padding: 0 10rem;
+   padding-top: 5rem;
+   box-sizing: border-box;
+   height: 100vh;
+}
+
+.attribution {
+   font-size: 11px;
+   text-align: center;
+}
+.attribution a {
+   color: hsl(228, 45%, 44%);
+}
+
+/* LAYOUT */
+
+nav {
+   justify-content: space-between;
+}
+
+.nav-links {
+   gap: 2rem;
+}
+
+nav,
+.nav-links,
+main section:first-child,
+.hero-container > div,
+.news,
+.news-item {
+   display: flex;
+}
+
+.news {
+   width: 100%;
+   justify-content: space-between;
+}
+
+footer {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+

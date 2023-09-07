@@ -1,60 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | News homepage</title>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      <link rel="stylesheet" href="styles.css" />
 
-  Home
-  New
-  Popular
-  Trending
-  Categories
+		<title>Frontend Mentor | News homepage by Jaylou Rasonabe</title>
+	</head>
+	<body>
+		<nav>
+			<div>
+				<img
+					src="./assets/images/logo.svg"
+					alt="logo"
+				/>
+			</div>
+			<div class="nav-links">
+				<div class="nav-item">Home</div>
+				<div class="nav-item">New</div>
+				<div class="nav-item">Popular</div>
+				<div class="nav-item">Trending</div>
+				<div class="nav-item">Categories</div>
+			</div>
+		</nav>
 
-  The Bright Future of Web 3.0?
-
-  We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
-  But is it really fulfilling its promise?
-
-  Read more
-
-  New 
-
-  Hydrogen VS Electric Cars
-  Will hydrogen-fueled cars ever catch up to EVs?
-
-  The Downsides of AI Artistry
-  What are the possible adverse effects of on-demand AI image generation?
-
-  Is VC Funding Drying Up?
-  Private funding by VC firms is down 50% YOY. We take a look at what that means.
-
-  01
-  Reviving Retro PCs
-  What happens when old PCs are given modern upgrades?
-
-  02
-  Top 10 Laptops of 2022
-  Our best picks for various needs and budgets.
-
-  03
-  The Growth of Gaming
-  How the pandemic has sparked fresh opportunities.
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+		<main>
+			<section>
+				<div class="hero-container">
+					<img
+						src="./assets/images/image-web-3-desktop.jpg"
+						alt="hero-img"
+                  width="900"
+					/>
+					<div>
+						<h1>The Bright Future of Web 3.0?</h1>
+						<div>
+							<p>
+								We dive into the next evolution of the web that claims to put
+								the power of the platforms back into the hands of the people.
+								But is it really fulfilling its promise?
+							</p>
+							<button>Read more</button>
+						</div>
+					</div>
+				</div>
+				<aside>
+					<h1>New</h1>
+					<div class="aside-items">
+						<div class="aside-item">
+							<h1>Hydrogen VS Electric Cars</h1>
+							<p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+						</div>
+						<div class="aside-item">
+							<h1>The Downsides of AI Artistry</h1>
+							<p>
+								What are the possible adverse effects of on-demand AI image
+								generation?
+							</p>
+						</div>
+						<div class="aside-item">
+							<h1>Is VC Funding Drying Up?</h1>
+							<p>
+								Private funding by VC firms is down 50% YOY. We take a look at
+								what that means.
+							</p>
+						</div>
+					</div>
+				</aside>
+			</section>
+			<section>
+				<article class="news">
+					<div class="news-item">
+						<img
+							src="./assets/images/image-retro-pcs.jpg"
+							alt="top-laptops"
+						/>
+						<div class="items">
+							<h1>01</h1>
+							<h2>Reviving Retro PCs</h2>
+                     <p>What happens when old PCs are given modern upgrades?</p>
+						</div>
+					</div>
+					<div class="news-item">
+						<img
+							src="./assets/images/image-top-laptops.jpg"
+							alt="top-laptops"
+						/>
+						<div class="items">
+							<h1>02</h1>
+							<h2>Top 10 Laptops of 2023</h2>
+                     <p>Our best picks for various needs and budgets.</p>
+						</div>
+					</div>
+					<div class="news-item">
+						<img
+							src="./assets/images/image-gaming-growth.jpg"
+							alt="top-laptops"
+						/>
+						<div class="items">
+							<h1>03</h1>
+							<h2>The Growth of Gaming</h2>
+                     <p>How the pandemic has sparked fresh opportunities.</p>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+		<footer>
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					rel="noopener"
+					>Frontend Mentor</a
+				>. Coded by <a href="https://github.com/JlordS32">Jaylou Rasonabe</a>.
+			</div>
+		</footer>
+	</body>
 </html>
