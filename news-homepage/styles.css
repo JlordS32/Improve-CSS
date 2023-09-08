@@ -223,6 +223,7 @@ footer {
 
 .nav-item {
 	letter-spacing: 2px;
+   font-size: 1.2rem;
 }
 
 .news-item .items > h1 {
@@ -318,13 +319,13 @@ footer {
 
 .nav-item:hover {
 	cursor: pointer;
-	transform: translateY(-20%) scale(1.02);
+	transform: scale(1.02);
 	color: var(--soft-red);
 	letter-spacing: 3px;
 }
 
-.nav-item:active {
-   color: red;
+.nav-item.active {
+   color: var(--soft-red);
 }
 
 .burger-item:hover {
@@ -352,11 +353,10 @@ footer {
    padding-top: 3rem;
    box-sizing: border-box;
    box-shadow: -19px 0px 26px 0px rgba(0,0,0,0.2);
-   display: none;
 }
 
 .close-menu {
-   align-self: flex-end;
+   margin-left: auto;
 }
 
 .close-menu:hover {

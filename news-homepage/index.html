@@ -199,7 +199,7 @@
 		const navItem = document.querySelectorAll('.nav-item');
 
 		menuBtn.addEventListener('click', () => {
-			burgerMenu.style.display = 'block';
+			burgerMenu.style.display = 'flex';
 		});
 
 		close.addEventListener('click', () => {
@@ -208,7 +208,7 @@
 
 		navItem.forEach((item) => {
 			item.addEventListener('click', () => {
-				navItem.foreach((item) => {
+				navItem.forEach((item) => {
 					item.classList.remove('active');
 				});
 				item.classList.add('active');
