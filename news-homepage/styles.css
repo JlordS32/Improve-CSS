@@ -122,6 +122,10 @@ footer {
 	width: 60%;
 }
 
+.news-item {
+   gap: 1rem;
+}
+
 /* TYPOGRAPHY */
 
 .hero > h1 {
@@ -144,6 +148,27 @@ aside > h1 {
 
 .nav-item {
 	letter-spacing: 2px;
+}
+
+.news {
+   gap: 1rem;
+   width: 90%;
+   margin: 0 auto;
+   margin-bottom: 1rem;
+   height: auto;
+   box-shadow: border-box;
+   padding: 10px 20px;
+   outline: 1px red solid;
+}
+
+.news-item {
+   outline: 1px red solid;
+}
+
+.news-item .items > h1,
+.news-item .items > p, 
+.news-item .items > h2 {
+   margin: 0;
 }
 
 /* COLOURS */
