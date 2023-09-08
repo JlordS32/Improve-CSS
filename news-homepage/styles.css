@@ -347,7 +347,7 @@ footer {
    background-color: var(--off-white);
    top: 0;
    right: 0;
-   display: flex;
+   display: none;
    flex-direction: column;
    padding: 0 2rem;
    padding-top: 3rem;
