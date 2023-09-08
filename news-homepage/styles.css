@@ -25,6 +25,19 @@
 	color: var(--soft-red);
 }
 
+::-webkit-scrollbar-thumb {
+   background-color: var(--soft-red); 
+   border-radius: 6px; 
+}
+
+::-webkit-scrollbar {
+   width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+   background-color: var(--very-dark-blue);
+}
+
 body {
 	margin: 0;
 	padding: 0 10rem;
@@ -91,6 +104,15 @@ main section:last-child {
 	margin-right: 2rem;
 }
 
+aside {
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+aside > h1 {
+   margin: 0.5rem 0;
+}
+
 .hero {
 	margin: 1rem 0;
 }
@@ -111,6 +133,7 @@ footer {
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 2rem 0;
+	width: 100%;
 }
 
 .call-to-action {
@@ -120,10 +143,37 @@ footer {
 .call-to-action > button {
 	margin-top: auto;
 	width: 60%;
+	border: 0;
+	padding: 20px 40px;
+	outline: 0;
 }
 
 .news-item {
-   gap: 1rem;
+	gap: 1rem;
+}
+
+.news {
+	gap: 1rem;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	height: auto;
+	box-shadow: border-box;
+	padding: 10px 20px;
+}
+
+.news-item .items > h1,
+.news-item .items > p,
+.news-item .items > h2 {
+	margin: 0;
+}
+
+.news-item .items > p {
+	margin-top: 1rem;
+}
+
+.news-item .items > h2  {
+   margin-top: 0.5rem;
 }
 
 /* TYPOGRAPHY */
@@ -134,6 +184,10 @@ footer {
 
 aside > h1 {
 	font-size: 2.5rem;
+}
+
+.aside-item > p {
+   color: var(--grayish-blue);
 }
 
 .call-to-action > p {
@@ -150,34 +204,23 @@ aside > h1 {
 	letter-spacing: 2px;
 }
 
-.news {
-   gap: 1rem;
-   width: 90%;
-   margin: 0 auto;
-   margin-bottom: 1rem;
-   height: auto;
-   box-shadow: border-box;
-   padding: 10px 20px;
-   outline: 1px red solid;
+.news-item .items > h1 {
+	font-size: 2.5rem;
+	color: var(--grayish-blue);
 }
 
-.news-item {
-   outline: 1px red solid;
-}
-
-.news-item .items > h1,
-.news-item .items > p, 
 .news-item .items > h2 {
-   margin: 0;
+	font-size: 1.5rem;
+	color: vvar(--dark-grayish-blue);
 }
-
 /* COLOURS */
 
 aside {
 	background-color: var(--very-dark-blue);
 	color: var(--off-white);
-	padding: 2rem;
-	box-sizing: border-box;
+   height: 610px;
+   max-height: 100%;
+   overflow-y: scroll;
 }
 
 aside > h1 {
@@ -189,15 +232,11 @@ aside > h1 {
 }
 
 .call-to-action > button {
-	border: 0;
-	outline: 0;
 	background-color: var(--soft-red);
 	color: var(--off-white);
-	padding: 20px 40px;
 }
 
 footer {
-	width: 100%;
 	background-color: var(--soft-red);
 	color: var(--off-white);
 }
@@ -206,59 +245,63 @@ footer {
 .nav-item,
 .call-to-action > button,
 .call-to-action > button > span {
-    transition: all 200ms;
-    position: relative;
+	transition: all 200ms;
+	position: relative;
 }
 
 .call-to-action > button > span {
-    display: block;
+	display: block;
 }
 
 .call-to-action > button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background-color: var(--off-white);
-    height: 100%;
-    width: 100%;
-    border: 1px solid var(--soft-red);
-    transition: 250ms ease-in-out;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background-color: var(--off-white);
+	height: 100%;
+	width: 100%;
+	border: 1px solid var(--soft-red);
+	transition: 250ms ease-in-out;
 }
 
 .call-to-action > button > span::before {
-    content: 'Read More';
-    position: absolute;
-    white-space: pre;
-    display: inline;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--soft-red);
-    background-color: var(--off-white);
-    transition: 200ms linear;
-    opacity: 0;
+	content: 'Read More';
+	position: absolute;
+	white-space: pre;
+	display: inline;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--soft-red);
+	background-color: var(--off-white);
+	transition: 200ms linear;
+	opacity: 0;
 }
 
 .call-to-action > button:hover::before,
 .call-to-action > button:hover > span::before {
-    transform: translate(-50%, -50%) scale(1.05);
-    cursor: pointer;
-    opacity: 1;
+	transform: translate(-50%, -50%) scale(1.05);
+	cursor: pointer;
+	opacity: 1;
 }
 
 .call-to-action > button:active::before,
 .call-to-action > button:active > span::before {
-    transform: translate(-50%, -50%) scale(1);
-    cursor: pointer;
-    opacity: 1;
-    letter-spacing: 10px;
+	transform: translate(-50%, -50%) scale(1);
+	cursor: pointer;
+	opacity: 1;
+	letter-spacing: 10px;
 }
 
 .nav-item:hover {
-   cursor: pointer;
-   transform: translateY(-20%) scale(1.02);
-   color: var(--soft-red);
-   letter-spacing: 3px;
+	cursor: pointer;
+	transform: translateY(-20%) scale(1.02);
+	color: var(--soft-red);
+	letter-spacing: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background-color: var(--soft-orange);
 }
