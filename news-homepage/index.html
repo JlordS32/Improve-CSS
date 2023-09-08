@@ -33,7 +33,7 @@
 							width="120"
 						/>
 					</div>
-					<div class="burger-menu closed">
+					<div class="burger-menu">
 						<img
 							src="./assets/images/icon-menu.svg"
 							alt="burger-menu"
@@ -176,10 +176,13 @@
 				>. Coded by <a href="https://github.com/JlordS32">Jaylou Rasonabe</a>.
 			</div>
 		</footer>
-      <div class="burger-nav">
-         <div class="close-menu">
-            <img src="./assets/images/icon-menu-close.svg" alt="close-menu" />
-         </div>
+		<div class="burger-nav">
+			<div class="close-menu">
+				<img
+					src="./assets/images/icon-menu-close.svg"
+					alt="close-menu"
+				/>
+			</div>
 			<div class="burger-links">
 				<div class="burger-item">Home</div>
 				<div class="burger-item">New</div>
@@ -189,4 +192,27 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		const menuBtn = document.querySelector('.burger-menu');
+		const close = document.querySelector('.close-menu');
+		const burgerMenu = document.querySelector('.burger-nav');
+		const navItem = document.querySelectorAll('.nav-item');
+
+		menuBtn.addEventListener('click', () => {
+			burgerMenu.style.display = 'block';
+		});
+
+		close.addEventListener('click', () => {
+			burgerMenu.style.display = 'none';
+		});
+
+		navItem.forEach((item) => {
+			item.addEventListener('click', () => {
+				navItem.foreach((item) => {
+					item.classList.remove('active');
+				});
+				item.classList.add('active');
+			});
+		});
+	</script>
 </html>

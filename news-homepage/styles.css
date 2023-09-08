@@ -31,7 +31,7 @@
 }
 
 ::-webkit-scrollbar {
-	width: 12px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -321,6 +321,10 @@ footer {
 	transform: translateY(-20%) scale(1.02);
 	color: var(--soft-red);
 	letter-spacing: 3px;
+}
+
+.nav-item:active {
+   color: red;
 }
 
 .burger-item:hover {
