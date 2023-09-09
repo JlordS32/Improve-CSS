@@ -14,6 +14,7 @@ const getCountries = async () => {
 			cachedData = data;
 
 			diplayCountries(data);
+			localStorage.setItem('countries', JSON.stringify(data));
 		}
 	} catch (error) {
 		console.error(error);
@@ -65,6 +66,10 @@ const diplayCountries = (data) => {
 
 		// Append new element to parent element
 		countryContainer.appendChild(newCountry);
+
+		newCountry.addEventListener('click', () => {
+			 window.location.href = `./country-details.html?name=${country.name.common.toLowerCase()}`;
+		})
 	});
 };
 
@@ -87,15 +92,15 @@ const toggleMode = () => {
 
 	toggleMode.addEventListener('click', () => {
 		switch (mode.textContent) {
-			case 'Dark Mode':
-				mode.textContent = 'Light Mode';
-				modeImg.setAttribute('src', 'assets/img/sun.svg');
-				document.body.style.backgroundColor = colors.light.veryLightGray;
-				document.body.style.color = colors.light.veryDarkBlue;
-				break;
 			case 'Light Mode':
 				mode.textContent = 'Dark Mode';
 				modeImg.setAttribute('src', 'assets/img/moon.svg');
+				document.body.style.backgroundColor = colors.light.veryLightGray;
+				document.body.style.color = colors.light.veryDarkBlue;
+				break;
+			case 'Dark Mode':
+				mode.textContent = 'Light Mode';
+				modeImg.setAttribute('src', 'assets/img/sun.svg');
 				document.body.style.backgroundColor = colors.dark.veryDarkBlue;
 				document.body.style.color = colors.white;
 				break;

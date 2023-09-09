@@ -89,6 +89,10 @@ nav .toggle-mode {
    min-height: 400px;
 }
 
+.country-box:hover {
+   cursor: pointer;
+}
+
 .img-container {
    width: 100%;
    height: 50%;
