@@ -60,7 +60,7 @@ const backBtn = document.querySelector('.back-btn');
 
 // Extract properties from the selected country object
 const {
-	name,
+	name, 
 	flags,
 	region,
 	population,
@@ -106,3 +106,4 @@ borderCountryNames.forEach((countryName) => {
 backBtn.addEventListener('click', () => {
    window.location.href = 'index.html';
 })
+

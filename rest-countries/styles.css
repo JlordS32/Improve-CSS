@@ -57,6 +57,10 @@ video {
 	max-width: 100%;
 }
 
+body {
+	position: relative;
+}
+
 /* HEADER */
 nav {
 	background-color: var(--accent);
@@ -180,19 +184,52 @@ div .toggle-mode:hover {
 }
 
 /* COUNTRY DETAILS */
-main {
-	outline: 1px red solid;
-}
-
 .container {
 	max-width: 1440px;
 	margin: 0 auto;
+	margin-top: 4rem;
+}
+
+.back-btn {
+	display: flex;
+	padding: 6px 20px;
+	background-color: var(--accent);
+	width: 8%;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	justify-content: center;
+	gap: 10px;
+}
+
+.back-btn:hover {
+	cursor: pointer;
+}
+
+.selected-country {
+	margin: 5rem 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(4, 1fr);
 	outline: 1px red solid;
 }
 
-/* FOOTER */
-footer {
-	position: absolute;
-   bottom: 0;
-   text-align: center;
+.selected-country img {
+	background-color: var(--white);
+	grid-area: 1 / 1 / -1 / 1;
+	outline: 1px red solid;
+	background-size: cover;
+	width: 100%;
+	align-self: center;
+}
+
+.border-countries {
+	display: flex;
+	gap: 1rem;
+}
+
+.border-countries .border-country {
+	background-color: var(--accent);
+	padding: 5px 20px;
+	border-radius: 5px;
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
