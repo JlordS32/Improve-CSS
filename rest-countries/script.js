@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const url = 'https://restcountries.com/v3.1/all';
 
 	let cachedData;
+	let filteredData;
+
 	const getCountries = async () => {
 		if (cachedData) {
 			diplayCountries(cachedData);
@@ -19,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const diplayCountries = (data) => {
+		// Clear the existing country list
+		const countryContainer = document.querySelector('#countryList');
+		countryContainer.innerHTML = ''; // Remove all child elements
 		data.forEach((country) => {
 			// Create a new element and assign value
 			const newCountry = document.createElement('div');
@@ -108,6 +113,54 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 	};
+
+	const inputElement = document.getElementById('country-input');
+	let inputValue = '';
+
+	inputElement?.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			// Update inputValue with the current input value when Enter is pressed
+			inputValue = inputElement.value;
+
+			if (inputValue === '') {
+				// Clear the existing country list when the input is empty
+				const countryContainer = document.querySelector('#countryList');
+				countryContainer.innerHTML = ''; // Remove all child elements
+
+				// Display the cached data
+				diplayCountries(cachedData);
+				return;
+			}
+
+			const countries = JSON.parse(localStorage.getItem('countries'));
+
+			const query = countries.filter((country) =>
+				country.name.common.toLowerCase().includes(inputValue.toLowerCase())
+			);
+			filteredData = query;
+
+			// Display the filtered data
+			diplayCountries(filteredData);
+		}
+	});
+
+	const selectElement = document.querySelector('#country-filter-select');
+	selectElement?.addEventListener('change', (e) => {
+		const countries = JSON.parse(localStorage.getItem('countries'));
+		const selectedRegion = e.target.value.toLowerCase();
+
+		const query = countries.filter((country) => {
+			if (selectedRegion === 'all') {
+				return country;
+			}
+
+			return country.region.toLowerCase().includes(selectedRegion);
+		});
+
+		console.log(query);
+
+		diplayCountries(query);
+	});
 
 	toggleMode();
 	getCountries();
