@@ -56,6 +56,7 @@ const borderCountriesParent = document.querySelector('.border-countries');
 const selectedCountry = storedCountryData.filter(
 	(country) => country.name.common.toLowerCase() === countryId
 );
+const backBtn = document.querySelector('.back-btn');
 
 // Extract properties from the selected country object
 const {
@@ -102,8 +103,6 @@ borderCountryNames.forEach((countryName) => {
 	borderCountriesParent.appendChild(borderCountryChild);
 });
 
-// 6. Console Logging
-
-// Log selected country and bordering country names for debugging
-console.log('Selected Country', selectedCountry);
-console.log(borderCountryNames);
+backBtn.addEventListener('click', () => {
+   window.location.href = 'index.html';
+})
