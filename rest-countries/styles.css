@@ -6,25 +6,31 @@
 
 	/*color*/
 
-   /*DARK MODE*/
+	/*DARK MODE*/
 	--dark-blue-DARK: hsl(209, 23%, 22%);
 	--very-dark-blue-DARK: hsl(207, 26%, 17%);
-	--white-LIGHT-DARK: hsl(0, 0%, 100%);
 
-   /*LIGHT MODE*/
+	/*LIGHT MODE*/
 	--very-dark-blue-LIGHT: hsl(200, 15%, 8%);
 	--dark-gray-LIGHT: hsl(0, 0%, 52%);
 	--very-light-gray-LIGHT: hsl(0, 0%, 98%);
 
-   /*fonts*/
-   font-family: 'Nunito Sans', sans-serif;
-   font-size: 16px;
+	--white: hsl(0, 0%, 100%);
+	--primary: var(--very-dark-blue-DARK);
+	--accent: var(--dark-blue-DARK);
 
-   /*defaults*/
-   background-color: var(--very-dark-blue-DARK);
-   color: var(--white-LIGHT-DARK);
+	--bg: var(--primary);
+	--text-color: var(--white);
 
-   /* ICONS
+	/*fonts*/
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 16px;
+
+	/*defaults*/
+	background-color: var(--bg);
+	color: var(--text-color);
+
+	/* ICONS
       - [Font Awesome](https://fontawesome.com)
       - [IcoMoon](https://icomoon.io)
       - [Ionicons](https://ionicons.com)
@@ -53,51 +59,140 @@ video {
 
 /* HEADER */
 nav {
-   background-color: var(--dark-blue-DARK);
-   display: flex;
-   justify-content: space-between;
-   padding: 1rem 0;
+	background-color: var(--accent);
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+	padding: 1rem 0;
+}
+nav > div {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1440px;
+	padding: 0 2rem;
+	box-sizing: border-box;
 }
 
-nav .toggle-mode {
-   display: flex;
-   width: 10%;
-   align-items: center;
-   gap: 1rem;
-   font-weight: 600;
+nav > div .toggle-mode {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-weight: 600;
 }
 
-.toggle-mode:hover {
-   cursor: pointer;
+div .toggle-mode:hover {
+	cursor: pointer;
 }
 
 /* MAIN */
 
+.search,
 #countryList {
-   outline: 1px red solid;
-   display: flex;
-   justify-content: space-evenly;
-   flex-wrap: wrap;
-   gap: 2rem;
+	max-width: 1440px;
+	margin: 3rem auto;
+}
+
+.search {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-input {
+	display: flex;
+	background-color: var(--accent);
+	gap: 1rem;
+	padding: 1rem 2rem;
+	width: 35%;
+	border-radius: 10px;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.search-input input {
+	font-size: 1rem;
+	width: 100%;
+	border: 0;
+	color: var(--white);
+	background-color: var(--accent);
+}
+
+.search-input input::placeholder {
+	color: var(--text-color);
+}
+
+.search-input input:focus {
+	border: 0;
+	outline: 0;
+}
+
+.search-filter {
+	background-color: var(--accent);
+}
+
+#country-filter-select {
+	border: 0;
+	outline: 0;
+	color: var(--text-color);
+	background-color: var(--accent);
+	font-size: 1rem;
+}
+
+#countryList {
+	display: grid;
+	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 4.5rem;
 }
 
 .country-box {
-   width: 18.8%;
-   outline: 1px red solid;
-   display: flex;
-   flex-direction: column;
-   min-height: 400px;
+	background-color: var(--accent);
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+	transition: transform 200ms ease-in-out;
+	width: 300px;
+}
+
+.country-box > h1 {
+	margin: 1rem 2rem;
+	font-size: 1.3rem;
+}
+
+.country-box .country-box-details {
+	margin: 0 2rem;
+}
+
+.country-box .country-box-details p > span {
+	font-weight: 600;
 }
 
 .country-box:hover {
-   cursor: pointer;
+	cursor: pointer;
+	transform: scale(1.02) translateY(-2%);
 }
 
 .img-container {
-   width: 100%;
-   height: 50%;
-   aspect-ratio: 16/9;
-   background-size: cover;
-   background-repeat: no-repeat;
-   outline: 1px blue solid;
+	width: 100%;
+	height: 50%;
+	aspect-ratio: 16/9;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: var(--white);
+}
+
+/* COUNTRY DETAILS */
+main {
+	outline: 1px red solid;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	outline: 1px red solid;
+}
+
+/* FOOTER */
+footer {
+	position: absolute;
+   bottom: 0;
+   text-align: center;
 }

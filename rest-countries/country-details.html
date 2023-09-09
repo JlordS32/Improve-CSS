@@ -15,48 +15,71 @@
 	<body>
 		<header>
 			<nav>
-				<h1>Where in the world?</h1>
-				<div class="toggle-mode">
-					<img
-						src="./assets/img/sun.svg"
-						alt="dark-mode"
-					/>
-					<span>Light Mode</span>
+				<div>
+					<h1>Where in the world?</h1>
+					<div class="toggle-mode">
+						<img
+							src="./assets/img/sun.svg"
+							alt="dark-mode"
+						/>
+						<span>Light Mode</span>
+					</div>
 				</div>
 			</nav>
 		</header>
 		<main>
 			<div class="container">
 				<div class="back-btn">
-					<img
-						src="./assets/img/arrow-left.svg"
-						alt="back-icon"
-					/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather feather-arrow-left"
+					>
+						<line
+							x1="19"
+							y1="12"
+							x2="5"
+							y2="12"
+						></line>
+						<polyline points="12 19 5 12 12 5"></polyline>
+					</svg>
 					<span>Back</span>
 				</div>
-			</div>
-			<div class="selected-country">
-            <img src="" alt="country-flag" />
-				<h1></h1>
-				<section>
-					<p class="native-name">Native Name: <span></span></p>
-					<p class="population">Population: <span></span></p>
-					<p class="region">Region: <span></span></p>
-					<p class="sub-region">Sub Region: <span></span></p>
-					<p class="capital">Capital: <span></span></p>
-				</section>
-				<section>
-					<p class="top-level-domain">Top Level Domain:<span></span></p>
-					<p class="currencies">Currencies:<span></span></p>
-					<p class="languages">Languages: <span></span></p>
-				</section>
-            <section>
-               <div>Border Countries</div>
-               <div class="border-countries">
-               </div>
-            </section>
+            <div class="selected-country">
+               <img
+                  src=""
+                  alt="country-flag"
+               />
+               <h1></h1>
+               <section>
+                  <p class="native-name">Native Name: <span></span></p>
+                  <p class="population">Population: <span></span></p>
+                  <p class="region">Region: <span></span></p>
+                  <p class="sub-region">Sub Region: <span></span></p>
+                  <p class="capital">Capital: <span></span></p>
+               </section>
+               <section>
+                  <p class="top-level-domain">Top Level Domain:<span></span></p>
+                  <p class="currencies">Currencies:<span></span></p>
+                  <p class="languages">Languages: <span></span></p>
+               </section>
+               <section>
+                  <div>Border Countries</div>
+                  <div class="border-countries"></div>
+               </section>
+            </div>
 			</div>
 		</main>
+      <footer>
+			<p>Made by Jaylou Rasonabe for FrontEnd Mentor</p>
+		</footer>
 	</body>
 	<script src="./country-details.js"></script>
 	<script src="./script.js"></script>

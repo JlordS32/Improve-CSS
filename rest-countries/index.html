@@ -7,26 +7,65 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>REST Country by Jaylou Rasonabe</title>
-		<link href="styles.css" rel="stylesheet" />
+		<link
+			href="styles.css"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<h1>Where in the world?</h1>
-				<div class="toggle-mode">
-					<img src="./assets/img/sun.svg" alt="dark-mode" />
-					<span>Light Mode</span>
+				<div>
+					<h1>Where in the world?</h1>
+					<div class="toggle-mode">
+						<img
+							src="./assets/img/sun.svg"
+							alt="dark-mode"
+						/>
+						<span>Light Mode</span>
+					</div>
 				</div>
 			</nav>
 		</header>
 		<main>
 			<div class="search">
 				<div class="search-input">
-					<input id="country-input" type="text" placeholder="Search for a country" />
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather feather-search"
+					>
+						<circle
+							cx="11"
+							cy="11"
+							r="8"
+						></circle>
+						<line
+							x1="21"
+							y1="21"
+							x2="16.65"
+							y2="16.65"
+						></line>
+					</svg>
+					<input
+						id="country-input"
+						type="text"
+						placeholder="Search for a country..."
+					/>
 				</div>
 				<div class="search-filter">
-					<label for="country-filter-select">Filter by Region</label>
-					<select id="country-filter-select" name="country-filter-select">
+					<select
+						id="country-filter-select"
+						name="country-filter-select"
+					>
+						<option value="">Filter By Region</option>
 						<option value="All">All</option>
 						<option value="africa">Africa</option>
 						<option value="america">America</option>
@@ -36,8 +75,7 @@
 					</select>
 				</div>
 			</div>
-			<div id="countryList">
-			</div>
+			<div id="countryList"></div>
 		</main>
 		<footer>
 			<h1>Made by Jaylou Rasonabe for FrontEnd Mentor</h1>

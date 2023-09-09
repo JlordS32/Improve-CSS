@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const toggleMode = () => {
+		const rootElement = document.querySelector(':root');
+
 		const colors = {
 			white: 'hsl(0, 0%, 100%)',
 			dark: {
@@ -98,14 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
 				case 'Light Mode':
 					mode.textContent = 'Dark Mode';
 					modeImg.setAttribute('src', 'assets/img/moon.svg');
-					document.body.style.backgroundColor = colors.light.veryLightGray;
-					document.body.style.color = colors.light.veryDarkBlue;
+
+					// Setting Colours for light mode
+					rootElement.style.setProperty('--accent', 'hsl(0, 0%, 100%)');
+					rootElement.style.setProperty('--bg', 'hsl(0, 0%, 98%)');
+					rootElement.style.setProperty('--text-color', 'hsl(200, 15%, 8%)');
 					break;
 				case 'Dark Mode':
 					mode.textContent = 'Light Mode';
 					modeImg.setAttribute('src', 'assets/img/sun.svg');
-					document.body.style.backgroundColor = colors.dark.veryDarkBlue;
-					document.body.style.color = colors.white;
+
+					// Setting Colours for dark mode
+					rootElement.style.setProperty('--accent', 'hsl(209, 23%, 22%)');
+					rootElement.style.setProperty('--bg', 'hsl(207, 26%, 17%)');
+					rootElement.style.setProperty('--text-color', 'hsl(0, 0%, 100%)');
 					break;
 				default:
 					alert('Image doesnt exist!');
