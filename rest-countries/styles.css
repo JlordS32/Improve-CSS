@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,600;0,6..12,800;1,6..12,300;1,6..12,600;1,6..12,800&display=swap');
+
+:root {
+	--homepage-items: 14px;
+	--detail-page: 16px;
+
+	/*color*/
+
+   /*DARK MODE*/
+	--dark-blue-DARK: hsl(209, 23%, 22%);
+	--very-dark-blue-DARK: hsl(207, 26%, 17%);
+	--white-LIGHT-DARK: hsl(0, 0%, 100%);
+
+   /*LIGHT MODE*/
+	--very-dark-blue-LIGHT: hsl(200, 15%, 8%);
+	--dark-gray-LIGHT: hsl(0, 0%, 52%);
+	--very-light-gray-LIGHT: hsl(0, 0%, 98%);
+
+   /*fonts*/
+   font-family: 'Nunito Sans', sans-serif;
+   font-size: 16px;
+
+   /*defaults*/
+   background-color: var(--very-dark-blue-DARK);
+   color: var(--white-LIGHT-DARK);
+
+   /* ICONS
+      - [Font Awesome](https://fontawesome.com)
+      - [IcoMoon](https://icomoon.io)
+      - [Ionicons](https://ionicons.com)
+   */
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+/* HEADER */
+nav {
+   background-color: var(--dark-blue-DARK);
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem 0;
+}
+
+nav .toggle-mode {
+   display: flex;
+   width: 10%;
+   align-items: center;
+   gap: 1rem;
+   font-weight: 600;
+}
+
+.toggle-mode:hover {
+   cursor: pointer;
+}
+
+/* MAIN */
+
+#countryList {
+   outline: 1px red solid;
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   gap: 2rem;
+}
+
+.country-box {
+   width: 18.8%;
+   outline: 1px red solid;
+   display: flex;
+   flex-direction: column;
+   min-height: 400px;
+}
+
+.img-container {
+   width: 100%;
+   height: 50%;
+   aspect-ratio: 16/9;
+   background-size: cover;
+   background-repeat: no-repeat;
+   outline: 1px blue solid;
+}
