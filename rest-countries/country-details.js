@@ -1,42 +1,45 @@
-// Setting Data
+// 1. Setting Data
+
+// Parse the query parameter 'name' from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const countryId = urlParams.get('name');
+
+// Attempt to retrieve country data from local storage
 const storedCountryData = JSON.parse(localStorage.getItem('countries'));
 
+// Redirect to a 'countrynotfound.html' page if 'name' parameter is missing
 if (!countryId) {
 	window.location.href = '/countrynotfound.html';
 }
 
-// Functions
+// 2. Functions
+
+// Concatenate an array of native country names into a comma-separated string
 function concatenateNativeNames(countryItem) {
 	let parsedItem = '';
-
 	countryItem.forEach((value, index) => {
 		parsedItem += value.official;
-
 		if (index < nativeName.length - 1) {
 			parsedItem += ', ';
 		}
 	});
-
 	return parsedItem;
 }
 
+// Concatenate an array of languages into a comma-separated string
 function concatenateLanguages(language) {
 	let parsedItem = '';
-
 	language.forEach((value, index) => {
 		parsedItem += value;
-
 		if (index < language.length - 1) {
 			parsedItem += ', ';
 		}
 	});
-
 	return parsedItem;
 }
 
-// Targeting elements
+// 3. Targeting Elements
+
 const countryImg = document.querySelector('.selected-country img');
 const countryName = document.querySelector('.selected-country h1');
 const nativeNameElement = document.querySelector('.native-name span');
@@ -44,30 +47,63 @@ const populationElement = document.querySelector('.population span');
 const regionElement = document.querySelector('.region span');
 const subRegionElement = document.querySelector('.sub-region span');
 const capitalElement = document.querySelector('.capital span');
+const languageElement = document.querySelector('.languages span');
+const borderCountriesParent = document.querySelector('.border-countries');
 
-// Getting the data from the array
+// 4. Getting the Data from the Array
+
+// Filter the stored data to find the selected country
 const selectedCountry = storedCountryData.filter(
 	(country) => country.name.common.toLowerCase() === countryId
 );
-console.log('Selected Country', selectedCountry);
 
-const { name, flags, region, population, subregion, capital, tld, currencies, borders} =
-	selectedCountry[0];
+// Extract properties from the selected country object
+const {
+	name,
+	flags,
+	region,
+	population,
+	subregion,
+	capital,
+	tld,
+	currencies,
+	borders,
+} = selectedCountry[0];
 
-const nativeName = Object.entries(name.nativeName).map((entry) => {
-	const [key, value] = entry;
-	return value;
-});
-const language = Object.entries(selectedCountry[0].languages).map((entry) => {
-	const [key, value] = entry;
-	return value;
-});
-console.log('Language', borders?);
+// Extract native names and languages into arrays
+const nativeName = Object.entries(name.nativeName).map((entry) => entry[1]);
+const language = Object.values(selectedCountry[0].languages);
 
-const parsedNativeName = concatenateNativeNames(nativeName);
-const parsedLanguage = concatenateLanguages(language);
+// Filter the countries that share borders with the selected country
+const borderCountries = storedCountryData.filter((country) => borders?.includes(country.cca3));
 
-console.log(parsedNativeName);
-console.log(parsedLanguage);
+// Extract the names of bordering countries
+const borderCountryNames = borderCountries.map((country) => country.name.common);
 
+// 5. DOM Manipulation
+
+// Set the country's flag image source
 countryImg.setAttribute('src', flags.png);
+
+// Update HTML elements with extracted data
+countryName.textContent = name.common;
+nativeNameElement.textContent = concatenateNativeNames(nativeName);
+populationElement.textContent = population;
+regionElement.textContent = region;
+subRegionElement.textContent = subregion;
+capitalElement.textContent = capital;
+languageElement.textContent = concatenateLanguages(language);
+
+// Create and append div elements for bordering countries
+borderCountryNames.forEach((countryName) => {
+	const borderCountryChild = document.createElement('div');
+	borderCountryChild.classList.add('border-country');
+	borderCountryChild.textContent = countryName;
+	borderCountriesParent.appendChild(borderCountryChild);
+});
+
+// 6. Console Logging
+
+// Log selected country and bordering country names for debugging
+console.log('Selected Country', selectedCountry);
+console.log(borderCountryNames);
