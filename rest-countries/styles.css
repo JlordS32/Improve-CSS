@@ -129,15 +129,40 @@ div .toggle-mode:hover {
 }
 
 .search-filter {
-	background-color: var(--accent);
+	width: 15%;
 }
 
 #country-filter-select {
+	background-color: var(--accent);
+	color: var(--text-color);
+	padding: 1rem 2rem;
+	border-radius: 10px;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+	width: 100%;
 	border: 0;
 	outline: 0;
-	color: var(--text-color);
-	background-color: var(--accent);
 	font-size: 1rem;
+
+	appearance: none;
+	--webkit-appearance: none;
+	--moz-appearance: none;
+	background-image: url('./assets/img/down-arrow.svg');
+	background-position: right 30px top 50%;
+	background-repeat: no-repeat;
+}
+
+.search-filter:hover,
+#country-filter-select:hover {
+	cursor: pointer;
+}
+
+#country-filter-select option {
+	color: var(--white);
+	padding: 2rem;
+}
+
+#country-filter-select option:focus {
+	background-color: red;
 }
 
 #countryList {
@@ -154,6 +179,7 @@ div .toggle-mode:hover {
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 	transition: transform 200ms ease-in-out;
 	width: 300px;
+	justify-self: center;
 }
 
 .country-box > h1 {
@@ -218,8 +244,9 @@ div .toggle-mode:hover {
 	grid-area: 1 / 1 / -1 / 1;
 	outline: 1px red solid;
 	background-size: cover;
-	width: 100%;
+	width: 70%;
 	align-self: center;
+	justify-self: center;
 }
 
 .border-countries {
@@ -231,5 +258,5 @@ div .toggle-mode:hover {
 	background-color: var(--accent);
 	padding: 5px 20px;
 	border-radius: 5px;
-	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }

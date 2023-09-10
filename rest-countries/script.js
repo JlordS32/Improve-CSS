@@ -24,7 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Clear the existing country list
 		const countryContainer = document.querySelector('#countryList');
 		countryContainer.innerHTML = ''; // Remove all child elements
-		data.forEach((country) => {
+
+		const sortedData = data.sort((a, b) =>
+			a.name.common.localeCompare(b.name.common)
+		);
+		sortedData.forEach((country) => {
 			// Create a new element and assign value
 			const newCountry = document.createElement('div');
 			newCountry.classList.add('country-box');
@@ -95,28 +99,62 @@ document.addEventListener('DOMContentLoaded', () => {
 		const mode = document.querySelector('.toggle-mode span');
 		const modeImg = document.querySelector('.toggle-mode img');
 
+		// Get the initial isDarkMode value from localStorage
+		let localDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
+
+		// Set the initial text and image based on localDarkMode
+		mode.textContent = localDarkMode ? 'Light Mode' : 'Dark Mode';
+		modeImg.setAttribute(
+			'src',
+			localDarkMode ? 'assets/img/sun.svg' : 'assets/img/moon.svg'
+		);
+
+		function switchToDarkMode() {
+			mode.textContent = 'Light Mode';
+			modeImg.setAttribute('src', 'assets/img/sun.svg');
+
+			// Setting Colours for dark mode
+			rootElement.style.setProperty('--accent', colors.dark.darkBlue);
+			rootElement.style.setProperty('--bg', colors.dark.veryDarkBlue);
+			rootElement.style.setProperty('--text-color', colors.white);
+		}
+
+		function switchToLightMode() {
+			mode.textContent = 'Dark Mode';
+			modeImg.setAttribute('src', 'assets/img/moon.svg');
+
+			// Setting Colours for light mode
+			rootElement.style.setProperty('--accent', colors.white);
+			rootElement.style.setProperty('--bg', colors.light.veryLightGray);
+			rootElement.style.setProperty('--text-color', colors.light.veryDarkBlue);
+		}
+
+		if (localDarkMode) {
+			switchToLightMode()
+		} else {
+			switchToDarkMode()
+		}
+
 		toggleMode.addEventListener('click', () => {
-			switch (mode.textContent) {
-				case 'Light Mode':
-					mode.textContent = 'Dark Mode';
-					modeImg.setAttribute('src', 'assets/img/moon.svg');
+			switch (localDarkMode) {
+				case false:
+					switchToLightMode()
 
-					// Setting Colours for light mode
-					rootElement.style.setProperty('--accent', 'hsl(0, 0%, 100%)');
-					rootElement.style.setProperty('--bg', 'hsl(0, 0%, 98%)');
-					rootElement.style.setProperty('--text-color', 'hsl(200, 15%, 8%)');
+					// Update localDarkMode and localStorage
+					localStorage.setItem('isDarkMode', true);
+					localDarkMode = true; // Update the local variable
+
 					break;
-				case 'Dark Mode':
-					mode.textContent = 'Light Mode';
-					modeImg.setAttribute('src', 'assets/img/sun.svg');
+				case true:
+					switchToDarkMode()
 
-					// Setting Colours for dark mode
-					rootElement.style.setProperty('--accent', 'hsl(209, 23%, 22%)');
-					rootElement.style.setProperty('--bg', 'hsl(207, 26%, 17%)');
-					rootElement.style.setProperty('--text-color', 'hsl(0, 0%, 100%)');
+					// Update localDarkMode and localStorage
+					localStorage.setItem('isDarkMode', false);
+					localDarkMode = false; // Update the local variable
+
 					break;
 				default:
-					alert('Image doesnt exist!');
+					alert('Mode does not work as intended or unsupported!');
 					break;
 			}
 		});
