@@ -180,11 +180,6 @@ nav h1 {
 	display: flex !important;
 }
 
-#country-filter-select option:focus {
-	background-color: red;
-	
-}
-
 #countryList {
 	display: grid;
 	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
@@ -360,5 +355,12 @@ section > p > span {
 
 	.selected-country section:last-child > div:first-child {
 		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	main {
+		padding: 0;
+		padding-bottom: 5rem;
 	}
 }

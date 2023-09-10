@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const countryContainer = document.querySelector('#countryList');
 		countryContainer.innerHTML = '';
-
 		diplayCountries(query);
 	});
 
