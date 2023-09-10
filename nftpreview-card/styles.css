@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+	/* PRIMARY */
+
+	--soft-blue: hsl(215, 51%, 70%);
+	--cyan: hsl(178, 100%, 50%);
+
+	/* NEUTRAL */
+
+	--very-dark-blue-mainBg: hsl(217, 54%, 11%);
+	--very-dark-blue-card: hsl(216, 50%, 16%);
+	--very-dark-blue-line: hsl(215, 32%, 27%);
+	--white: hsl(0, 0%, 100%);
+
+	--bg: var(--very-dark-blue-mainBg);
+	--card: var(--very-dark-blue-card);
+	--line: var(--very-dark-blue-line);
+
+	font-size: 18px;
+	font-family: 'Outfit', sans-serif;
+	color: var(--white);
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+body {
+	background-color: var(--bg);
+	height: 100vh;
+	position: relative;
+   box-sizing: border-box;
+}
+
+.container {
+	min-height: 60%;
+	width: 288px;
+   max-width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: var(--card);
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	padding: 0 1.25rem;
+	padding-top: 1.25rem;
+	box-sizing: content-box;
+	border-radius: 1rem;
+	box-shadow: 0px 32px 50px 34px rgba(0, 0, 0, 0.1);
+	gap: 1.2rem;
+}
+
+.container > .img-container,
+.img-container > img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.container > img:hover {
+	cursor: pointer;
+	position: relative;
+}
+
+.container > .img-container:hover::before {
+	content: '';
+	position: absolute;
+	background-color: var(--cyan);
+	opacity: 0.55;
+	z-index: 2;
+	width: 288px;
+	height: 288px;
+	cursor: pointer;
+	background-image: url('./images/icon-view.svg');
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+	border-radius: 10px;
+}
+
+.nft-desc h1 {
+	font-size: 1.25rem;
+	padding: 1rem 0;
+	font-weight: 600;
+}
+
+.nft-desc p {
+	color: var(--soft-blue);
+}
+
+.nft-price-details,
+.eth-price,
+.nft-duration {
+	display: flex;
+}
+
+.nft-duration,
+.eth-price {
+	gap: 0.4rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.nft-duration span {
+	color: var(--soft-blue);
+}
+
+.eth-price {
+	color: var(--cyan);
+}
+
+.nft-price-details {
+	justify-content: space-between;
+}
+
+.mint-user {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	font-size: 0.8rem;
+	border-top: 1px solid var(--line);
+}
+
+.mint-user div {
+	color: var(--soft-blue);
+}
+
+.mint-user div > span {
+	color: var(--white);
+}
+
+.mint-user > img {
+	width: 15%;
+	border: var(--white) 2px solid;
+	border-radius: 100px;
+	transform: translateX(-40%);
+}
