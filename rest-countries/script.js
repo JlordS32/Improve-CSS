@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const diplayCountries = (data) => {
-		// Clear the existing country list
-		const countryContainer = document.querySelector('#countryList');
-		countryContainer.innerHTML = ''; // Remove all child elements
-
 		const sortedData = data.sort((a, b) =>
 			a.name.common.localeCompare(b.name.common)
 		);
@@ -175,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			);
 			filteredData = query;
 
+			const countryContainer = document.querySelector('#countryList');
+			countryContainer.innerHTML = '';
 			// Display the filtered data
 			diplayCountries(filteredData);
 		}

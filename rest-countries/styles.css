@@ -61,11 +61,15 @@ body {
 	position: relative;
 }
 
+main {
+	padding: 0 4rem;
+}
+
 /* HEADER */
 nav {
 	background-color: var(--accent);
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-	padding: 1rem 0;
+	padding: 1.5rem 0;
 }
 nav > div {
 	display: flex;
@@ -185,7 +189,7 @@ nav h1 {
 	display: grid;
 	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 4.5rem;
+	gap: 4rem 2rem;
 }
 
 .country-box {
