@@ -72,7 +72,7 @@ nav > div {
 	justify-content: space-between;
 	margin: 0 auto;
 	max-width: 1440px;
-	padding: 0 2rem;
+	padding: 0 1rem;
 	box-sizing: border-box;
 }
 
@@ -83,8 +83,16 @@ nav > div .toggle-mode {
 	font-weight: 600;
 }
 
+nav > div .toggle-mode > img {
+	width: clamp(25px, 3vw, 30px);
+}
+
 div .toggle-mode:hover {
 	cursor: pointer;
+}
+
+nav h1 {
+	font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 /* MAIN */
@@ -104,9 +112,10 @@ div .toggle-mode:hover {
 .search-input {
 	display: flex;
 	background-color: var(--accent);
+	color: var(--text-color);
 	gap: 1rem;
 	padding: 1rem 2rem;
-	width: 35%;
+	width: 35rem;
 	border-radius: 10px;
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -115,7 +124,7 @@ div .toggle-mode:hover {
 	font-size: 1rem;
 	width: 100%;
 	border: 0;
-	color: var(--white);
+	color: var(--text-color);
 	background-color: var(--accent);
 }
 
@@ -129,7 +138,8 @@ div .toggle-mode:hover {
 }
 
 .search-filter {
-	width: 15%;
+	width: 15rem;
+	max-width: 100%;
 }
 
 #country-filter-select {
@@ -149,6 +159,7 @@ div .toggle-mode:hover {
 	background-image: url('./assets/img/down-arrow.svg');
 	background-position: right 30px top 50%;
 	background-repeat: no-repeat;
+	background-blend-mode: difference;
 }
 
 .search-filter:hover,
@@ -159,10 +170,15 @@ div .toggle-mode:hover {
 #country-filter-select option {
 	color: var(--white);
 	padding: 2rem;
+	border: 0;
+	outline: 0;
+	min-height: 2em !important;
+	display: flex !important;
 }
 
 #country-filter-select option:focus {
 	background-color: red;
+	
 }
 
 #countryList {
@@ -210,6 +226,16 @@ div .toggle-mode:hover {
 }
 
 /* COUNTRY DETAILS */
+section > p{
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+section > p > span {
+	font-weight: 300;
+	font-size: 1.1rem;
+}
+
 .container {
 	max-width: 1440px;
 	margin: 0 auto;
@@ -220,11 +246,12 @@ div .toggle-mode:hover {
 	display: flex;
 	padding: 6px 20px;
 	background-color: var(--accent);
-	width: 8%;
+	max-width: 120px;
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	justify-content: center;
 	gap: 10px;
+	margin-left: 1rem;
 }
 
 .back-btn:hover {
@@ -232,26 +259,44 @@ div .toggle-mode:hover {
 }
 
 .selected-country {
-	margin: 5rem 0;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(4, 1fr);
-	outline: 1px red solid;
+	grid-template-columns: minmax(700px, 2fr) 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 3rem;
+}
+
+.selected-country h1 {
+	grid-area: 1 / 2 / 1 / -1;
+	align-self: flex-end;
 }
 
 .selected-country img {
 	background-color: var(--white);
 	grid-area: 1 / 1 / -1 / 1;
-	outline: 1px red solid;
 	background-size: cover;
 	width: 70%;
 	align-self: center;
 	justify-self: center;
+	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.selected-country section:last-child {
+	grid-area: 3 / 2 / 3 / -1;
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	flex-wrap: wrap;
+}
+
+.selected-country section:last-child > div:first-child {
+	font-weight: 600;
 }
 
 .border-countries {
 	display: flex;
 	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .border-countries .border-country {
@@ -259,4 +304,57 @@ div .toggle-mode:hover {
 	padding: 5px 20px;
 	border-radius: 5px;
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 1000px) {
+	.search {
+		flex-direction: column;
+		gap: 2rem;
+		align-items: flex-start;
+		padding: 2rem;
+		margin: 0;
+	}
+
+	.search-input {
+		width: 100%;
+	}
+
+	.toggle-mode span {
+		font-size: 0rem;
+	}
+
+	.selected-country {
+		grid-template-columns: 1fr;
+		grid-template-rows: 325px 75px 1fr 1fr 1fr;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.selected-country h1,
+	.selected-country section {
+		margin: 0 2rem;
+	}
+
+	.selected-country img {
+		grid-area: 1 / 1 / 1 / 1;
+		width: 325px;
+	}
+
+	.selected-country h1 {
+		grid-area: 2 / 1 / 2 / 1;
+		align-self: flex-start;
+
+	}
+
+	.selected-country section:nth-child(2n) {
+		align-self: center;
+	}
+
+	.selected-country section:last-child {
+		grid-area: 5 / 1 / 5 / 1;
+	}
+
+	.selected-country section:last-child > div:first-child {
+		font-size: 1.2rem;
+	}
 }

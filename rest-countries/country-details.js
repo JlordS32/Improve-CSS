@@ -47,6 +47,8 @@ const populationElement = document.querySelector('.population span');
 const regionElement = document.querySelector('.region span');
 const subRegionElement = document.querySelector('.sub-region span');
 const capitalElement = document.querySelector('.capital span');
+const tldElement = document.querySelector('.top-level-domain span');
+const currencyElement = document.querySelector('.currencies span');
 const languageElement = document.querySelector('.languages span');
 const borderCountriesParent = document.querySelector('.border-countries');
 
@@ -73,7 +75,8 @@ const {
 
 // Extract native names and languages into arrays
 const nativeName = Object.entries(name.nativeName).map((entry) => entry[1]);
-const language = Object.values(selectedCountry[0].languages);
+const language = Object.values(selectedCountry[0].languages); 
+const currency = Object.entries(currencies).map((curr) => curr[1].name).toLocaleString();
 
 // Filter the countries that share borders with the selected country
 const borderCountries = storedCountryData.filter((country) => borders?.includes(country.cca3));
@@ -89,10 +92,12 @@ countryImg.setAttribute('src', flags.png);
 // Update HTML elements with extracted data
 countryName.textContent = name.common;
 nativeNameElement.textContent = concatenateNativeNames(nativeName);
-populationElement.textContent = population;
+populationElement.textContent = population.toLocaleString();
 regionElement.textContent = region;
 subRegionElement.textContent = subregion;
 capitalElement.textContent = capital;
+tldElement.textContent = tld[0].toLocaleString();
+currencyElement.textContent = currency;
 languageElement.textContent = concatenateLanguages(language);
 
 // Create and append div elements for bordering countries

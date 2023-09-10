@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (cachedData) {
 			diplayCountries(cachedData);
 		} else {
-			console.log('Making API call!');
 			const response = await fetch(url);
 			const data = await response.json();
-			console.log(data);
 
 			cachedData = data;
 
@@ -202,8 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			return country.region.toLowerCase().includes(selectedRegion);
 		});
-
-		console.log(query);
 
 		diplayCountries(query);
 	});
