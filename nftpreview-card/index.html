@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | NFT preview card component</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+			:root {
+				/* PRIMARY */
+
+				--soft-blue: hsl(215, 51%, 70%);
+				--cyan: hsl(178, 100%, 50%);
+
+				/* NEUTRAL */
+
+				--very-dark-blue-mainBg: hsl(217, 54%, 11%);
+				--very-dark-blue-card: hsl(216, 50%, 16%);
+				--very-dark-blue-line: hsl(215, 32%, 27%);
+				--white: hsl(0, 0%, 100%);
+
+				--bg: var(--very-dark-blue-mainBg);
+				--card: var(--very-dark-blue-card);
+				--line: var(--very-dark-blue-line);
+
+				font-size: 18px;
+				font-family: 'Outfit', sans-serif;
+				color: var(--white);
+			}
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: inherit;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+
+			body {
+				background-color: var(--bg);
+				height: 100vh;
+				position: relative;
+			}
+
+			.container {
+				min-height: 60%;
+				width: 288px;
+				max-width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background-color: var(--card);
+				transform: translate(-50%, -50%);
+				display: flex;
+				flex-direction: column;
+				padding: 1.25rem;
+				box-sizing: content-box;
+				border-radius: 1rem;
+				box-shadow: 0px 32px 50px 34px rgba(0, 0, 0, 0.1);
+			}
+
+			.container > img {
+				width: 100%;
+			}
+
+			.nft-desc h1 {
+				font-size: 1.25rem;
+				padding: 1rem 0;
+				font-weight: 600;
+				margin-top: 0.4rem;
+			}
+
+			.nft-desc p {
+				color: var(--soft-blue);
+				margin-bottom: 1.5rem;
+			}
+
+			.nft-price-details, .eth-price {
+				display: flex;
+			}
+
+			.eth-price {
+				color: var(--cyan);
+			}
+
+			.nft-price-details {
+				justify-content: space-between;
+			}
+
+			.mint-user {
+				display: flex;
+				align-items: center;
+				margin-top: auto;
+				padding: 1rem;
+				gap: 0.8rem;
+				font-size: 0.8rem;
+				border-top: 1px solid var(--line);
+			}
+
+			.mint-user div {
+				color: var(--soft-blue);
+			}
+
+			.mint-user div > span {
+				color: var(--white);
+			}
+
+			.mint-user > img {
+				width: 15%;
+				border: var(--white) 2px solid;
+				border-radius: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<img
+					src="./images/image-equilibrium.jpg"
+					alt="nft-prev"
+				/>
+				<div class="nft-desc">
+					<h1>Equilibrium #3429</h1>
+					<p>Our Equilibrium collection promotes balance and calm.</p>
+				</div>
+				<div class="nft-price-details">
+					<div class="eth-price">
+						<img
+							src="./images/icon-ethereum.svg"
+							alt="eth-icon"
+						/>
+						<div>0.041 ETH</div>
+					</div>
+					<div>
+						<img src="./images/icon-clock.svg" alt="clock" />
+						<span>3 days left</span>
+					</div>
+				</div>
+				<div class="mint-user">
+					<img
+						src="./images/image-avatar.png"
+						alt="avatar"
+					/>
+					<div>Creation of <span>Jules Wyvern</span></div>
+				</div>
+			</div>
+		</main>
+
+		<!-- <footer>
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					rel="noopener"
+					>Frontend Mentor</a
+				>. Coded by <a href="#">Your Name Here</a>.
+			</div>
+		</footer> -->
+	</body>
+</html>
