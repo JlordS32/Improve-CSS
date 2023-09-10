@@ -128,32 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		if (localDarkMode) {
-			switchToLightMode()
+			switchToLightMode();
 		} else {
-			switchToDarkMode()
+			switchToDarkMode();
 		}
 
 		toggleMode.addEventListener('click', () => {
-			switch (localDarkMode) {
-				case false:
-					switchToLightMode()
+			if (localDarkMode) {
+				switchToDarkMode();
 
-					// Update localDarkMode and localStorage
-					localStorage.setItem('isDarkMode', true);
-					localDarkMode = true; // Update the local variable
+				// Update localDarkMode and localStorage
+				localStorage.setItem('isDarkMode', false);
+				localDarkMode = false; // Update the local variable
+			} else {
+				switchToLightMode();
 
-					break;
-				case true:
-					switchToDarkMode()
-
-					// Update localDarkMode and localStorage
-					localStorage.setItem('isDarkMode', false);
-					localDarkMode = false; // Update the local variable
-
-					break;
-				default:
-					alert('Mode does not work as intended or unsupported!');
-					break;
+				// Update localDarkMode and localStorage
+				localStorage.setItem('isDarkMode', true);
+				localDarkMode = true; // Update the local variable
 			}
 		});
 	};
