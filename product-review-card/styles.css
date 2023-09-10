@@ -63,6 +63,7 @@ body {
 	background-image: url('./images/image-product-desktop.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	min-height: 40%;
 }
 
 .img-container,
@@ -189,8 +190,7 @@ body {
     }
 
 	.img-container {
-		min-height: 200px; /* Adjust the min-height as needed */
-		height: auto;
+		min-height: 40%; /* Adjust the min-height as needed */
 		background-image: url('./images/image-product-mobile.jpg');
 		background-size: cover;
 	}

@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			return country.region.toLowerCase().includes(selectedRegion);
 		});
 
+		const countryContainer = document.querySelector('#countryList');
+		countryContainer.innerHTML = '';
+
 		diplayCountries(query);
 	});
 
