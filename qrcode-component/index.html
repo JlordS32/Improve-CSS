@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | QR code component by Jaylou Rasonabe</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+			:root {
+				--white: hsl(0, 0%, 100%);
+				--light-gray: hsl(212, 45%, 89%);
+				--grayish-blue: hsl(220, 15%, 55%);
+				--dark-blue: hsl(218, 44%, 22%);
+
+				font-size: 15px;
+				font-family: 'Outfit', sans-serif;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: inherit;
+			}
+
+			body {
+				background-color: var(--light-gray);
+				height: 100vh;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+
+			.container {
+				min-height: 46%;
+				width: 288px;
+				max-width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background-color: var(--white);
+				transform: translate(-50%, -50%);
+				display: flex;
+				flex-direction: column;
+				padding: 1.25rem;
+				box-sizing: content-box;
+				border-radius: 1rem;
+				box-shadow: 0px 32px 50px 34px rgba(0, 0, 0, 0.1);
+				gap: 1.2rem;
+			}
+
+			.container img {
+				border-radius: 10px;
+			}
+
+			.content-wrapper h1 {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+			}
+
+         .content-wrapper p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+         }
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<img
+					src="./images/image-qr-code.png"
+					alt="qrcode"
+				/>
+				<div class="content-wrapper">
+					<h1>Improve your front-end skills by building projects</h1>
+					<p>
+						Scan the QR code to visit Frontend Mentor and take your coding
+						skills to the next level
+					</p>
+				</div>
+			</div>
+		</main>
+
+		<!-- <div class="attribution">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+        rel="noopener"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>.
+		</div> -->
+	</body>
+</html>
