@@ -82,6 +82,7 @@ main {
 	flex: 1;
 	align-items: center;
 	margin-top: 0.2rem;
+	margin-bottom: 0.3rem;
 }
 
 .change-advice-btn {

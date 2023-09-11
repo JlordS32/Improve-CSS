@@ -6,30 +6,32 @@ const adviceId = document.querySelector('.advice-num span');
 
 const url = 'https://api.adviceslip.com/advice';
 
-const fetchAdvice = async () => {
+const fetchAdvice = async (url) => {
 	try {
-      adviceBtn.disabled = true;
-      const res = await fetch(url);
-	   const data = await res.json();
+		adviceBtn.disabled = true;
+		const res = await fetch(url);
+		const data = await res.json();
 
-      adviceBtn.disabled = false;
-      advice.textContent = data.slip.advice; 
-      adviceId.textContent = advice.slip.id;
+		adviceBtn.disabled = false;
+		advice.textContent = data.slip.advice;
+		adviceId.textContent = data.slip.id;
 
-      localStorage.setItem('adviceslip', JSON.stringify(data));
-   } catch (error) {
-      console.error(error);
-   }
+		localStorage.setItem('adviceslip', JSON.stringify(data));
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 const adviceData = JSON.parse(localStorage.getItem('adviceslip'));
 
 // Loading advice into the container.
-advice.textContent = adviceData.slip.advice; 
-adviceId.textContent = adviceData.slip.id;
+if (adviceData && adviceData.slip.advice) {
+	advice.textContent = adviceData?.slip.advice;
+	adviceId.textContent = adviceData?.slip.id;
+}
 
-adviceBtn.addEventListener('click' ,() => { 
-   fetchAdvice();
-})
+adviceBtn.addEventListener('click', () => {
+	fetchAdvice(url);
+});
 
-fetchAdvice();
+fetchAdvice(url);
