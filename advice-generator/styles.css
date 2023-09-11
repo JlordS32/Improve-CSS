@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+:root {
+	/* PRIMARY */
+
+	--light-cyan: hsl(193, 38%, 86%);
+	--neon-green: hsl(150, 100%, 66%);
+
+	/* NEUTRAL */
+
+	--grayish-blue: hsl(217, 19%, 38%);
+	--dark-grayish-blue: hsl(217, 19%, 24%);
+	--dark-blue: hsl(218, 23%, 16%);
+
+   font-family: 'Manrope', sans-serif;
+   font-size: 28px;
+   font-weight: 800;
+}
+
+* {
+   font-family: inherit;
+   padding: 0;
+   margin: 0;
+}
+
+body {
+	background-color: var(--dark-blue);
+	color: var(--light-cyan);
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+.advice-num {
+	font-size: 0.5rem;
+	color: var(--neon-green);
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+main {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.container {
+	background-color: var(--dark-grayish-blue);
+	width: clamp(28%, 300px, 550px);
+	min-height: 30%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0px 19px 37px 29px rgba(0,0,0,0.15);
+	padding: 1rem;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.container > img {
+	width: 100%;
+	margin-bottom: 1.5rem;
+}
+
+.advice {
+	text-align: center;
+	flex: 1;
+	align-items: center;
+	margin-top: 0.2rem;
+}
+
+.change-advice-btn {
+	border: 0;
+	background-color: var(--neon-green);
+	display: flex;
+	padding: 0.5rem;
+	border-radius: 100%;
+	transition: transform 200ms ease-in-out;
+	margin-top: auto;
+	z-index: 1;
+	transform: translateY(50%);
+	position: absolute;
+	bottom: 0;
+}
+
+.change-advice-btn:hover {
+	box-shadow: 0px 0px 100px 5px hsl(150, 100%, 66%);
+	cursor: pointer;
+	transform: scale(1.05) translateY(50%);
+}
+
+.change-advice-btn:disabled {
+	background-color: hsla(150, 57%, 54%, 0.491);
+}
