@@ -26,6 +26,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: inherit;
+	outline: 1px red solid;
 }
 
 *,
@@ -395,14 +396,16 @@ main > section:last-child > button:active {
 	box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	align-items: center;
+	width: 981.5px;
+	max-width: 85%;
 }
 
 .shortened-link p {
 	margin-right: auto;
-	white-space: nowrap; 
+	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-   width: 50%;
+	width: 50%;
 }
 
 .shortened-link .textToCopy {
@@ -419,6 +422,10 @@ main > section:last-child > button:active {
 	transition: 150ms ease-in-out;
 }
 
+.shortened-link button:not(.deleteUrl) {
+	width: 12%;
+}
+
 .shortened-link button:hover {
 	cursor: pointer;
 	background-color: hsl(180, 65%, 78%);
@@ -429,6 +436,15 @@ main > section:last-child > button:active {
 	cursor: pointer;
 	background-color: var(--Cyan);
 	transform: scale(1) translateY(0);
+}
+
+.shortened-link .deleteUrl {
+	background-color: var(--Red);
+	margin-left: 1rem;
+}
+
+.shortened-link .deleteUrl:hover {
+	background-color: hsl(0, 49%, 73%);
 }
 
 /* FOOTER */
@@ -519,6 +535,8 @@ footer .logo {
 	header {
 		padding: 3rem 5rem;
 	}
+
+	/* HEADER */ 
 	.container {
 		justify-content: space-between;
 	}
@@ -532,5 +550,51 @@ footer .logo {
 
 	.burger-menu {
 		display: block;
+	}
+
+	/* MAIN */
+
+	.hero-content {
+		padding-bottom: 5rem;
+	}
+
+	.call-to-action .link-shortener-input {
+		width: 100%;
+		flex: 1;
+	}
+
+	.call-to-action {
+		flex-direction: column;
+		padding: 0;
+		box-sizing: content-box;
+		padding: 2.5rem 0;
+	}
+
+	.call-to-action div {
+		width: 90%;
+	}
+
+	.url-container {
+		padding-top: 2.5rem;
+	}
+
+	.shortened-link {
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.shortened-link p {
+		grid-area: 1 / 1 / 1 / -1;
+		width: 100%;
+	}
+
+	.shortened-link .textToCopy {
+		grid-area: 2 / 1 / 2 / -1;
+		width: 100%;
+	}
+
+	.shortened-link button {
+		width: 100%;
 	}
 }

@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const label = document.querySelector('.call-to-action div > label'); // Validation label
 	const urlContainer = document.querySelector('.url-container'); // Container for displaying shortened URLs
 
+	// Check if there's any existing data in localStorage
+	let localisedUrl = JSON.parse(localStorage.getItem('shortenedLinks')) || [];
+
+	if (localisedUrl) {
+		localisedUrl.forEach((link) => {
+			createNewShortLinkContainer(link.originalUrl, link.shortUrl);
+		});
+	}
+
 	// Add a click event listener to the "Shorten" button
 	shortenerBtn.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -37,34 +46,61 @@ document.addEventListener('DOMContentLoaded', async () => {
 			// Fetch and display the shortened URL
 			fetchShortUrl(inputValue).then((link) => {
 				createNewShortLinkContainer(inputValue, link.result.short_link);
+
+				const newShortURL = {
+					originalUrl: inputValue,
+					shortUrl: link.result.short_link,
+				};
+
+				localisedUrl.push(newShortURL);
+				localStorage.setItem('shortenedLinks', JSON.stringify(localisedUrl));
 			});
 		}
 	});
 
 	// Function to create a new container for displaying a shortened URL
 	function createNewShortLinkContainer(url, shorturl) {
+		if (url === '' || shorturl === '') return;
+
 		const newShortUrl = document.createElement('div');
 		const originUrl = document.createElement('p');
 		const shortenedUrl = document.createElement('span');
 		const copyBtn = document.createElement('button');
+		const deleteBtn = document.createElement('button');
 
 		// Add CSS classes to the elements
 		newShortUrl.classList.add('shortened-link');
 		shortenedUrl.classList.add('textToCopy');
 		copyBtn.classList.add('copyUrl');
+		deleteBtn.classList.add('deleteUrl');
 
 		// Set text content for elements
 		shortenedUrl.textContent = shorturl;
 		originUrl.textContent = url;
 		copyBtn.textContent = 'Copy';
+		deleteBtn.textContent = 'Delete';
 
 		// Append elements to the new container
 		newShortUrl.appendChild(originUrl);
 		newShortUrl.appendChild(shortenedUrl);
 		newShortUrl.appendChild(copyBtn);
+		newShortUrl.appendChild(deleteBtn);
 
 		// Append the new container to the parent container
 		urlContainer.appendChild(newShortUrl);
+	}
+
+	function deleteShortUrl(shortURL) {
+		const localisedURL =
+			JSON.parse(localStorage.getItem('shortenedLinks')) || [];
+
+		const updatedURL = localisedURL.filter(
+			(link) => link.shortUrl !== shortURL
+		);
+
+		localStorage.setItem('shortenedLinks', JSON.stringify(updatedURL));
+
+		location.reload();
 	}
 
 	// Function to copy a shortened URL to the clipboard
@@ -90,6 +126,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 	document.addEventListener('click', (event) => {
 		if (event.target.classList.contains('copyUrl')) {
 			copyShortUrl(event);
+		}
+	});
+
+	document.addEventListener('click', (event) => {
+		if (event.target.classList.contains('deleteUrl')) {
+			const copyBtn = event.target.previousElementSibling;
+			const toRemove = copyBtn.previousElementSibling;
+
+			deleteShortUrl(toRemove.textContent);
 		}
 	});
 
