@@ -1,5 +1,3 @@
-const shorternerInput = document.querySelector('.link-shorterer-input');
-
 const fetchShortUrl = async (linkToShortened) => {
 	const response = await fetch(
 		`https://api.shrtco.de/v2/shorten?url=${linkToShortened}`
@@ -9,12 +7,13 @@ const fetchShortUrl = async (linkToShortened) => {
 	return data;
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	const shortenerBtn = document.getElementById('shortenerBtn');
 	const input = document.querySelector('.link-shorterer-input');
 	const label = document.querySelector('.call-to-action div > label');
 
-	shortenerBtn.addEventListener('click', function () {
+	shortenerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
 		// Get the input value
 		const inputValue = input.value;
 		console.log(inputValue);
