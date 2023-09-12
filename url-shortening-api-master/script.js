@@ -11,13 +11,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const shortenerBtn = document.getElementById('shortenerBtn');
 	const input = document.querySelector('.link-shorterer-input');
 	const label = document.querySelector('.call-to-action div > label');
-	const copyShortUrlBtn = document.querySelectorAll('.copyUrl');
-	const shortUrlToCopy = document.querySelector('.textToCopy');
 	const urlContainer = document.querySelector('.url-container');
 	shortenerBtn.addEventListener('click', (e) => {
 		e.preventDefault();
 		// Get the input value
-		const inputValue = input.value;
+		const inputValue = input.value.trim();
 
 		// Validate if link is valid
 		const isLinkInvalid = isInvalidUrl(inputValue);
@@ -89,7 +87,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		if (url === '') return true;
 
 		// Regular expression to check if the input is a valid URL
-		var urlPattern = /^(https?:\/\/)?([\w.-]+\.[a-z]{2,})(\/[\w.-]*)*\/?$/i;
+		var urlPattern = /^(https?:\/\/)?([\w.-]+\.[A-Za-z]{2,})(\/[\w.-]*)*(\?[\w.-]*=[\w.-]*(&[\w.-]*=[\w.-]*)*)*\/?$/i;
+
+      console.log(urlPattern.test(url));
 		return !urlPattern.test(url);
 	}
 });
