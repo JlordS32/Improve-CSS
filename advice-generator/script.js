@@ -12,11 +12,14 @@ const fetchAdvice = async (url) => {
 		const res = await fetch(url);
 		const data = await res.json();
 
-		adviceBtn.disabled = false;
 		advice.textContent = data.slip.advice;
 		adviceId.textContent = data.slip.id;
 
 		localStorage.setItem('adviceslip', JSON.stringify(data));
+
+		setTimeout(() => {
+			adviceBtn.disabled = false;
+		}, 1000);
 	} catch (error) {
 		console.error(error);
 	}
