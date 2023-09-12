@@ -62,6 +62,15 @@ header .logo {
 	display: flex;
 }
 
+.logo {
+   transition: 150ms;
+}
+
+.logo:hover {
+   transform: rotate(10deg) scale(1.15);
+   cursor: pointer;
+}
+
 header nav {
 	color: var(--Grayish-Violet);
 	display: flex;
@@ -73,12 +82,38 @@ header nav > a {
 	text-decoration: none;
 	color: inherit;
 	font-size: 0.9rem;
+   transition: 150ms
+}
+
+header nav > a:hover {
+   cursor: pointer;
+   color: var(--Very-Dark-Violet);
+   transform: translateY(-5%);
 }
 
 header .login {
 	margin-left: auto;
 	gap: 2rem;
 	align-items: center;
+   transition: 150ms ease-in;
+}
+
+.login div:first-child:hover {
+   color: var(--Cyan);
+   cursor: pointer;
+   transform: scale(1.04)
+}
+
+.login div:last-child:hover {
+	cursor: pointer;
+   background-color: hsl(180, 65%, 78%);
+   transform: scale(1.04) translateY(-5%);
+}
+
+.login div:last-child:active {
+	cursor: pointer;
+   background-color: var(--Cyan);
+   transform: scale(1) translateY(0);
 }
 
 .burger-menu {
@@ -121,12 +156,26 @@ main > section:first-child > .hero-wrapper,
 	outline: 0;
 	padding: 0.5rem 2rem;
 	font-size: 0.8rem;
+   transition: 150ms;
 }
 
 .hero-content button {
 	font-size: 1rem;
 	margin-top: 1rem;
 }
+
+.hero-content button:hover {
+	cursor: pointer;
+   background-color: hsl(180, 65%, 78%);
+   transform: scale(1.04) translateY(-5%);
+}
+
+.hero-content button:active {
+	cursor: pointer;
+   background-color: var(--Cyan);
+   transform: scale(1) translateY(0);
+}
+
 
 .hero-content h1 {
 	font-size: 4rem;
@@ -199,16 +248,24 @@ main > section:first-child > .hero-wrapper,
 	padding: 1rem 2.25rem;
 	box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 	font-size: 1rem;
+   transition: 150ms;
 }
 
 .call-to-action button:hover {
 	cursor: pointer;
+   background-color: hsl(180, 65%, 78%);
+   transform: scale(1.04) translateY(-5%);
+}
+
+.call-to-action button:active {
+	cursor: pointer;
+   background-color: var(--Cyan);
+   transform: scale(1) translateY(0);
 }
 
 main > section:nth-child(2) {
-	padding-top: 5rem;
 	background-color: hsl(0, 13%, 92%);
-	padding: 10rem 0;
+	padding: 5rem 0 10rem 0;
 }
 
 main > section:nth-child(2) > .title {
@@ -222,6 +279,7 @@ main > section:nth-child(2) > .title {
 	align-items: center;
 	gap: 0.7rem;
 	transform: scale(1.1);
+   margin-top: 4rem;
 	padding-bottom: 2.5rem;
 }
 
@@ -321,6 +379,10 @@ main > section:last-child > button:hover {
 
 main > section:last-child > button:active {
 	transform: scale(1) translateY(1%);
+}
+
+.url-container {
+   outline: 1px red solid;
 }
 
 /* FOOTER */
