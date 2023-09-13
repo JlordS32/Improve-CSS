@@ -267,7 +267,7 @@ main {
 }
 
 main > section:nth-child(2) {
-	background-color: hsl(0, 13%, 92%);
+	background-color: #eff1f7;
 	padding: 5rem 0 10rem 0;
 }
 
