@@ -26,7 +26,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: inherit;
-	outline: 1px red solid;
 }
 
 *,
@@ -568,7 +567,17 @@ footer .logo {
 		padding: 0;
 		box-sizing: content-box;
 		padding: 2.5rem 0;
+		outline: 1px red solid;
 	}
+
+	.call-to-action input {
+		padding: 1em 0;
+	}
+	.call-to-action button {
+		flex: 1;
+		width: ;
+	}
+
 
 	.call-to-action div {
 		width: 90%;
@@ -582,11 +591,14 @@ footer .logo {
 		display: grid;
 		grid-template-rows: repeat(3, 1fr);
 		grid-template-columns: repeat(2, 1fr);
+		gap: 10px 0;
 	}
 
 	.shortened-link p {
 		grid-area: 1 / 1 / 1 / -1;
 		width: 100%;
+		border-bottom: 1px solid  var(--Gray);
+		padding-bottom: 1rem;
 	}
 
 	.shortened-link .textToCopy {
@@ -595,6 +607,12 @@ footer .logo {
 	}
 
 	.shortened-link button {
-		width: 100%;
+		width: 80% !important;
+		box-sizing: border-box;
+		justify-self: center;
+	}
+
+	.shortened-link button.deleteUrl {
+		margin: 0;
 	}
 }
