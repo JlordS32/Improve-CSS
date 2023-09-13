@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const input = document.querySelector('.link-shorterer-input'); // Input field
 	const label = document.querySelector('.call-to-action div > label'); // Validation label
 	const urlContainer = document.querySelector('.url-container'); // Container for displaying shortened URLs
+	const burgerMenu = document.querySelector('.burger-menu');
 
 	// Check if there's any existing data in localStorage
 	let localisedUrl = JSON.parse(localStorage.getItem('shortenedLinks')) || [];
@@ -135,6 +136,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 			const toRemove = copyBtn.previousElementSibling;
 
 			deleteShortUrl(toRemove.textContent);
+		}
+	});
+
+	const burgerNav = document.querySelector('.burger-nav');
+
+	burgerMenu.addEventListener('click', () => {
+		if (burgerMenu.classList.contains('active')) {
+			burgerMenu.classList.remove('active');
+			burgerNav.style.display = 'flex';
+		} else {
+			burgerMenu.classList.add('active');
+			burgerNav.style.display = 'none';
 		}
 	});
 
