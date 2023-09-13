@@ -176,8 +176,12 @@ main > section:first-child > .hero-wrapper,
 	transform: scale(1) translateY(0);
 }
 
+main {
+	width: 100%;
+}
+
 .hero-content h1 {
-	font-size: 4rem;
+	font-size: clamp(2rem, 5vw, 5rem);
 	line-height: 4.5rem;
 }
 
@@ -490,6 +494,7 @@ footer .logo {
 
 .footer-links {
 	gap: 3rem;
+	margin: 0 2rem;
 }
 
 .social-media-logos {
@@ -567,7 +572,6 @@ footer .logo {
 		padding: 0;
 		box-sizing: content-box;
 		padding: 2.5rem 0;
-		outline: 1px red solid;
 	}
 
 	.call-to-action input {
@@ -575,7 +579,7 @@ footer .logo {
 	}
 	.call-to-action button {
 		flex: 1;
-		width: ;
+		font-size: 0.8rem;
 	}
 
 
@@ -614,5 +618,90 @@ footer .logo {
 
 	.shortened-link button.deleteUrl {
 		margin: 0;
+	}
+
+	.product {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.product::before {
+		height: 70%;
+		width: 10px;
+	}
+
+	.product > .statistics {
+		width: 85%;
+	}
+
+	.statistics > .img-container {
+		left: 50%;
+		top: -15%;
+		transform: translate(-50%);
+	}
+
+	.title {
+		margin: 5rem 0;
+	}
+
+	.title > .subheading {
+		width: 70%;
+	}
+
+	footer {
+		padding: 0;
+		padding-top: 3rem;
+	}
+
+	.footer-container {
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	.footer-container h1 {
+		margin-bottom: 1rem;
+	}
+
+	.footer-container, .footer-container > .footer-links {
+		flex-direction: column;
+	}
+
+	.footer-links {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	header {
+		padding: 1rem;
+	}
+
+	.hero-img img {
+		width: 100%;
+		transform: translateX(10%);
+	}
+
+	.hero-wrapper {
+		transform: translateX(0%);
+	}
+
+	.hero-content {
+		align-items: center;
+	}
+	.hero-content h1 {
+		margin: 1rem 0;
+		text-align: center;
+		line-height: 50px;
+	}
+
+	.call-to-action {
+		gap: 2.5rem;
+	}
+
+	.call-to-action input {
+		font-size: 0.8rem;
+		text-indent: 1rem;
 	}
 }
