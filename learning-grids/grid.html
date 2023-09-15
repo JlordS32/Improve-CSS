@@ -17,25 +17,27 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      padding: 0 100px;
    }
 
    .container {
       outline: 1px rebeccapurple solid;
       display: grid;
-      grid-template-columns: repeat(8, 100px);
+      width: 600px;
       grid-template-rows: repeat(4, 100px);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
    }
 
    .container > div {
-      outline: 1px blue solid;
-      background-color: red;
+      outline: 1px  black solid;
+      background-color: #FFB6C1;
    }
 
    .item1 {
-      grid-row-start: 1;
+      /* grid-row-start: 1;
       grid-row-end: 2;
       grid-column-start: 1;
-      grid-column-end: 6;
+      grid-column-end: 6; */
    }
 
    .item2 {
@@ -52,12 +54,26 @@
          In a nutshell it just means - from where the item is, it will span accordingly
          to the number of columns provided. grid-row: span [number of colums/rows]
       */
-      grid-row: span 4;
+      /* grid-row: span 4; */
    }
 
    .item3 {
-      grid-column: span 2;
-      grid-row: span 4;
+      /* Only use span if you're planning on not putting items on top of another with grid */
+      /* grid-column: span 2;
+      grid-row: span 4; */
+   }
+
+   .item4 {
+      /* A shorthand way of adjusting item positions in a grid
+         grid-area: row-start / col-start / row-end / col-end
+      */
+      /* grid-area: 2 / 1 / -1 / 6; */
+   }
+
+   .item5 {
+      /* background-color:  #B0E0E6 !important;
+      grid-area: 2 / 6 / 4 / -7;
+      z-index: 1; */
    }
 </style>
 <body>
@@ -65,6 +81,18 @@
       <div class="item item1"></div>
       <div class="item item2"></div>
       <div class="item item3"></div>
+      <div class="item item4"></div>
+      <div class="item item4"></div>
+      <div class="item item4"></div>
+      <div class="item item4"></div>
+      <div class="item item4"></div>
+      <!-- <div class="item item4"></div>
+      <div class="item item5"></div>
+      <div class="item item7"></div>
+      <div class="item item8"></div>
+      <div class="item item9"></div>
+      <div class="item item10"></div>
+      <div class="item item11"></div> -->
    </div>
 </body>
 </html>
