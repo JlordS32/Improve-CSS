@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Grids</title>
+</head>
+<style>
+   * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+   }
+
+   body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+   }
+
+   .container {
+      outline: 1px rebeccapurple solid;
+      display: grid;
+      grid-template-columns: repeat(8, 100px);
+      grid-template-rows: repeat(4, 100px);
+   }
+
+   .container > div {
+      outline: 1px blue solid;
+      background-color: red;
+   }
+
+   .item1 {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 6;
+   }
+
+   .item2 {
+      /* grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column-start: 4;
+      grid-column-end: 8; */
+
+      /* A better alternative to adjusting grid position */
+      /* grid-row: 3 / 5;
+      grid-column: 4 / 8; */
+
+      /* A more readable way to adjust grid position - using span
+         In a nutshell it just means - from where the item is, it will span accordingly
+         to the number of columns provided. grid-row: span [number of colums/rows]
+      */
+      grid-row: span 4;
+   }
+
+   .item3 {
+      grid-column: span 2;
+      grid-row: span 4;
+   }
+</style>
+<body>
+   <div class="container">
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+   </div>
+</body>
+</html>
