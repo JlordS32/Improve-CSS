@@ -18,15 +18,13 @@
 	margin: 0;
 	padding: 0;
 	font-family: inherit;
+	transition: 100ms;
 }
 
 body {
 	background-color: var(--light-grayish-blue);
 	color: var(--white);
 	height: 100vh;
-}
-main {
-	background-color: red;
 }
 
 main, .container {
@@ -74,6 +72,7 @@ main, .container {
 	margin: 0 auto;
 	border-radius: 10px;
 	overflow: hidden;
+	position: relative;
 }
 
 .search-location input {
@@ -95,6 +94,7 @@ main, .container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: 150ms;
 }
 
 .search-location > .submit:hover {
@@ -151,10 +151,9 @@ main, .container {
 	font-size: 1.25rem;
 	padding-top: 0.5rem;
 }
-
 @media screen and (max-width: 1208px) {
 	.results {
-		transform: translate(-50%, 70%);
+		transform: translate(-50%, 50%);
 		gap: 2rem;
 	}
 	.results > div {

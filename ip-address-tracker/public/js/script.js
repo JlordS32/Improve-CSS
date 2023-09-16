@@ -10,7 +10,7 @@ const fetchUserIP = async () => {
 };
 
 // Function to fetch the user's default location based on their IP address
-const fetchUserDefaultLocation = async () => {
+const fetchUserDefaultLocation = async (ipaddress) => {
 	try {
 		// Get the user's default IP address
 		const defaultIP = await fetchUserIP();
@@ -21,7 +21,20 @@ const fetchUserDefaultLocation = async () => {
 		);
 		const data = await response.json();
 
-		console.log(data);
+		return data;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const fetchUserLocation = async (ipaddress) => {
+	try {
+		// Fetch location information using the IP address from ipify.org
+		const response = await fetch(
+			`https://geo.ipify.org/api/v2/country,city?apiKey=at_MpxawKCaHCWQFHjwKbNDjNvZrqUwR&ipAddress=${ipaddress}`
+		);
+		const data = await response.json();
+
 		return data;
 	} catch (error) {
 		console.error(error);
@@ -42,6 +55,7 @@ const { lat, lng } = userLocation.location;
 
 // Create a Leaflet map
 var map = L.map('map').setView([lat, lng], 13);
+L.marker([lat, lng]).addTo(map);
 
 // Add a tile layer to the map (Google Maps style)
 L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
@@ -80,7 +94,53 @@ ipOutputElement.textContent = data.ip;
 locationOutputElement.textContent = parsedLocation;
 
 // Display timezone
-timezoneOutputElement.textContent = data.location.timezone;
+timezoneOutputElement.textContent = `UTC ${data.location.timezone}`;
 
 // Display ISP
 ispOutputElement.textContent = data.isp;
+
+const searchIPAddress = document.querySelector('.search-location input');
+const submitSearch = document.querySelector('.submit');
+
+const ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
+
+const searchContainer = document.querySelector('.search-location');
+submitSearch.addEventListener('click', async () => {
+	if (ipRegex.test(searchIPAddress.value)) {
+		searchContainer.style.transition = '0ms';
+		searchContainer.style.outline = '0';
+		
+		loadDisplay(ipOutputElement, ipAddressElement);
+		loadDisplay(locationOutputElement, locationElement);
+		loadDisplay(timezoneOutputElement, timezoneElement);
+		loadDisplay(ispOutputElement, ispElement);
+
+		const userLocation = await fetchUserLocation(searchIPAddress.value);
+
+		// Extract latitude and longitude from userLocation
+		const { lat, lng, city, country, geonameId, timezone } =
+			userLocation.location;
+		const parsedLocation = [city, country, geonameId].join(', ');
+
+		console.log(lat, lng);
+
+		// Create a Leaflet map
+		map.setView([lat, lng], 13);
+		L.marker([lat, lng]).addTo(map);
+
+		// Display IP address
+		ipOutputElement.textContent = userLocation.ip;
+
+		// Display parsed location
+		locationOutputElement.textContent = parsedLocation;
+
+		// Display timezone
+		timezoneOutputElement.textContent = `UTC ${timezone}`;
+
+		// Display ISP
+		ispOutputElement.textContent = userLocation.isp;
+	} else {
+		searchContainer.style.transition = '0ms';
+		searchContainer.style.outline = '2px solid red';
+	}
+});
