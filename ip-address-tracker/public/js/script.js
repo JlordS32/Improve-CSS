@@ -144,3 +144,16 @@ submitSearch.addEventListener('click', async () => {
 		searchContainer.style.outline = '2px solid red';
 	}
 });
+
+// Function to update the placeholder based on screen width
+const updatePlaceholder = () => {
+	if (window.innerWidth < 768) {
+		searchIPAddress.placeholder = 'Search IP Location';
+	}
+ }
+ 
+ // Initial call to set the placeholder based on the current screen width
+ updatePlaceholder();
+ 
+ // Add an event listener for the window resize event
+ window.addEventListener('resize', updatePlaceholder);
