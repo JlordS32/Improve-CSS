@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+:root {
+	--very-dark-gray: hsl(0, 0%, 17%);
+	--dark-gray: hsl(0, 0%, 59%);
+
+	font-family: 'Rubik', sans-serif;
+	font-size: 18px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+}
+
+body {
+	background-color: var(--light-grayish-blue);
+	color: var(--white);
+	height: 100vh;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+.container {
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	height: 100vh;
+}
+
+#map {
+	outline: 1px red solid;
+}
+
+.tracker {
+	background-image: url('../assets/images/pattern-bg-desktop.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+}
