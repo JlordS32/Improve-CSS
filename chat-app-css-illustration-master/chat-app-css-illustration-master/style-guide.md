@@ -24,8 +24,8 @@ The designs were created to the following widths:
 
 These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient:
 
-- Light Magenta: hsl(293, 100%, 63%)
-- Light Violet: hsl(264, 100%, 61%)
+--light-magenta: hsl(293, 100%, 63%);
+--light-violet: hsl(264, 100%, 61%);
 
 ### Secondary
 
