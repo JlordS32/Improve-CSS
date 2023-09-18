@@ -18,6 +18,10 @@
 			rel="stylesheet"
 			href="styles.css"
 		/>
+		<link
+			rel="stylesheet"
+			href="phone.css"
+		/>
 
 		<title>Frontend Mentor | [Challenge Name Here]</title>
 	</head>
@@ -81,18 +85,29 @@
 								She looks so happy! The time we discussed works. How long shall
 								I take her out for?
 							</div>
-							<div class="contact-chat request">30 minute walk <span>$29</span></div>
-							<div class="contact-chat request">1 hour walk <span>$49</span></div>
+							<div class="contact-chat request">
+								<div class="circle"></div>
+								<div class="task">30 minute walk</div>
+								<span>$29</span>
+							</div>
+							<div class="contact-chat request">
+								<div class="circle"></div>
+								<div class="task">1 hour walk</div>
+								<span>$49</span>
+							</div>
 						</div>
 						<div class="send-msg-container">
 							<input
 								type="text"
 								placeholder="Type a message..."
+								disabled
 							/>
-							<img
-								src="./images/chevron-right.svg"
-								alt="send"
-							/>
+							<div class="img-container">
+								<img
+									src="./images/chevron-right.svg"
+									alt="send"
+								/>
+							</div>
 						</div>
 					</div>
 				</div>

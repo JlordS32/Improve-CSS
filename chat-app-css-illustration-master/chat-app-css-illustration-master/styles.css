@@ -13,7 +13,7 @@
 	--white: hsl(0, 0%, 100%);
 	--light-grayish-violet: hsl(270, 20%, 96%);
 	--very-dark-desaturated-violet: hsl(271, 36%, 24%);
-	--very-light-magenta: hsl(289, 100%, 72%);   
+	--very-light-magenta: hsl(289, 100%, 72%);
 
 	/* LINEAR GRADIENT */
 	--light-magenta: hsl(293, 100%, 63%);
@@ -24,21 +24,23 @@
 		var(--light-magenta)
 	);
 
-   font-family: 'Rubik', sans-serif;
-   font-size: 16px;
+	font-family: 'Rubik', sans-serif;
+	font-size: 16px;
 }
 
 body {
-   background-color: var(----light-grayish-violet);
-   height: 100vh;
+	background-color: var(----light-grayish-violet);
+	height: 100vh;
+	opacity: 0.8;
+	background: linear-gradient(90deg, hsl(293, 100%, 63%) 40%, transparent 0%)
 }
 
 main {
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 7rem;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10rem;
 }
 
 * {
@@ -63,118 +65,18 @@ main {
 }
 
 .hero-container {
-   width: 30%;
+	width: 30%;
 }
 
-.phone-cam {
-   position: absolute;
-   width: 50%;
-   height: 30px;
-   background-color: var(--white);
-   top: 0;
-   left: 50%;
-   transform: translate(-50%);
-   border-radius: 1rem;
+.hero-container h1 {
+	font-weight: 500;
+	color: var(--very-dark-desaturated-violet);
+	padding-bottom: 2rem;
+	font-size: 2.5rem;
 }
 
-.phone {
-   width: 270px;
-   border-radius: 1rem;
-   padding: 0.6rem;
-   box-shadow: 0px 10px 47px 29px hsla(0, 0%, 0%, 0.1);
-   display: flex;
-   background-color: var(--white);
-   position: relative;
-}
-
-.screen {
-   flex: 1;
-   border-radius: 1rem;
-   overflow: hidden;
-}
-
-.screen .contact {
-   display: flex;
-   background: var(--linear-gradient);
-   box-sizing: content-box;
-   padding: 1.5rem 0.35rem 0.5rem 0.35rem;
-   gap: 0.6em;
-}
-
-.samuel-img {
-   border-radius: 100px;
-   border: 1px var(--white) solid;
-}
-
-.user-info {
-   color: var(--white);
-   font-size: 0.7rem;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-}
-
-.user-info div:last-child {
-   font-size: 0.5rem;
-}
-
-.contact > .more {
-   margin-left: auto;
-}
-
-.screen .chat {
-   background-color: hsl(264, 26%, 96%);
-   padding: 0 0.5rem;
-   padding-top: 0.5rem;
-   flex: 1;
-}
-
-.message {
-   display: flex;
-   flex-direction: column;
-   gap: 0.5rem;
-   font-size: 0.7rem;
-   height: 100%;
-}
-
-.contact-chat {
-   background-color: hsl(274, 37%, 93%);
-   color: var(--moderate-violet);
-}
-
-:is(.user-chat):not(.img) {
-   background-color: var(--white);
-   color: var(--very-dark-desaturated-violet);
-   box-shadow: 0px 10px 15px -3px hsla(0, 0%, 0%, 0.05);
-}
-
-.user-chat, .contact-chat {
-   max-width: 75%;
-   padding: 0.5rem;
-   border-radius: 10px;
-}
-
-.user-chat {
-   align-self: flex-end;
-}
-
-.user-chat.img {
-   background-color: transparent;
-   display: flex;
-   gap: 0.5rem;
-}
-
-.user-chat.img > img {
-   width: 40px;
-   border-radius: 10px;
-}
-
-.contact-chat.request {
-   background: linear-gradient(to right, var(--light-magenta), var(--light-violet));
-   color: var(--white);
-}
-
-.contact-chat.request span {
-   font-size: 1rem;
-   font-weight: 500;
+.hero-container p {
+	font-weight: 300;
+	color: var(--dark-grayish-violet);
+	font-size: 1.12rem;
 }
