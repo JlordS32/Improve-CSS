@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const capital = document.createElement('p');
 
 			// Stoing details for countryDetails
-			population.innerHTML = `<span>Population</span>: ${country.population}`;
+			population.innerHTML = `<span>Population</span>: ${country.population.toLocaleString()}`;
 			region.innerHTML = `<span>Region</span>: ${country.region}`;
 
 			if (country && country.capital) {
