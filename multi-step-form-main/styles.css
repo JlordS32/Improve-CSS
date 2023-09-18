@@ -28,9 +28,9 @@
 	--font-weight-medium: 500;
 	--font-weight-bold: 700;
 
-   font-size: var(--font-size-paragraph);
-   font-family: var(--font-family);
-   font-weight: var(--font-weight-regular);
+	font-size: var(--font-size-paragraph);
+	font-family: var(--font-family);
+	font-weight: var(--font-weight-regular);
 }
 
 *,
@@ -54,14 +54,85 @@
 }
 
 body {
-   height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+	height: 100vh;
+	position: relative;
+   background-color: var(--magnolia);
+}
+
+button {
+   cursor: pointer;
+}
+
+button:hover, button:active, button {
+   border: 0;
+   outline: 0;
 }
 
 .container {
-   display: flex;
-   outline: 1px red solid;
+	display: grid;
+   grid-template-columns: 1fr 2fr;
+	box-shadow: 0px 10px 40px 17px rgba(0, 0, 0, 0.15);
+	height: 75%;
+	border-radius: 1rem;
+	overflow: hidden;
+	width: 70%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+   background-color: var(--white);
+   padding: 1rem;
 }
 
+.sidebar {
+	background-image: url('./assets/images/bg-sidebar-desktop.svg');
+	background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   border-radius: 1rem;
+   padding: 3rem 2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+
+.steps, .steps > div {
+   display: flex;
+}
+
+.steps {
+   gap: 1rem;
+	align-items: center;
+}
+
+.steps button {
+   background-color: transparent;
+   color: var(--white);
+   height: 2rem;
+   aspect-ratio: 1/1;
+   border-radius: 10rem;
+   outline: 1px var(--white) solid;
+	transition: 100ms;
+}
+
+.steps button:hover {
+	background-color: white;
+	color: var(--purplish-blue);
+}
+
+.steps > div {
+   flex-direction: column;
+   color: var(--white);
+	gap: 0.4rem;
+}
+
+.steps > div .subheading {
+   font-size: 0.8rem;
+   opacity: 0.6;
+}
+
+.steps > div .step-info {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+}
