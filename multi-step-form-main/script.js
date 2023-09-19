@@ -24,7 +24,6 @@ function activateSelectedSteps(selectedSteps) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	const formBtnElement = document.querySelector('.form button');
 	const containerElement = document.querySelector('.container');
 	const currentStep = containerElement.children[1];
 
@@ -36,6 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			case 'step-2-wrapper':
 				console.log(currentStep.className);
 				activateSelectedSteps(2);
+				break;
+			case 'step-3-wrapper':
+				console.log(currentStep.className);
+				activateSelectedSteps(3);
+				break;
+			case 'step-4-wrapper':
+				console.log(currentStep.className);
+				activateSelectedSteps(4);
 				break;
 			default:
 				break;

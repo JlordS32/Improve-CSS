@@ -1,0 +1,61 @@
+:root {
+	--marine-blue: hsl(213, 96%, 18%);
+	--marine-purple: hsl(243, 73%, 32%);
+	--purplish-blue: hsl(243, 100%, 62%);
+	--pastel-blue: hsl(228, 100%, 84%);
+	--light-blue: hsl(206, 94%, 87%);
+	--strawberry-red: hsl(354, 84%, 57%);
+	--cool-gray: hsl(231, 11%, 63%);
+	--light-gray: hsl(229, 24%, 87%);
+	--magnolia: hsl(217, 100%, 97%);
+	--alabaster: hsl(231, 100%, 99%);
+	--white: hsl(0, 0%, 100%);
+	--extras: hsl(230, 75%, 98%);
+}
+
+.step-wrapper {
+	padding: 3rem 7rem 0rem 7rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.step-wrapper button {
+	margin-top: auto;
+	align-self: flex-end;
+	background-color: var(--marine-blue);
+	color: var(--white);
+	font-size: 1rem;
+	padding: 0.75em 1.5em;
+	border-radius: 5px;
+	margin-bottom: 2rem;
+}
+
+.step-wrapper h1 {
+	color: var(--marine-blue);
+	font-size: 2.1rem;
+	padding-bottom: 0.5rem;
+}
+
+.step-wrapper p {
+	color: var(--cool-gray);
+}
+
+.step-wrapper button:hover {
+	opacity: 0.9;
+}
+
+.selection-container {
+   width: 100%;
+   margin-top: auto;
+}
+
+.selection-container .btn-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.selection-container .btn-container .back-btn {
+   background-color: transparent;
+   color: var(--cool-gray);
+}

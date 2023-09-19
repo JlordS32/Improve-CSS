@@ -1,54 +1,134 @@
-.step-2-wrapper {
-	padding: 3rem 7rem 0rem 7rem;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.step-2-wrapper button {
-	margin-top: auto;
-	align-self: flex-end;
-	background-color: var(--marine-blue);
-	color: var(--white);
-	font-size: 1rem;
-	padding: 0.75em 1.5em;
-	border-radius: 5px;
-   margin-bottom: 2rem;
-}
-
-.step-2-wrapper h1 {
-	color: var(--marine-blue);
-	font-size: 2.1rem;
-	padding-bottom: 0.5rem;
-}
-
-.step-2-wrapper p {
-	color: var(--cool-gray);
-}
-
-.step-2-wrapper button:hover {
-	opacity: 0.9;
-}
-
-.selection-container {
-   padding-top: 2rem;
-	width: 100%;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-}
-
-.extra {
+.plan-container {
+   width: 100%;
+   justify-content: space-between;
+   gap: 1rem;
+   padding: 3rem 0;
    display: flex;
-   align-items: center;
-   outline: 1px var(--purplish-blue) solid;
-   padding: 1rem;
-   border-radius: 10px;
 }
 
-.extra .price {
-   color: var(--purplish-blue);
+.plan {
+   outline: 1px var(--light-gray) solid;
+   max-height: 11rem;
+   width: 30%;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   padding: 1rem 1.2rem;
+   transition: all 100ms ease-in-out;
+}
+
+.plan:hover {
+   cursor: pointer;
+   transform: scale(1.03) translateY(-4%);
+   outline: 1px solid var(--purplish-blue);
+}
+
+.plan:active {
+   cursor: pointer;
+   transform: scale(1);
+}
+
+.plan.active {
+   outline: 1px solid hsl(243, 73%, 32%);
+   transform: scale(1);
+   background-color: var(--extras);
+}
+
+.plan img {
+   width: 45px;
+}
+
+.plan .title {
+   margin-top: auto;
+   color: var(--marine-blue) !important;
+   font-weight: 700;
+   padding-top: 3rem;
+}
+
+.plan .price {
+   font-size: 0.8rem;
+   padding-top: 0.2rem;
+   color: var(--cool-gray);
+}
+
+.toggle-planbilling {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+   background-color: var(--extras);
+   padding: 0.7rem 0;
+   border-radius: 10px;
+   gap: 1rem;
+}
+
+.toggle-planbilling p {
    font-weight: 500;
-   margin-left: auto;
+}
+
+.toggle-planbilling > .monthly {
+   color: var(--marine-blue);
+}
+
+.toggle-btn {
+   background-color: var(--marine-blue);
+   width: 40px;
+   border-radius: 100px;
+   overflow: hidden;
+   padding: 0.25rem;
+   display: flex;
+}
+
+.toggle-btn.yearly {
+   background-color: var(--marine-purple);
+}
+
+.toggle-btn.yearly > .circle {
+   left: 50%;
+}
+
+.toggle-btn.montly > .circle {
+   left: 0%;
+}
+
+.toggle-btn:hover {
+   cursor: pointer;
+}
+
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+      transform: scale(0);
+   }
+
+   50% {
+      transform: scale(1.1);
+   }
+
+   60% {
+      transform: scale(1);
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+.yearly-freebie {
+   font-size: 0.7rem;
+   font-weight: 700 !important;
+   color: var(--marine-blue) !important;
+   padding-top: 0.4rem;
+   animation-name: fadeIn;
+   animation-duration: 600ms;
+   animation-timing-function: ease-in-out;
+}
+
+.toggle-btn > .circle {
+   width: 15px;
+   aspect-ratio: 1/1;
+   background-color: var(--white);
+   border-radius: 100px;
+   position: relative;
+   transition: all 150ms ease-in-out;
+   left: 0;
 }

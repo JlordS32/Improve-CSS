@@ -1,0 +1,38 @@
+.selection-container {
+   padding-top: 2rem;
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.extra {
+   display: flex;
+   align-items: center;
+   outline: 1px #1b168d solid;
+   padding: 1rem;
+   border-radius: 10px;
+   background-color: var(--extras);
+   color: var(--marine-blue);
+}
+
+.extra p {
+   color: var(--marine-blue);
+}
+
+.extra .price {
+   color: var(--purplish-blue);
+   font-weight: 500;
+   margin-left: auto;
+}
+
+.service {
+   padding-left: 1.5rem;
+}
+
+.service p:first-child {
+   font-weight: 700;
+   color: var(--marine-blue);
+   font-size: 1rem;
+}
