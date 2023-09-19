@@ -81,7 +81,7 @@ input:focus {
 	height: 75%;
 	border-radius: 1rem;
 	overflow: hidden;
-	width: 70%;
+	width: clamp(600px, 90%, 1010px);
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -147,4 +147,10 @@ input:focus {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 1rem;
+}
+
+@media screen and (max-width: 845px) {
+	.step-wrapper {
+		padding: 2.5rem 2.5rem 0 2.5rem!important;
+	}
 }

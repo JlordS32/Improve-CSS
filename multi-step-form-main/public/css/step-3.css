@@ -1,5 +1,5 @@
 .addons-container {
-   padding-top: 2rem;
+   padding-top: 3rem;
 	width: 100%;
 	flex: 1;
 	display: flex;
@@ -11,7 +11,7 @@
    display: flex;
    align-items: center;
    outline: 1px var(--cool-gray) solid;
-   padding: 1rem;
+   padding: 1.5rem;
    border-radius: 10px;
    color: var(--marine-blue);
 }
@@ -49,6 +49,42 @@
    align-items: center;
    justify-content: center;
 }
+
+.extra:hover {
+   outline: 2px var(--marine-blue) solid;
+   cursor: pointer;
+}
+
+.extra .checkbox:hover {
+   cursor: pointer;
+}
+
+@keyframes scaleIn {
+   0% {
+      opacity: 0;
+   }
+
+   10% {
+      transform: scale(0);
+   }
+
+   60% {
+      transform: scale(1.05);
+   }
+
+   100% {
+      transform: scale(1);
+      opacity: 1;
+   }
+}
+
+.extra .checkbox.checked {
+   background-color: var(--purplish-blue);
+   animation-name: scaleIn;
+   animation-duration: 200ms;
+}
+
+.checkbox.checked
 
 .extra .checkbox:hover {
    cursor: pointer;
