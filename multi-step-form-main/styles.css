@@ -94,7 +94,7 @@ input:focus {
    background-repeat: no-repeat;
    background-size: cover;
    border-radius: 1rem;
-   padding: 3rem 2rem;
+   padding: 2rem;
    display: flex;
    flex-direction: column;
    gap: 2rem;
@@ -109,7 +109,15 @@ input:focus {
 	align-items: center;
 }
 
-.steps button {
+.steps.active-step .step-no {
+	background-color: var(--light-blue);
+	color: var(--marine-blue);
+	font-weight: 700;
+	outline: 0;
+	border: 0;
+}
+
+.steps .step-no {
    background-color: transparent;
    color: var(--white);
    height: 2rem;
@@ -117,11 +125,9 @@ input:focus {
    border-radius: 10rem;
    outline: 1px var(--white) solid;
 	transition: 100ms;
-}
-
-.steps button:hover {
-	background-color: white;
-	color: var(--purplish-blue);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .steps > div {

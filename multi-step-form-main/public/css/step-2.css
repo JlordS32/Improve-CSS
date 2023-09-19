@@ -1,11 +1,11 @@
-.step-1-wrapper {
+.step-2-wrapper {
 	padding: 3rem 7rem 0rem 7rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 }
 
-.step-1-wrapper button {
+.step-2-wrapper button {
 	margin-top: auto;
 	align-self: flex-end;
 	background-color: var(--marine-blue);
@@ -16,21 +16,21 @@
    margin-bottom: 2rem;
 }
 
-.step-1-wrapper h1 {
+.step-2-wrapper h1 {
 	color: var(--marine-blue);
 	font-size: 2.1rem;
 	padding-bottom: 0.5rem;
 }
 
-.step-1-wrapper p {
+.step-2-wrapper p {
 	color: var(--cool-gray);
 }
 
-.step-1-wrapper button:hover {
+.step-2-wrapper button:hover {
 	opacity: 0.9;
 }
 
-.form {
+.selection-container {
    padding-top: 2rem;
 	width: 100%;
 	flex: 1;
@@ -39,22 +39,16 @@
 	gap: 2rem;
 }
 
-.form > div {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.form > div label {
-	color: var(--marine-blue);
-	font-weight: 500;
-}
-
-.form input {
+.extra {
+   display: flex;
+   align-items: center;
+   outline: 1px var(--purplish-blue) solid;
    padding: 1rem;
-   font-weight: 700;
    border-radius: 10px;
-   border: 1px var(--cool-gray) solid;
-   font-size: 1rem;
-   color: var(--marine-blue);
+}
+
+.extra .price {
+   color: var(--purplish-blue);
+   font-weight: 500;
+   margin-left: auto;
 }
