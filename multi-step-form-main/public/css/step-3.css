@@ -1,4 +1,4 @@
-.selection-container {
+.addons-container {
    padding-top: 2rem;
 	width: 100%;
 	flex: 1;
@@ -10,10 +10,9 @@
 .extra {
    display: flex;
    align-items: center;
-   outline: 1px #1b168d solid;
+   outline: 1px var(--cool-gray) solid;
    padding: 1rem;
    border-radius: 10px;
-   background-color: var(--extras);
    color: var(--marine-blue);
 }
 
@@ -35,4 +34,22 @@
    font-weight: 700;
    color: var(--marine-blue);
    font-size: 1rem;
+}
+
+.extra .checkbox > img {
+   display: none;
+}
+
+.extra .checkbox {
+   outline: 1px var(--cool-gray) solid;
+   width: 23px;
+   aspect-ratio: 1/1;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.extra .checkbox:hover {
+   cursor: pointer;
 }

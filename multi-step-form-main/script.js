@@ -4,19 +4,15 @@ function activateSelectedSteps(selectedSteps) {
 	switch (selectedSteps) {
 		case 1:
 			sideBarStepsElement.children[0].classList.add('active-step');
-			console.log(sideBarStepsElement.children[0]);
 			break;
 		case 2:
 			sideBarStepsElement.children[1].classList.add('active-step');
-			console.log(sideBarStepsElement.children[1]);
 			break;
 		case 3:
 			sideBarStepsElement.children[2].classList.add('active-step');
-			console.log(sideBarStepsElement.children[2]);
 			break;
 		case 4:
 			sideBarStepsElement.children[3].classList.add('active-step');
-			console.log(sideBarStepsElement.children[3]);
 			break;
 		default:
 			break;
@@ -27,21 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	const containerElement = document.querySelector('.container');
 	const currentStep = containerElement.children[1];
 
-	if (currentStep && currentStep.className) {
-		switch (currentStep.className) {
+	if (currentStep && currentStep.classList.item(1)) {
+		switch (currentStep.classList.item(1)) {
 			case 'step-1-wrapper':
 				activateSelectedSteps(1);
 				break;
 			case 'step-2-wrapper':
-				console.log(currentStep.className);
 				activateSelectedSteps(2);
 				break;
 			case 'step-3-wrapper':
-				console.log(currentStep.className);
 				activateSelectedSteps(3);
 				break;
 			case 'step-4-wrapper':
-				console.log(currentStep.className);
 				activateSelectedSteps(4);
 				break;
 			default:
