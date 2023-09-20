@@ -18,6 +18,16 @@
 	font-weight: 500;
 }
 
+.label-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.invalid {
+	color: var(--strawberry-red) !important;
+	display: none;
+}
+
 .form input {
    padding: 1rem;
    font-weight: 700;

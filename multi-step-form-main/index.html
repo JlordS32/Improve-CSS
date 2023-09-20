@@ -73,7 +73,14 @@
 					<p>Please provide your name, email address, and phone number.</p>
 					<div class="form">
 						<div>
-							<label for="name">Name</label>
+							<div class="label-wrapper">
+								<label for="name">Name</label>
+								<label
+									for="name"
+									class="invalid"
+									>This field is required</label
+								>
+							</div>
 							<input
 								type="text"
 								name="name"
@@ -82,7 +89,14 @@
 						</div>
 
 						<div>
-							<label for="email-address">Email Address</label>
+							<div class="label-wrapper">
+								<label for="email-address">Email Address</label>
+								<label
+									for="email-address"
+									class="invalid"
+									>This field is required</label
+								>
+							</div>
 							<input
 								type="text"
 								name="email-address"
@@ -91,18 +105,30 @@
 						</div>
 
 						<div>
-							<label for="phone">Phone Number</label>
+							<div class="label-wrapper">
+								<label for="phone">Phone</label>
+								<label
+									for="phone"
+									class="invalid"
+									>This field is required</label
+								>
+							</div>
 							<input
 								type="text"
 								name="phone"
 								placeholder="e.g. +1 234 567 890"
 							/>
 						</div>
-                  <div class="selection-container">
-                     <div class="btn-container">
-                        <button class="next-btn" style="margin-left: auto;">Next Step</button>
-                     </div>
-                  </div>
+						<div class="selection-container">
+							<div class="btn-container">
+								<button
+									class="next-btn"
+									style="margin-left: auto"
+								>
+									Next Step
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -118,6 +144,6 @@
 			>. Coded by <a href="#">Your Name Here</a>.
 		</div> -->
 	</body>
-   <script src="script.js"></script>
-   <script src="./public/js/step-1.js"></script>
+	<script src="script.js"></script>
+	<script src="./public/js/step-1.js"></script>
 </html>

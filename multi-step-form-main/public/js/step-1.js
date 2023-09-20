@@ -11,10 +11,50 @@ document.addEventListener('DOMContentLoaded', () => {
 		'.form input[name="email-address"]'
 	);
 
-	formBtnElement.addEventListener('click', () => {
-		console.log('Email', emailRegex.test(emailInputElement.value));
+	const personalInfoLocalised = JSON.parse(
+		localStorage.getItem('personalInfo')
+	);
 
-		if (emailRegex.test(emailInputElement.value)) {
+	console.log(personalInfoLocalised);
+
+	if (personalInfoLocalised) {
+		nameInputElement.value = personalInfoLocalised.name;
+		emailInputElement.value = personalInfoLocalised.email;
+		phoneInputElement.value = personalInfoLocalised.phone;
+	}
+
+	formBtnElement.addEventListener('click', () => {
+		const emailValue = emailInputElement.value;
+		const nameValue = nameInputElement.value;
+		const phoneValue = phoneInputElement.value;
+
+		const isEmailValid = emailRegex.test(emailValue);
+		const isNameValid = nameRegex.test(nameValue);
+		const isPhoneValid = phoneRegex.test(phoneValue);
+
+		const invalidLabelEmail = document.querySelector(
+			'.form .invalid[for="email-address"]'
+		);
+		const invalidLabelName = document.querySelector(
+			'.form .invalid[for="name"]'
+		);
+		const invalidLabelPhone = document.querySelector(
+			'.form .invalid[for="phone"]'
+		);
+
+		invalidLabelEmail.style.display = isEmailValid ? 'none' : 'block';
+		invalidLabelName.style.display = isNameValid ? 'none' : 'block';
+		invalidLabelPhone.style.display = isPhoneValid ? 'none' : 'block';
+
+		if (isEmailValid && isNameValid && isPhoneValid) {
+			const personalInfo = {
+				name: nameValue,
+				email: emailValue,
+				phone: phoneValue,
+			};
+
+			localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
+
 			window.location.href = './public/step/2.html';
 		}
 	});
