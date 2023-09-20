@@ -37,4 +37,29 @@
    color: var(--marine-blue);
 }
 
+@keyframes vibrate {
+	0% {
+	  transform: translateX(0);
+	}
+	20% {
+	  transform: translateX(-2px);
+	}
+	40% {
+	  transform: translateX(2px);
+	}
+	60% {
+	  transform: translateX(-2px);
+	}
+	80% {
+	  transform: translateX(2px);
+	}
+	100% {
+	  transform: translateX(0);
+	}
+ }
+ 
+ .input-vibrate {
+	animation: vibrate 0.2s ease 2;
+ }
+ 
 

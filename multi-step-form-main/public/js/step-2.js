@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const backBtnElement = document.querySelector(
 		'.selection-container .back-btn'
 	);
+
+   // Create this variable to be stored in localStorage.
+   const userPlan = {
+      frequency: 'monthly',
+      plan: 'arcade',
+   }
+
 	const planElement = document.querySelectorAll('.plan');
 	const togglePlanElement = document.querySelector('.toggle-btn');
 	const yearlyElement = document.querySelector('.yearly');
@@ -16,13 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
 				plan.classList.remove('active');
 			});
 			plan.classList.add('active');
+
+         // Update userPlan variable
+         userPlan.plan = plan.querySelector('.title').textContent.toLowerCase();
 		});
 	});
 
 	togglePlanElement.addEventListener('click', () => {
 		if (togglePlanElement.classList.contains('monthly')) {
 			togglePlanElement.classList.remove('monthly');
+
+         // Update userPlan variable
 			togglePlanElement.classList.add('yearly');
+         userPlan.frequency = 'yearly';
 			monthlyElement.style.color = 'hsl(231, 11%, 63%)';
 			yearlyElement.style.color = 'hsl(213, 96%, 18%)';
 
@@ -39,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			togglePlanElement.classList.remove('yearly');
 			monthlyElement.style.color = 'hsl(213, 96%, 18%)';
 			yearlyElement.style.color = 'hsl(231, 11%, 63%)';
+         
+         // Update userPlan variable
+         userPlan.frequency = 'monthly';
 
 			planElement.forEach((plan) => {
 				const twoMonthsFreeText = plan.querySelector('.yearly-freebie'); // Assuming you added a class to the 2 months free text
@@ -52,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	nextBtnElement.addEventListener('click', () => {
 		window.location.href = './3.html';
+
+      localStorage.setItem('userPlan', JSON.stringify(userPlan)); 
 	});
 
 	backBtnElement.addEventListener('click', () => {
