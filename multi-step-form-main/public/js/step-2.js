@@ -18,6 +18,48 @@ document.addEventListener('DOMContentLoaded', () => {
 	const yearlyElement = document.querySelector('.yearly');
 	const monthlyElement = document.querySelector('.monthly');
 
+	// Set up default plan
+
+	planElement.forEach((plan) => {
+		if (userPlan) {
+			if (
+				plan.querySelector('.title').textContent.toLowerCase() === userPlan.plan
+			) {
+				plan.classList.add('active');
+			}
+		}
+	});
+
+	togglePlanElement.classList.add(userPlan.frequency.toLowerCase());
+
+	if (togglePlanElement.classList.contains('yearly')) {
+		planElement.forEach((plan) => {
+			// Update price
+			const price = plan.querySelector('.price');
+			const numberValue = parseFloat(
+				price.textContent.toString().match(/\d+(\.\d+)?/)[0]
+			);
+
+			price.textContent = `$${numberValue * 10}/yr`;
+
+			const twoMonthsFreeText = document.createElement('p');
+			twoMonthsFreeText.className = 'yearly-freebie';
+			twoMonthsFreeText.textContent = '2 months free';
+
+			plan.appendChild(twoMonthsFreeText);
+		});
+	} else {
+		planElement.forEach((plan) => {
+			// Update price element
+			const price = plan.querySelector('.price');
+			const numberValue = parseFloat(
+				price.textContent.toString().match(/\d+(\.\d+)?/)[0]
+			);
+
+			price.textContent = `$${numberValue}/mo`;
+		});
+	}
+
 	planElement.forEach((plan) => {
 		plan.addEventListener('click', () => {
 			planElement.forEach((plan) => {
@@ -37,36 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			userPlan.price = planPrice;
 		});
 	});
-
-	if (userPlan) {
-		togglePlanElement.classList.add(userPlan.frequency);
-
-		planElement.forEach((plan) => {
-			// Update price
-			const price = plan.querySelector('.price');
-			const numberValue = parseFloat(
-				price.textContent.toString().match(/\d+(\.\d+)?/)[0]
-			);
-
-			if (userPlan.frequency === 'yearly') {
-				price.textContent = `$${numberValue * 10}/yr`;
-
-				const twoMonthsFreeText = document.createElement('p');
-				twoMonthsFreeText.className = 'yearly-freebie';
-				twoMonthsFreeText.textContent = '2 months free';
-
-				plan.appendChild(twoMonthsFreeText);
-			} else {
-				price.textContent = `$${numberValue}/mo`;
-
-				const twoMonthsFreeText = plan.querySelector('.yearly-freebie'); // Assuming you added a class to the 2 months free text
-
-				if (twoMonthsFreeText) {
-					twoMonthsFreeText.remove();
-				}
-			}
-		});
-	}
 
 	togglePlanElement.addEventListener('click', (e) => {
 		e.preventDefault();
