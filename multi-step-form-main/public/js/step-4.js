@@ -7,11 +7,14 @@ function createAddOnElement(addOns, addOnsElement, userPlan) {
 		const addOnElement = document.createElement('div');
 		const price = parseFloat(addOn.price.toString().match(/\d+(\.\d+)?/)[0]);
 
-		addOnElement.innerHTML = `<p class="add-on-name">${
+		addOnElement.innerHTML = `
+		<p class="add-on-name">${
 			addOn.name
-		}</p> <p class="add-on-price">$${
-			userPlan.frequency === 'yearly' ? price * 10 : price
-		}/${userPlan.frequency === 'yearly' ? 'yr' : 'mo'}</p>`;
+		}</p> 
+		<p class="add-on-price">$${
+			price
+		}/${userPlan.frequency === 'yearly' ? 'yr' : 'mo'}
+		</p>`;
 
 		addOnsElement.appendChild(addOnElement);
 	});
