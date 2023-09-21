@@ -7,21 +7,58 @@ document.addEventListener('DOMContentLoaded', () => {
 	);
 	const extraElement = document.querySelectorAll('.extra');
 
+	let selectedAddOns =
+		JSON.parse(localStorage.getItem('addOns')) || new Array();
+
+	if (selectedAddOns) {
+		extraElement.forEach((extra) => {
+			const checkboxElement = extra.querySelector('.checkbox');
+			const addOn = extra.querySelector('.service p').textContent;
+
+			selectedAddOns.forEach((selectedAddOn) => {
+				if (selectedAddOn.name === addOn) {
+					extra.classList.add('checked');
+					checkboxElement.classList.add('checked');
+					checkboxElement.querySelector('img').style.display = 'flex';
+				} else {
+					extra.classList.remove('checked');
+					checkboxElement.classList.remove('checked');
+					checkboxElement.querySelector('img').style.display = 'none';
+				}
+			});
+		});
+	}
+
 	extraElement.forEach((extra) => {
 		extra.addEventListener('click', () => {
 			const checkboxElement = extra.querySelector('.checkbox');
 
+			const addOn = extra.querySelector('.service p').textContent;
+			const price = extra.querySelector('.price').textContent;
+
+			const newAddOn = {
+				name: addOn,
+				price: price,
+			};
+
 			if (checkboxElement.classList.contains('checked')) {
 				checkboxElement.classList.remove('checked');
+				extra.classList.remove('checked');
+
 				checkboxElement.querySelector('img').style.display = 'none';
-            extra.style.outline = '2px solid hsl(231, 11%, 63%)';
-            extra.style.backgroundColor = 'hsl(0, 0%, 100%)';
-            
+
+				selectedAddOns = selectedAddOns.filter(
+					(item) => item.name !== newAddOn.name
+				);
+				localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 			} else {
 				checkboxElement.classList.add('checked');
+				extra.classList.add('checked');
+
 				checkboxElement.querySelector('img').style.display = 'flex';
-            extra.style.outline = '2px solid hsl(213, 96%, 18%)';
-            extra.style.backgroundColor = 'hsl(230, 75%, 98%)';
+
+				selectedAddOns.push(newAddOn);
+				localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 			}
 		});
 	});

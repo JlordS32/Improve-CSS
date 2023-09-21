@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const backBtnElement = document.querySelector(
 		'.selection-container .back-btn'
 	);
+	const planElement = document.querySelectorAll('.plan');
+	const togglePlanElement = document.querySelector('.toggle-btn');
+	const yearlyElement = document.querySelector('.yearly');
+	const monthlyElement = document.querySelector('.monthly');
 
 	// Initialize userPlan from localStorage or with default values
 	const userPlan = JSON.parse(localStorage.getItem('userPlan')) || {
@@ -13,13 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		price: 9,
 	};
 
-	const planElement = document.querySelectorAll('.plan');
-	const togglePlanElement = document.querySelector('.toggle-btn');
-	const yearlyElement = document.querySelector('.yearly');
-	const monthlyElement = document.querySelector('.monthly');
-
 	// Set up default plan
-
 	planElement.forEach((plan) => {
 		if (userPlan) {
 			if (
@@ -132,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			userPlan.price = userPlan.price / 10;
 
 			planElement.forEach((plan) => {
-				const twoMonthsFreeText = plan.querySelector('.yearly-freebie'); // Assuming you added a class to the 2 months free text
+				const twoMonthsFreeText = plan.querySelector('.yearly-freebie');
 
 				if (twoMonthsFreeText) {
 					twoMonthsFreeText.remove();

@@ -84,6 +84,11 @@
    animation-duration: 200ms;
 }
 
+.extra.checked {
+   outline: 2px solid hsl(213, 96%, 18%);
+   background-color: hsl(230, 75%, 98%);
+}
+
 .checkbox.checked
 
 .extra .checkbox:hover {
