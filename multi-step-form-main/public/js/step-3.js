@@ -20,11 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					extra.classList.add('checked');
 					checkboxElement.classList.add('checked');
 					checkboxElement.querySelector('img').style.display = 'flex';
-				} else {
-					extra.classList.remove('checked');
-					checkboxElement.classList.remove('checked');
-					checkboxElement.querySelector('img').style.display = 'none';
-				}
+				} 
 			});
 		});
 	}
@@ -41,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				price: price,
 			};
 
-			if (checkboxElement.classList.contains('checked')) {
+			const existingAddOn = selectedAddOns.find((item) => item.name === newAddOn.name);
+
+			if (existingAddOn) {
 				checkboxElement.classList.remove('checked');
 				extra.classList.remove('checked');
 
@@ -50,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				selectedAddOns = selectedAddOns.filter(
 					(item) => item.name !== newAddOn.name
 				);
-				localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 			} else {
 				checkboxElement.classList.add('checked');
 				extra.classList.add('checked');
@@ -58,16 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
 				checkboxElement.querySelector('img').style.display = 'flex';
 
 				selectedAddOns.push(newAddOn);
-				localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 			}
 		});
 	});
 
 	nextBtnElement.addEventListener('click', () => {
 		window.location.href = './4.html';
+
+		localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 	});
 
 	backBtnElement.addEventListener('click', () => {
 		window.location.href = './2.html';
+
+		localStorage.setItem('addOns', JSON.stringify(selectedAddOns));
 	});
 });
