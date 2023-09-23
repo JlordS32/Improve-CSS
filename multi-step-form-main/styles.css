@@ -58,20 +58,22 @@
 body {
 	height: 100vh;
 	position: relative;
-   background-color: var(--magnolia);
+	background-color: var(--magnolia);
 }
 
 button {
-   cursor: pointer;
+	cursor: pointer;
 }
 
-button:hover, button:active, button {
-   border: 0;
-   outline: 0;
+button:hover,
+button:active,
+button {
+	border: 0;
+	outline: 0;
 }
 
 input:focus {
-   outline: 0;
+	outline: 0;
 }
 
 @keyframes containerFade {
@@ -86,18 +88,18 @@ input:focus {
 
 .container {
 	display: grid;
-   grid-template-columns: 1.5fr 3fr;
+	grid-template-columns: 1.5fr 3fr;
 	box-shadow: 0px 10px 40px 17px rgba(0, 0, 0, 0.15);
 	height: 75%;
 	border-radius: 1rem;
 	overflow: hidden;
-	width: clamp(600px, 90%, 1010px);
+	width: clamp(650px, 90%, 1010px);
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-   background-color: var(--white);
-   padding: 1rem 0 1rem 1rem;
+	background-color: var(--white);
+	padding: 1rem 0 1rem 1rem;
 	animation-name: containerFade;
 	animation-timing-function: ease-in-out;
 	animation-duration: 200ms;
@@ -106,21 +108,22 @@ input:focus {
 .sidebar {
 	background-image: url('./assets/images/bg-sidebar-desktop.svg');
 	background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   border-radius: 1rem;
-   padding: 2rem;
-   display: flex;
-   flex-direction: column;
-   gap: 2rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 1rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 }
 
-.steps, .steps > div {
-   display: flex;
+.steps,
+.steps > div {
+	display: flex;
 }
 
 .steps {
-   gap: 1rem;
+	gap: 1rem;
 	align-items: center;
 }
 
@@ -133,12 +136,12 @@ input:focus {
 }
 
 .steps .step-no {
-   background-color: transparent;
-   color: var(--white);
-   height: 2rem;
-   aspect-ratio: 1/1;
-   border-radius: 10rem;
-   outline: 1px var(--white) solid;
+	background-color: transparent;
+	color: var(--white);
+	height: 2rem;
+	aspect-ratio: 1/1;
+	border-radius: 10rem;
+	outline: 1px var(--white) solid;
 	transition: 100ms;
 	display: flex;
 	justify-content: center;
@@ -146,14 +149,14 @@ input:focus {
 }
 
 .steps > div {
-   flex-direction: column;
-   color: var(--white);
+	flex-direction: column;
+	color: var(--white);
 	gap: 0.4rem;
 }
 
 .steps > div .subheading {
-   font-size: 0.8rem;
-   opacity: 0.6;
+	font-size: 0.8rem;
+	opacity: 0.6;
 }
 
 .steps > div .step-info {
@@ -164,6 +167,45 @@ input:focus {
 
 @media screen and (max-width: 845px) {
 	.step-wrapper {
-		padding: 2.5rem 2.5rem 0 2.5rem!important;
+		padding: 2.5rem 2.5rem 0 2.5rem !important;
+	}
+}
+
+@media screen and (max-width: 655px) {
+	body {
+		height: 100dvh;
+	}
+	.container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 4fr;
+		border-radius: 0;
+		height: 100%;
+		padding: 0;
+		width: 100%;
+	}
+
+	.sidebar {
+		flex-direction: row;
+		justify-content: center;
+		background-position: right 35% bottom 20%;;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 0;
+		height: 100%;
+		padding: 0;
+	}
+
+	.sidebar .steps {
+		position: relative;
+		top: -20px;
+	}
+
+	.step-wrapper {
+		background-color: var(--magnolia);
+		padding: 10px;
+	}
+
+	.sidebar .steps div:last-child {
+		display: none;
 	}
 }

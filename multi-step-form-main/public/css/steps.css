@@ -20,7 +20,6 @@
 	align-items: flex-start;
 }
 
-
 .step-wrapper h1 {
 	color: var(--marine-blue);
 	font-size: 2.1rem;
@@ -32,12 +31,11 @@
 }
 
 .selection-container {
-   width: 100%;
-   margin-top: auto; 
+	width: 100%;
+	margin-top: auto;
 }
 
 .selection-container button {
-	margin-top: auto;
 	align-self: flex-end;
 	background-color: var(--marine-blue);
 	color: var(--white);
@@ -45,26 +43,76 @@
 	padding: 0.75em 1.5em;
 	border-radius: 5px;
 	margin-bottom: 2rem;
-   transition: transform 50ms ease-in-out;
+	transition: transform 50ms ease-in-out;
 }
 
 .selection-container .btn-container {
-   display: flex;
-   justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
 }
 
 .selection-container .back-btn {
-   background-color: transparent;
-   color: var(--cool-gray);
-   font-weight: 500;
-   transition: color 100ms linear;
+	background-color: transparent;
+	color: var(--cool-gray);
+	font-weight: 500;
+	transition: color 100ms linear;
 }
 
 .selection-container .next-btn:hover {
-   opacity: 0.9;
-   transform: scale(1.03);
+	opacity: 0.9;
+	transform: scale(1.03);
 }
 
 .selection-container .back-btn:hover {
-   color: var(--marine-blue);
+	color: var(--marine-blue);
+}
+
+.step {
+	width: 100%;
+}
+
+@media screen and (max-width: 655px) {
+	.step-wrapper {
+		padding: 0 !important;
+	}
+	
+	.step {
+		justify-self: center;
+		background-color: var(--white);
+		border-radius: 10px;
+		box-sizing: border-box;
+		box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+		position: absolute;
+		width: 90%;
+		left: 50%;
+		transform: translate(-50%, -10%) !important;
+		padding: 2rem;
+	}
+
+	.step h1 {
+		font-size: 1.5rem;
+	}
+
+	.step p {
+		font-size: 1rem;
+	}
+
+	.form {
+		padding-top: 0.9rem;
+	}
+
+	.selection-container {
+		width: 100%;
+		background-color: var(--white);
+		padding: 1rem;
+	}
+
+	.selection-container button {
+		margin: 0;
+	}
+
+	.selection-container .btn-container {
+		align-items: center !important;
+	}
 }

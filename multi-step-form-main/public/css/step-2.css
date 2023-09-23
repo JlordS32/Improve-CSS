@@ -132,3 +132,33 @@
    transition: all 150ms ease-in-out;
    left: 0;
 }
+
+@media screen and (max-width: 655px) {
+   .plan-container {
+      flex-direction: column;
+      padding: 1.2rem 0;
+   }
+
+   .plan, .plan.active {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+   }
+
+   .plan > div {
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+      justify-self: flex-start;
+   }
+
+   .plan .title {
+      padding: 0;
+      margin: 0;
+   }
+
+   .yearly-freebie {
+      margin-left: auto;
+      font-size: 0.7rem !important;
+   }
+}

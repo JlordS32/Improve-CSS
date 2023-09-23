@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const nameRegex = /^[A-Za-z\s]+$/;
 	const phoneRegex = /^(?:\+\d{1,3})?\d{10}$/;
 
-	const formBtnElement = document.querySelector('.form button');
+	const formBtnElement = document.querySelector('.selection-container button');
 	const nameInputElement = document.querySelector('.form input[name="name"]');
 	const phoneInputElement = document.querySelector('.form input[name="phone"]');
 	const emailInputElement = document.querySelector(
