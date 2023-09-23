@@ -1,26 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Calculator app</title>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+		<link
+			href="styles.css"
+			rel="stylesheet"
+		/>
 
+		<link
+			href="calc-layout.css"
+			rel="stylesheet"
+		/>
 
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+		<title>Frontend Mentor | Calculator app by Jaylou Rasonabe</title>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<div class="header">
+					<div class="title">
+						<h1>calc</h1>
+					</div>
+					<div class="theme-switch-container">
+						<p>Theme</p>
+						<div class="switch">
+							<div class="theme-number">
+								<div class="number-1">1</div>
+								<div class="number-2">2</div>
+								<div class="number-3">3</div>
+							</div>
+							<div class="switch-knob">
+                        <div class="circle"></div>
+                     </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="calculator">
+					<div class="output"><p></p></div>
+					<div class="numpad">
+						<div class="numpad-items number-0">0</div>
+						<div class="numpad-items number-1">1</div>
+						<div class="numpad-items number-2">2</div>
+						<div class="numpad-items number-3">3</div>
+						<div class="numpad-items number-4">4</div>
+						<div class="numpad-items number-5">5</div>
+						<div class="numpad-items number-6">6</div>
+						<div class="numpad-items number-7">7</div>
+						<div class="numpad-items number-8">8</div>
+						<div class="numpad-items number-9">9</div>
+						<div class="numpad-items decimal">.</div>
+						<div class="numpad-items delete">del</div>
+						<div class="numpad-items plus">+</div>
+						<div class="numpad-items minus">-</div>
+						<div class="numpad-items divide">/</div>
+						<div class="numpad-items multiply">x</div>
+						<div class="numpad-items reset">Reset</div>
+						<div class="numpad-items equal">=</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- <div class="attribution">s
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+        rel="noopener"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>.</div> -->
+	</body>
+   <script src="./script.js"></script>
 </html>

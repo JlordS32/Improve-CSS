@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+:root {
+	/* Layout */
+	--mobile-width: 375px;
+	--desktop-width: 1440px;
+
+	/* Theme 1 */
+	--theme1-bg-main: hsl(222, 26%, 31%);
+	--theme1-bg-toggle: hsl(223, 31%, 20%);
+	--theme1-bg-screen: hsl(224, 36%, 15%);
+	--theme1-key-bg: hsl(225, 21%, 49%);
+	--theme1-key-shadow: hsl(224, 28%, 35%);
+	--theme1-red-bg: hsl(6, 63%, 50%);
+	--theme1-red-shadow: hsl(6, 70%, 34%);
+	--theme1-orange-bg: hsl(30, 25%, 89%);
+	--theme1-orange-shadow: hsl(28, 16%, 65%);
+	--theme1-text-dark: hsl(221, 14%, 31%);
+	--theme1-text-white: hsl(0, 0%, 100%);
+
+	/* Theme 2 */
+	--theme2-bg-main: hsl(0, 0%, 90%);
+	--theme2-bg-toggle: hsl(0, 5%, 81%);
+	--theme2-bg-screen: hsl(0, 0%, 93%);
+	--theme2-key-bg: hsl(185, 42%, 37%);
+	--theme2-key-shadow: hsl(185, 58%, 25%);
+	--theme2-orange-bg: hsl(25, 98%, 40%);
+	--theme2-orange-shadow: hsl(25, 99%, 27%);
+	--theme2-yellow-bg: hsl(45, 7%, 89%);
+	--theme2-yellow-shadow: hsl(35, 11%, 61%);
+	--theme2-text-dark: hsl(60, 10%, 19%);
+	--theme2-text-white: hsl(0, 0%, 100%);
+
+	/* Theme 3 */
+	--theme3-bg-main: hsl(268, 75%, 9%);
+	--theme3-bg-toggle: hsl(268, 71%, 12%);
+	--theme3-bg-screen: hsl(268, 71%, 12%);
+	--theme3-key-bg: hsl(281, 89%, 26%);
+	--theme3-key-shadow: hsl(285, 91%, 52%);
+	--theme3-cyan-bg: hsl(176, 100%, 44%);
+	--theme3-cyan-shadow: hsl(177, 92%, 70%);
+	--theme3-violet-bg: hsl(268, 47%, 21%);
+	--theme3-violet-shadow: hsl(290, 70%, 36%);
+	--theme3-text-yellow: hsl(52, 100%, 62%);
+	--theme3-text-dark: hsl(198, 20%, 13%);
+	--theme3-text-white: hsl(0, 0%, 100%);
+
+	/* Default Theme (Theme 1) */
+	--default-theme-bg-main: var(--theme1-bg-main);
+	--default-theme-bg-toggle: var(--theme1-bg-toggle);
+	--default-theme-bg-screen: var(--theme1-bg-screen);
+	--default-theme-key-bg: var(--theme1-key-bg);
+	--default-theme-key-shadow: var(--theme1-key-shadow);
+	--default-theme-red-bg: var(--theme1-red-bg);
+	--default-theme-red-shadow: var(--theme1-red-shadow);
+	--default-theme-orange-bg: var(--theme1-orange-bg);
+	--default-theme-orange-shadow: var(--theme1-orange-shadow);
+	--default-theme-text-dark: var(--theme1-text-dark);
+	--default-theme-text-white: var(--theme1-text-white);
+
+	/* Typography */
+	--font-family: 'League Spartan', sans-serif;
+	--font-weight: 700;
+
+   font-size: 32px;
+   font-weight: var(--font-weight);
+   font-family: var(--font-family);
+}
+
+* {
+	font-family: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+   background-color: var(--default-theme-bg-main);
+}
+
+.header {
+	display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.header .title {
+   color: var(--default-theme-text-white);
+   font-size: 0.5rem;
+}
+
+
+.theme-switch-container {
+	display: flex;
+}
+
+.theme-switch-container p {
+   color: var(--default-theme-text-white);
+   font-size: 0.4rem;
+   margin-top: 0.2;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-right: 0.6rem;
+   text-transform: uppercase;
+}
+
+.switch {
+   width: 70px;
+}
+
+.switch .theme-number {
+   font-size: 0.4rem;
+   color: var(--default-theme-text-white);
+   display: flex;
+   justify-content: space-around;
+   position: absolute;
+   width: 70px;
+   transform: translate(0, -125%);
+}
+
+.switch .switch-knob {
+   flex: 1;
+   background-color: var(--default-theme-bg-toggle);
+   padding: 0.15rem;
+   border-radius: 10px;
+}
+
+.switch-knob .circle {
+   width: 15px;
+   aspect-ratio: 1/1;
+   background-color: var(--default-theme-red-bg);
+   border-radius: 100%;
+}
+
+.output {
+   background-color: var(--default-theme-bg-screen);
+   color: var(--default-theme-text-white);
+   height: 3.5rem;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   font-size: 1.5rem;
+   margin-top: 0.5rem;
+   border-radius: 10px;
+   padding: 0 1rem;
+   width: 563px;
+   overflow-x: hidden;
+}
+
+.output p {
+   padding: 0;
+   margin: 0;
+}
+
+.numpad {
+   background-color: var(--default-theme-bg-toggle);
+   padding: 1rem;
+   margin-top: 0.75rem;
+   border-radius: 10px;
+}
+
+.numpad > div {
+	font-size: 1rem;
+   background-color: var(--default-theme-orange-bg);
+   padding: 0.5rem 0.7rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   border-bottom: 5px solid var(--default-theme-orange-shadow);
+   transition: 150ms;
+}
+
+.numpad > div:hover {
+   cursor: pointer;
+   opacity: 1;
+   transform: scale(1.05);
+   filter: brightness(120%);
+}
+
+.numpad > div:active {
+   cursor: pointer;
+   opacity: 1;
+   transform: scale(1);
+   filter: brightness(100%);
+}
+
+.numpad > .delete, .numpad > .reset {
+   background-color: var(--default-theme-key-bg);
+   border-bottom: 5px solid var(--default-theme-key-shadow);
+   color: var(--default-theme-text-white);
+   text-transform: uppercase;
+}
+
+.numpad > .equal {
+   background-color: var(--default-theme-red-bg);
+   border-bottom: 5px solid var(--default-theme-red-shadow);
+   color: var(--default-theme-text-white);
+}
+
+.calculator .numpad {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+   gap: 0.75rem 1rem;
+}
