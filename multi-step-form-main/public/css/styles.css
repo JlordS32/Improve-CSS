@@ -106,7 +106,7 @@ input:focus {
 }
 
 .sidebar {
-	background-image: url('./assets/images/bg-sidebar-desktop.svg');
+	background-image: url('../assets/images/bg-sidebar-desktop.svg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

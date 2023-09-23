@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	backBtnElement.addEventListener('click', () => {
-		window.location.href = '../../index.html';
+		window.location.href = '../index.html';
 
 		localStorage.setItem('userPlan', JSON.stringify(userPlan));
 	});

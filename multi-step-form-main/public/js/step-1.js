@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
 
-			window.location.href = './public/step/2.html';
+			window.location.href = './step/2.html';
 		}
 	});
 });
