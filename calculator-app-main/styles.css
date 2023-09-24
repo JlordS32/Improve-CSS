@@ -7,56 +7,58 @@
 
 	/* Theme 1 */
 	--theme1-bg-main: hsl(222, 26%, 31%);
-	--theme1-bg-toggle: hsl(223, 31%, 20%);
-	--theme1-bg-screen: hsl(224, 36%, 15%);
-	--theme1-key-bg: hsl(225, 21%, 49%);
-	--theme1-key-shadow: hsl(224, 28%, 35%);
-	--theme1-red-bg: hsl(6, 63%, 50%);
-	--theme1-red-shadow: hsl(6, 70%, 34%);
-	--theme1-orange-bg: hsl(30, 25%, 89%);
-	--theme1-orange-shadow: hsl(28, 16%, 65%);
+	--theme1-bg-numpad-bg: hsl(223, 31%, 20%);
+	--theme1-bg-output: hsl(224, 36%, 15%);
+	--theme1-bg-clear: hsl(225, 21%, 49%);
+	--theme1-bg-clear-shadow: hsl(224, 28%, 35%);
+	--theme1-accent: hsl(6, 63%, 50%);
+	--theme1-accent-shadow: hsl(6, 70%, 34%);
+	--theme1-numpad: hsl(30, 25%, 89%);
+	--theme1-numpad-shadow: hsl(28, 16%, 65%);
 	--theme1-text-dark: hsl(221, 14%, 31%);
 	--theme1-text-white: hsl(0, 0%, 100%);
 
 	/* Theme 2 */
 	--theme2-bg-main: hsl(0, 0%, 90%);
-	--theme2-bg-toggle: hsl(0, 5%, 81%);
-	--theme2-bg-screen: hsl(0, 0%, 93%);
-	--theme2-key-bg: hsl(185, 42%, 37%);
-	--theme2-key-shadow: hsl(185, 58%, 25%);
-	--theme2-orange-bg: hsl(25, 98%, 40%);
-	--theme2-orange-shadow: hsl(25, 99%, 27%);
-	--theme2-yellow-bg: hsl(45, 7%, 89%);
-	--theme2-yellow-shadow: hsl(35, 11%, 61%);
+	--theme2-bg-numpad-bg: hsl(0, 5%, 81%);
+	--theme2-bg-output: hsl(0, 0%, 93%);
+	--theme2-bg-clear: hsl(185, 42%, 37%);
+	--theme2-bg-clear-shadow: hsl(185, 58%, 25%);
+	--theme2-accent-bg: hsl(25, 98%, 40%);
+	--theme2-accent-shadow: hsl(25, 99%, 27%);
+	--theme2-numpad: hsl(45, 7%, 89%);
+	--theme2-numpad-shadow: hsl(35, 11%, 61%);
 	--theme2-text-dark: hsl(60, 10%, 19%);
 	--theme2-text-white: hsl(0, 0%, 100%);
 
 	/* Theme 3 */
 	--theme3-bg-main: hsl(268, 75%, 9%);
-	--theme3-bg-toggle: hsl(268, 71%, 12%);
-	--theme3-bg-screen: hsl(268, 71%, 12%);
-	--theme3-key-bg: hsl(281, 89%, 26%);
-	--theme3-key-shadow: hsl(285, 91%, 52%);
-	--theme3-cyan-bg: hsl(176, 100%, 44%);
-	--theme3-cyan-shadow: hsl(177, 92%, 70%);
-	--theme3-violet-bg: hsl(268, 47%, 21%);
-	--theme3-violet-shadow: hsl(290, 70%, 36%);
+	--theme3-bg-numpad-bg: hsl(268, 71%, 12%);
+	--theme3-bg-output: hsl(268, 71%, 12%);
+	--theme3-bg-clear: hsl(281, 89%, 26%);
+	--theme3-bg-clear-shadow: hsl(285, 91%, 52%);
+	--theme3-accent-bg: hsl(176, 100%, 44%);
+	--theme3-accent-shadow: hsl(177, 92%, 70%);
+	--theme3-numpad: hsl(268, 47%, 21%);
+	--theme3-numpad-shadow: hsl(290, 70%, 36%);
 	--theme3-text-yellow: hsl(52, 100%, 62%);
 	--theme3-text-dark: hsl(198, 20%, 13%);
 	--theme3-text-white: hsl(0, 0%, 100%);
 
 	/* Default Theme (Theme 1) */
 	--default-theme-bg-main: var(--theme1-bg-main);
-	--default-theme-bg-toggle: var(--theme1-bg-toggle);
-	--default-theme-bg-screen: var(--theme1-bg-screen);
-	--default-theme-key-bg: var(--theme1-key-bg);
-	--default-theme-key-shadow: var(--theme1-key-shadow);
-	--default-theme-red-bg: var(--theme1-red-bg);
-	--default-theme-red-shadow: var(--theme1-red-shadow);
-	--default-theme-orange-bg: var(--theme1-orange-bg);
-	--default-theme-orange-shadow: var(--theme1-orange-shadow);
+	--default-theme-bg-numpad-bg: var(--theme1-bg-numpad-bg);
+	--default-theme-bg-output: var(--theme1-bg-output);
+	--default-theme-bg-clear: var(--theme1-bg-clear);
+	--default-theme-bg-clear-shadow: var(--theme1-bg-clear-shadow);
+	--default-theme-accent: var(--theme1-accent);
+	--default-theme-accent-shadow: var(--theme1-accent-shadow);
+	--default-theme-numpad: var(--theme1-numpad);
+	--default-theme-numpad-shadow: var(--theme1-numpad-shadow);
 	--default-theme-text-dark: var(--theme1-text-dark);
 	--default-theme-text-white: var(--theme1-text-white);
+   --default-theme-text-logo: var(--theme1-text-white);
+   --default-theme-text-output: var(--theme1-text-white);
 
 	/* Typography */
 	--font-family: 'League Spartan', sans-serif;
@@ -89,6 +91,10 @@ body {
    background-color: var(--default-theme-bg-main);
 }
 
+.container {
+   width: 560px;
+}
+
 .header {
 	display: flex;
    justify-content: space-between;
@@ -96,7 +102,7 @@ body {
 }
 
 .header .title {
-   color: var(--default-theme-text-white);
+   color: var(--default-theme-text-logo);
    font-size: 0.5rem;
 }
 
@@ -106,7 +112,7 @@ body {
 }
 
 .theme-switch-container p {
-   color: var(--default-theme-text-white);
+   color: var(--default-theme-text-logo);
    font-size: 0.4rem;
    margin-top: 0.2;
    display: flex;
@@ -122,7 +128,7 @@ body {
 
 .switch .theme-number {
    font-size: 0.4rem;
-   color: var(--default-theme-text-white);
+   color: var(--default-theme-text-logo);
    display: flex;
    justify-content: space-around;
    position: absolute;
@@ -132,21 +138,39 @@ body {
 
 .switch .switch-knob {
    flex: 1;
-   background-color: var(--default-theme-bg-toggle);
    padding: 0.15rem;
    border-radius: 10px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: 15px;
+   position: relative;
+   transition: all 100ms;
+   background-color: var(--default-theme-bg-numpad-bg);
+}
+
+.switch-knob div {
+   transition: 100ms ease-in;
+}
+
+.switch-knob div:hover,
+.switch-knob .cirle:hover {
+   cursor: pointer;
 }
 
 .switch-knob .circle {
    width: 15px;
    aspect-ratio: 1/1;
-   background-color: var(--default-theme-red-bg);
+   background-color: var(--default-theme-accent);
    border-radius: 100%;
+   position: absolute;
+   top: 50%;
+   left: 7%;
+   transform: translate(0%, -50%);
 }
 
 .output {
-   background-color: var(--default-theme-bg-screen);
-   color: var(--default-theme-text-white);
+   background-color: var(--default-theme-bg-output);
+   color: var(--default-theme-text-output);
    height: 3.5rem;
    display: flex;
    justify-content: flex-end;
@@ -154,32 +178,40 @@ body {
    font-size: 1.5rem;
    margin-top: 0.5rem;
    border-radius: 10px;
-   padding: 0 1rem;
-   width: 563px;
    overflow-x: hidden;
+   box-sizing: border-box;
+   padding-right: 1rem;
+   width: 100%;
 }
 
 .output p {
    padding: 0;
    margin: 0;
+   white-space: break-word;
 }
 
 .numpad {
-   background-color: var(--default-theme-bg-toggle);
+   background-color: var(--default-theme-bg-numpad-bg);
+   color: var(--default-theme-text-dark);
    padding: 1rem;
    margin-top: 0.75rem;
    border-radius: 10px;
+   display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+   gap: 0.75rem 1rem;
 }
 
 .numpad > div {
 	font-size: 1rem;
-   background-color: var(--default-theme-orange-bg);
-   padding: 0.5rem 0.7rem;
+   background-color: var(--default-theme-numpad);
+   padding: 0.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 10px;
-   border-bottom: 5px solid var(--default-theme-orange-shadow);
+   border-bottom: 5px solid var(--default-theme-numpad-shadow);
+   color: var(--);
    transition: 150ms;
 }
 
@@ -198,21 +230,33 @@ body {
 }
 
 .numpad > .delete, .numpad > .reset {
-   background-color: var(--default-theme-key-bg);
-   border-bottom: 5px solid var(--default-theme-key-shadow);
+   background-color: var(--default-theme-bg-clear);
+   border-bottom: 5px solid var(--default-theme-bg-clear-shadow);
    color: var(--default-theme-text-white);
    text-transform: uppercase;
+   font-size: 0.7rem;
 }
 
 .numpad > .equal {
-   background-color: var(--default-theme-red-bg);
-   border-bottom: 5px solid var(--default-theme-red-shadow);
+   background-color: var(--default-theme-accent);
+   border-bottom: 5px solid var(--default-theme-accent-shadow);
    color: var(--default-theme-text-white);
 }
 
-.calculator .numpad {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-   gap: 0.75rem 1rem;
+@media screen and (max-width: 560px) {
+   .container {
+      width: 360px;
+   }
+   .output {
+      height: 2.5rem;
+   }
+   
+   .output p {
+      font-size: 1.2rem;
+   }
+
+   .numpad {
+      gap: 0.4rem;
+   }
 }
+
