@@ -43,7 +43,9 @@
   font-family: inherit;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -55,12 +57,15 @@ main {
   z-index: -2;
 }
 main > .container {
-  outline: 1px red solid;
   width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+main > .container .header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .bg {
@@ -93,4 +98,10 @@ main > .container {
 }
 .todo-state-container .state {
   display: flex;
+}
+
+.todo {
+  display: flex;
+  gap: 10px;
+  padding: 1rem 0;
 }
