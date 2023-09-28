@@ -1,0 +1,12 @@
+.todos-wrapper {
+   background-color: var(--light-dark-grayish-blue);
+}
+
+.todo-state-container {
+   display: flex;
+   justify-content: space-between;
+
+   .state {
+      display: flex;
+   }
+}

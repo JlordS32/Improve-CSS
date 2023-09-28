@@ -1,3 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  /* Layout */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
+  /* Primary Colors */
+  --primary-bright-blue: hsl(220, 98%, 61%);
+  --primary-check-background: linear-gradient(
+  	to right,
+  	hsl(192, 100%, 67%),
+  	hsl(280, 87%, 65%)
+  );
+  /* Light Theme Colors */
+  --light-very-light-gray: hsl(0, 0%, 98%);
+  --light-very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-light-grayish-blue: hsl(233, 11%, 84%);
+  --light-dark-grayish-blue: hsl(236, 9%, 61%);
+  --light-very-dark-grayish-blue: hsl(235, 19%, 35%);
+  /* Dark Theme Colors */
+  --dark-very-dark-blue: hsl(235, 21%, 11%);
+  --dark-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --dark-light-grayish-blue: hsl(234, 39%, 85%);
+  --dark-light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-dark-grayish-blue: hsl(234, 11%, 52%);
+  --dark-very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --dark-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+  /* Current Theme */
+  --main-bg: var(--dark-very-dark-blue);
+  --text-color: var(--dark-light-grayish-blue);
+  /* Typography */
+  --body-font-size: 18px;
+  --body-font-family: "Josefin Sans", sans-serif;
+  --body-font-weight-normal: 400;
+  --body-font-weight-bold: 700;
+  font-size: var(----body-font-size);
+  font-family: var(--body-font-family);
+  font-weight: var(--body-font-weight-normal);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+main {
+  height: 100vh;
+  position: relative;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  z-index: -2;
+}
+main > .container {
+  outline: 1px red solid;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  z-index: -1;
+  background-image: url(../images/bg-desktop-dark.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -5,4 +81,16 @@
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+.todos-wrapper {
+  background-color: var(--light-dark-grayish-blue);
+}
+
+.todo-state-container {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-state-container .state {
+  display: flex;
 }
