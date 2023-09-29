@@ -24,64 +24,62 @@
 	</head>
 	<body>
 		<main>
-         <div class="bg">
-
-         </div>
+			<div class="bg"></div>
 			<div class="container">
+				<div class="header">
+					<h1>TODO</h1>
+					<div class="switch-theme">
+						<img
+							src="./images/icon-moon.svg"
+							alt="dark"
+						/>
+					</div>
+				</div>
 
-            <div class="header">
-               <h1>TODO</h1>
-               <div class="switch-theme">
-                  <img src="./images/icon-moon.svg" alt="dark" />
-               </div>
-            </div>
-
-            <div class="newtodo">
-               <input type="text" placeholder="Create a new todo" />
-            </div>
+				<div class="newtodo">
+					<div class="checkbox"></div>
+					<input
+						type="text"
+						placeholder="Create a new todo..."
+					/>
+				</div>
 
 				<div class="todos-wrapper">
-               <div class="todos">
-                  <div class="todo">
-                     <input type="checkbox" />
-                     
-                     <p>Jog around the park 3x</p>
-                  </div>
-                  <div class="todo">
-                     <input type="checkbox" />
-                     <p>10 minutes meditation</p>
-                  </div>
-                  <div class="todo">
-                     <input type="checkbox" />
-                     <p>Read for 1 hour</p>
-                  </div>
-                  <div class="todo">
-                     <input type="checkbox" />
-                     <p>Pick up groceries</p>
-                  </div>
-                  <div class="todo">
-                     <input type="checkbox" />
-                     <p>Complete Todo app</p>
-                  </div>
-               </div>
-               <div class="todo-state-container">
-                  <div class="remaining-item">
-                     <p>5 items left</p>
-                  </div>
-   
-                  <div class="state">
-                     <div>All</div>
-                     <div>Active</div>
-                     <div>Completed</div>
-                  </div>
-   
-                  <div class="clear">
-                     <p>Clear Completed</p>
-                  </div>
-               </div>
-            </div>
+					<div class="todos">
+						<div class="todo">
+							<div class="checkbox"></div>
+							<p>Complete Todo app</p>
+                     <img src="./images/icon-cross.svg" alt="close-todo" />
+						</div>
+						<div class="todo">
+							<div class="checkbox"></div>
+							<p>Complete Todo app</p>
+                     <img src="./images/icon-cross.svg" alt="close-todo" />
+						</div>
+						<div class="todo">
+							<div class="checkbox"></div>
+							<p>Complete Todo app</p>
+                     <img src="./images/icon-cross.svg" alt="close-todo" />
+						</div>
+					</div>
+					<div class="todo-state-container">
+						<div class="remaining-item">
+							<p>5 items left</p>
+						</div>
 
-            <p>Drag and drop to reorder list</p>
+						<div class="state">
+							<div>All</div>
+							<div>Active</div>
+							<div>Completed</div>
+						</div>
+
+						<div class="clear">
+							<p>Clear Completed</p>
+						</div>
+					</div>
+				</div>
+
+				<p>Drag and drop to reorder list</p>
 			</div>
 		</main>
 
@@ -95,4 +93,5 @@
 			>. Coded by <a href="#">Your Name Here</a>.
 		</div> -->
 	</body>
+   <script src="./js/script.js"></script>
 </html>

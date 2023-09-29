@@ -1,6 +1,29 @@
 .todo {
    display: flex;
-   gap: 10px;
-   padding: 1rem 0;
+   gap: 25px;
+   padding: 1.25rem 1.5rem;
+   border-bottom: 1px solid var(--dark-very-dark-grayish-blue);
+   align-items: center;
+
+   .checkbox {
+      width: 20px;
+      aspect-ratio: 1/1;
+      outline: 1px var(--dark-very-dark-grayish-blue) solid;
+      border-radius: 100%;
+      background-color: linear-gradient(45deg, red, blue) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .checkbox:hover,
+   img:hover {
+      cursor: pointer;
+   }
+
+   img {
+      margin-left: auto;
+      opacity: 0;
+   }
 }
 
