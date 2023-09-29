@@ -1,27 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-	const todoCheckBoxElement = document.querySelectorAll('.checkbox');
+	const todoCheckBoxElement = document.querySelectorAll('.todo div');
+   const todoStateElement = document.querySelector('.todo-state-container');
+   const todosElement = document.querySelector('.todos');
 
-	// Creating checked image element
-	const imgElement = document.createElement('img');
-	imgElement.setAttribute('src', './images/icon-check.svg');
+   if (todosElement.childElementCount > 0) {
+      todoStateElement.style.display = 'flex';
+   }
 
 	todoCheckBoxElement.forEach((checkbox) => {
 		checkbox.addEventListener('click', () => {
-			todoCheckBoxElement.forEach((checkbox) => {
-				checkbox.classList.remove('checked');
-			});
-
-			// Add 'checked' class to checkbox element and append img element.
 			if (checkbox.classList.contains('checked')) {
 				checkbox.classList.remove('checked');
-				checkbox.removeChild(checkbox.querySelector('img'));
-            console.log('contains')
-			} else {
-				checkbox.classList.add('checked');
-				checkbox.appendChild(imgElement);
-            console.log('not contains')
-
+            checkbox.innerHTML = '';
+				return;
 			}
+
+			checkbox.classList.add('checked');
+
+         // Creating checked image element
+			const imgElement = document.createElement('img');
+			imgElement.setAttribute('src', './images/icon-check.svg');
+			checkbox.appendChild(imgElement);
 		});
 	});
 });

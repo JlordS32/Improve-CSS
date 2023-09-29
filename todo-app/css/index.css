@@ -123,6 +123,14 @@ main > .container > p {
   border-radius: 100%;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -139,7 +147,7 @@ main > .container > p {
 }
 
 .todo-state-container {
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
   font-size: 0.75rem;
@@ -166,12 +174,24 @@ main > .container > p {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 150ms background-color ease;
+}
+.todo > img {
+  opacity: 0;
+  margin-left: auto;
+  transition: 150ms ease-in;
 }
 .todo .checkbox:hover,
 .todo img:hover {
   cursor: pointer;
 }
-.todo img {
-  margin-left: auto;
-  opacity: 0;
+.todo .checkbox.checked {
+  background: linear-gradient(120deg, #b37fff, #74b7f7);
+}
+.todo .checkbox > img {
+  animation: fadeIn 300ms ease-in-out;
+}
+
+.todo:hover > img {
+  opacity: 1;
 }

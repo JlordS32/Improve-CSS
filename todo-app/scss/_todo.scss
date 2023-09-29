@@ -14,6 +14,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: 150ms background-color ease;
+   }
+
+   > img {
+      opacity: 0;
+      margin-left: auto;
+      transition: 150ms ease-in;
    }
 
    .checkbox:hover,
@@ -21,9 +28,18 @@
       cursor: pointer;
    }
 
-   img {
-      margin-left: auto;
-      opacity: 0;
+   .checkbox.checked {
+      background: linear-gradient(120deg, #b37fff, #74b7f7);
+   }
+
+   .checkbox > img {
+      animation: fadeIn 300ms ease-in-out;
    }
 }
 
+.todo:hover {
+   
+   > img {
+      opacity: 1;
+   }
+}
