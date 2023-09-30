@@ -13,5 +13,8 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "sass": "^1.68.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
   }
 }
