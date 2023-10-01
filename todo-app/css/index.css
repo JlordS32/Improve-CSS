@@ -123,6 +123,18 @@ main > .container > p {
   border-radius: 100%;
 }
 
+.animate {
+  animation-duration: 300ms;
+}
+
+.animate--slow {
+  animation-duration: 600ms;
+}
+
+.animate--fast {
+  animation-duration: 150ms;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -131,6 +143,24 @@ main > .container > p {
     opacity: 1;
   }
 }
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.scaleIn {
+  animation-name: scaleIn;
+  animation-timing-function: ease-in-out;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-timing-function: ease-in-out;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -187,9 +217,6 @@ main > .container > p {
 }
 .todo .checkbox.checked {
   background: linear-gradient(120deg, #b37fff, #74b7f7);
-}
-.todo .checkbox > img {
-  animation: fadeIn 300ms ease-in-out;
 }
 
 .todo:hover > img {
