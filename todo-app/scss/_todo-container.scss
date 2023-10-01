@@ -1,7 +1,6 @@
 .todos-wrapper {
    background-color: var(--todo-container);
    border-radius: 5px;
-   box-shadow: 0px 40px 40px 24px rgba(0,0,0,0.1);
 }
 
 .todo-state-container {
@@ -11,8 +10,26 @@
    font-size: 0.75rem;
    color: var(--text-color-lighter);
 
-   .state {
+   .states {
       display: flex;
       gap: 1rem;
+
+      .state {
+         transition: all 150ms;
+      }
+
+      .state:hover {
+         cursor: pointer;
+      }
+
+      .state.active {
+         color: var(--primary-bright-blue);
+      }
+   }
+
+   .clear:hover {
+      cursor: pointer;
+      transition: all 150ms ease-in;
+      color: var(--primary-bright-blue);
    }
 }

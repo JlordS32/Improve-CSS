@@ -31,6 +31,10 @@ main {
 			justify-content: space-between;
 			margin-bottom: 2rem;
 
+         .switch-theme {
+            cursor: pointer;
+         }
+
 			h1 {
 				letter-spacing: 14px;
 				font-size: 2rem;
@@ -46,6 +50,7 @@ main {
 
 
       > p {
+         display: none;
          padding-top: 3rem;
          text-align: center;
          color: var(--dark-very-dark-grayish-blue-2);
@@ -55,7 +60,7 @@ main {
 
 .newtodo {
 	display: flex;
-	background-color: var(--dark-very-dark-desaturated-blue);
+	background-color: var(--newtodo);
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -67,7 +72,7 @@ main {
 
 	input {
 		width: 100%;
-		background-color: transparent;
+		background-color: var(--newtodo);
 		color: var(--text-color);
 		font-size: 1rem;
 		font-weight: 300;

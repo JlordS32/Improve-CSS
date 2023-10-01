@@ -71,6 +71,9 @@ main > .container .header {
   justify-content: space-between;
   margin-bottom: 2rem;
 }
+main > .container .header .switch-theme {
+  cursor: pointer;
+}
 main > .container .header h1 {
   letter-spacing: 14px;
   font-size: 2rem;
@@ -82,6 +85,7 @@ main > .container .header img {
   aspect-ratio: 1/1;
 }
 main > .container > p {
+  display: none;
   padding-top: 3rem;
   text-align: center;
   color: var(--dark-very-dark-grayish-blue-2);
@@ -89,7 +93,7 @@ main > .container > p {
 
 .newtodo {
   display: flex;
-  background-color: var(--dark-very-dark-desaturated-blue);
+  background-color: var(--newtodo);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -101,7 +105,7 @@ main > .container > p {
 }
 .newtodo input {
   width: 100%;
-  background-color: transparent;
+  background-color: var(--newtodo);
   color: var(--text-color);
   font-size: 1rem;
   font-weight: 300;
@@ -173,7 +177,6 @@ main > .container > p {
 .todos-wrapper {
   background-color: var(--todo-container);
   border-radius: 5px;
-  box-shadow: 0px 40px 40px 24px rgba(0, 0, 0, 0.1);
 }
 
 .todo-state-container {
@@ -183,9 +186,23 @@ main > .container > p {
   font-size: 0.75rem;
   color: var(--text-color-lighter);
 }
-.todo-state-container .state {
+.todo-state-container .states {
   display: flex;
   gap: 1rem;
+}
+.todo-state-container .states .state {
+  transition: all 150ms;
+}
+.todo-state-container .states .state:hover {
+  cursor: pointer;
+}
+.todo-state-container .states .state.active {
+  color: var(--primary-bright-blue);
+}
+.todo-state-container .clear:hover {
+  cursor: pointer;
+  transition: all 150ms ease-in;
+  color: var(--primary-bright-blue);
 }
 
 .todo {
@@ -217,6 +234,11 @@ main > .container > p {
 }
 .todo .checkbox.checked {
   background: linear-gradient(120deg, #b37fff, #74b7f7);
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  color: var(--text-color-lighter);
 }
 
 .todo:hover > img {

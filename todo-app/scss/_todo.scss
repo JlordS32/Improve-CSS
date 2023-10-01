@@ -33,6 +33,11 @@
    }
 }
 
+.todo.completed {
+   text-decoration: line-through;
+   color: var(--text-color-lighter);
+}
+
 .todo:hover {
    
    > img {

@@ -24,13 +24,12 @@
 	</head>
 	<body>
 		<main>
-			<div class="bg"></div>
 			<div class="container">
 				<div class="header">
 					<h1>TODO</h1>
 					<div class="switch-theme">
 						<img
-							src="./images/icon-moon.svg"
+							src="./images/icon-sun.svg"
 							alt="dark"
 						/>
 					</div>
@@ -48,13 +47,13 @@
 					<div class="todos"></div>
 					<div class="todo-state-container">
 						<div class="remaining-item">
-							<p>5 items left</p>
+							
 						</div>
 
-						<div class="state">
-							<div>All</div>
-							<div>Active</div>
-							<div>Completed</div>
+						<div class="states">
+							<div class="state active" id="all">All</div>
+							<div class="state" id="active">Active</div>
+							<div class="state" id="completed">Completed</div>
 						</div>
 
 						<div class="clear">
@@ -63,7 +62,7 @@
 					</div>
 				</div>
 
-				<p>Drag and drop to reorder list</p>
+				<p class="tips">Drag and drop to reorder list</p>
 			</div>
 		</main>
 
