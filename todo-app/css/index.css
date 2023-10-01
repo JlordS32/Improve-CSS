@@ -26,9 +26,10 @@
   --dark-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
   /* Current Theme */
   --main-bg: var(--dark-very-dark-blue);
-  --text-color: var(--dark-light-grayish-blue);
+  --text-color: var(--dark-very-dark-blue);
   --text-color-lighter: var(--dark-dark-grayish-blue);
   --todo-container: var(--dark-very-dark-desaturated-blue);
+  --newtodo: var(--dark-very-dark-desaturated-blue);
   /* Typography */
   --body-font-size: 18px;
   --body-font-family: "Josefin Sans", sans-serif;
@@ -177,6 +178,7 @@ main > .container > p {
 .todos-wrapper {
   background-color: var(--todo-container);
   border-radius: 5px;
+  box-shadow: 0px 15px 30px 10px rgba(0, 0, 0, 0.05);
 }
 
 .todo-state-container {
@@ -215,13 +217,23 @@ main > .container > p {
 .todo .checkbox {
   width: 20px;
   aspect-ratio: 1/1;
-  outline: 1px var(--dark-very-dark-grayish-blue) solid;
   border-radius: 100%;
-  background-color: linear-gradient(45deg, red, blue) !important;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 150ms background-color ease;
+  position: relative;
+  background-color: var(--todo-container);
+  z-index: 1;
+}
+.todo .checkbox::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: red;
+  z-index: -1;
 }
 .todo > img {
   opacity: 0;

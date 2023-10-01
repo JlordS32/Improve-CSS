@@ -59,11 +59,15 @@ function handleThemeSwitch(darkMode) {
 		document.documentElement.style.setProperty('--main-bg', mainBgLight);
 		document.documentElement.style.setProperty(
 			'--todo-container',
-			'hsl(0, 0, 100%)'
+			'white'
 		);
 		document.documentElement.style.setProperty(
 			'--newtodo',
 			'white'
+		);
+		document.documentElement.style.setProperty(
+			'--text-color',
+			'hsl(235, 21%, 11%)'
 		);
 
       mainElement.style.backgroundImage = 'url(images/bg-desktop-light.jpg)';
@@ -78,6 +82,11 @@ function handleThemeSwitch(darkMode) {
 			'--newtodo',
 			'hsl(235, 24%, 19%)'
 		);
+      document.documentElement.style.setProperty(
+			'--text-color',
+			'hsl(234, 39%, 85%)'
+		);
+      
 
       mainElement.style.backgroundImage = 'url(images/bg-desktop-dark.jpg)';
 	}
@@ -197,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 
 			todoStateElement.style.display = 'flex';
-			todoStateElement.style.boxShadow = '0px 40px 40px 24px rgba(0,0,0,0.1)';
 			todosDragDrogMsgElement.style.display = 'block';
 		}
 	});
