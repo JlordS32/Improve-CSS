@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+:root {
+  /* Layout */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
+  /* Primary Colors */
+  --moderate-blue: hsl(238, 40%, 52%);
+  --soft-red: hsl(358, 79%, 66%);
+  --light-grayish-blue: hsl(239, 57%, 85%);
+  --pale-red: hsl(357, 100%, 86%);
+  /* Neutral Colors */
+  --dark-blue: hsl(212, 24%, 26%);
+  --grayish-blue: hsl(211, 10%, 45%);
+  --light-gray: hsl(223, 19%, 93%);
+  --very-light-gray: hsl(228, 33%, 97%);
+  --white: hsl(0, 0%, 100%);
+  /* Typography */
+  --body-font-size: 16px;
+  --font-family: "Rubik", sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--font-weight-normal);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--very-light-gray);
+}
+
+.container {
+  width: 720px;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment {
+  display: flex;
+  background-color: var(--white);
+  padding: 1.5rem 1.25rem;
+  border-radius: 5px;
+}
+.comment .commenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+.comment .commenter .user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.comment .commenter .user .user-img > img {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+.comment .commenter .reply {
+  display: flex;
+  gap: 0.5rem;
+}
+.comment .vote-comment {
+  padding-right: 1.5rem;
+}
+.comment .vote-comment .vote-wrapper {
+  color: var(--moderate-blue);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30px;
+  background-color: var(--light-gray);
+  padding: 1rem;
+  border-radius: 5px;
+}
