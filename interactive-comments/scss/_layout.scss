@@ -28,6 +28,8 @@ main {
    display: flex;
    flex-direction: column;
    gap: 1rem;
+   max-height: 500px;
+   overflow-y: auto;
 }
 
 .comment {
@@ -35,6 +37,10 @@ main {
    background-color: var(--white);
    padding: 1.5rem 1.25rem;
    border-radius: 5px;
+
+   .wrapper {
+      flex: 1;
+   }
 
    .commenter {
       display: flex;
@@ -154,3 +160,18 @@ main {
       filter: brightness(100%);
    }
 }
+
+::-webkit-scrollbar {
+   width: 4px; 
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+   background-color: var(--moderate-blue);
+   border-radius: 4px; 
+ }
+ 
+ .scrollable {
+   overflow: auto;
+   max-height: 300px;
+ }
+ 

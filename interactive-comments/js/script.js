@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+import autoAnimate from 'https://cdn.jsdelivr.net/npm/@formkit/auto-animate@1.0.0-beta.1/index.min.js';
 
 // Function to load and parse JSON data from a file
 async function loadJSON() {
@@ -69,9 +70,9 @@ function sanitizeHTML(str) {
 	div.textContent = str;
 	return div.innerHTML;
 }
-
 document.addEventListener('DOMContentLoaded', async () => {
 	const commentsContainer = document.querySelector('.comments-container');
+   autoAnimate(commentsContainer);
 	const newCommentBtn = document.querySelector('.my-comment-container button');
 	const newCommentInput = document.querySelector(
 		'.my-comment-container textarea'
@@ -100,5 +101,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 			'2 days ago',
 			sanitizeHTML(newCommentInput.value)
 		);
+
+
+      // Scroll all the way to the bottom
+      commentsContainer.scrollTop = commentsContainer.scrollHeight;
+
+      // Clear input
+      newCommentInput.value = '';
 	});
 });
