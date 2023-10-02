@@ -53,7 +53,7 @@ function handleThemeSwitch(darkMode) {
 	const mainBgLight = rootStyles.getPropertyValue('--light-very-light-gray');
 
 	if (darkMode) {
-		iconElement.setAttribute('src', './images/icon-sun.svg');
+		iconElement.setAttribute('src', './images/icon-moon.svg');
 		document.documentElement.style.setProperty('--main-bg', mainBgLight);
 		document.documentElement.style.setProperty('--todo-container', 'white');
 		document.documentElement.style.setProperty('--newtodo', 'white');
@@ -70,7 +70,7 @@ function handleThemeSwitch(darkMode) {
 			'hsl(236, 9%, 61%)'
 		);
 	} else {
-		iconElement.setAttribute('src', './images/icon-moon.svg');
+		iconElement.setAttribute('src', './images/icon-sun.svg');
 		document.documentElement.style.setProperty('--main-bg', mainBgDark);
 		document.documentElement.style.setProperty(
 			'--todo-container',
@@ -192,7 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	);
 
 	// Listen for the window resize event and update the background image accordingly
-	window.addEventListener('resize', () => updateBackgroundImage(JSON.parse(localStorage.getItem('isDarkMode')) || false));
+	window.addEventListener('resize', () =>
+		updateBackgroundImage(
+			JSON.parse(localStorage.getItem('isDarkMode')) || false
+		)
+	);
 
 	// Add click event listeners to the filter buttons
 	allButton.addEventListener('click', () => {
@@ -288,6 +292,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				newTodo.classList.remove('dragging');
 			});
 
+			newTodo.addEventListener('touchstart', () => {
+				newTodo.classList.add('dragging');
+				console.log('drag start');
+			});
+
+			newTodo.addEventListener('touchend', () => {
+				newTodo.classList.remove('dragging');
+				console.log('end');
+			});
+
 			todoStateElement.style.display = 'flex';
 			todosDragDrogMsgElement.style.display = 'block';
 		}
@@ -304,5 +318,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Insert dragged element before the after element;
 		todosElement.insertBefore(draggable, afterElement);
+	});
+
+	todosElement.addEventListener('touchmove', (e) => {
+		e.preventDefault();
+
+		// Get the current touch position
+		const touchY = e.touches[0].clientY;
+
+		// Get the after element based on the touch position
+		const afterElement = getDragAfterElement(todosElement, touchY);
+
+		// Get the element currently being dragged
+		const draggable = document.querySelector('.dragging');
+
+		// Insert the dragged element before the after element;
+		if (afterElement === null) {
+			todosElement.appendChild(draggable);
+		} else {
+			todosElement.insertBefore(draggable, afterElement);
+		}
 	});
 });

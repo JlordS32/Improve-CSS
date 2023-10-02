@@ -16,17 +16,7 @@
       justify-content: center;
       transition: 150ms background-color ease;
       position: relative;
-      background-color: var(--todo-container);
       z-index: 1;
-   }
-
-   .checkbox::before {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 100%;
-      border-radius: 100%;
-      z-index: -1;
    }
 
    > img {
