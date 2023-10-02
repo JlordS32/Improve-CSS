@@ -26,10 +26,12 @@
   --dark-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
   /* Current Theme */
   --main-bg: var(--dark-very-dark-blue);
-  --text-color: var(--dark-very-dark-blue);
+  --text-color: var(--dark-light-grayish-blue);
   --text-color-lighter: var(--dark-dark-grayish-blue);
   --todo-container: var(--dark-very-dark-desaturated-blue);
   --newtodo: var(--dark-very-dark-desaturated-blue);
+  --outline-col: var(--dark-very-dark-grayish-blue);
+  --bottom-msg: var(--dark-very-dark-blue);
   /* Typography */
   --body-font-size: 18px;
   --body-font-family: "Josefin Sans", sans-serif;
@@ -89,7 +91,7 @@ main > .container > p {
   display: none;
   padding-top: 3rem;
   text-align: center;
-  color: var(--dark-very-dark-grayish-blue-2);
+  color: var(--bottom-msg);
 }
 
 .newtodo {
@@ -211,12 +213,13 @@ main > .container > p {
   display: flex;
   gap: 25px;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--dark-very-dark-grayish-blue);
+  border-bottom: 1px solid var(--outline-col);
   align-items: center;
 }
 .todo .checkbox {
   width: 20px;
   aspect-ratio: 1/1;
+  outline: 1px var(--dark-very-dark-grayish-blue) solid;
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -232,7 +235,6 @@ main > .container > p {
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background-color: red;
   z-index: -1;
 }
 .todo > img {

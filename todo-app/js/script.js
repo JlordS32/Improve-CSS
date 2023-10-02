@@ -57,20 +57,22 @@ function handleThemeSwitch(darkMode) {
 	if (darkMode) {
 		iconElement.setAttribute('src', './images/icon-sun.svg');
 		document.documentElement.style.setProperty('--main-bg', mainBgLight);
-		document.documentElement.style.setProperty(
-			'--todo-container',
-			'white'
-		);
-		document.documentElement.style.setProperty(
-			'--newtodo',
-			'white'
-		);
+		document.documentElement.style.setProperty('--todo-container', 'white');
+		document.documentElement.style.setProperty('--newtodo', 'white');
 		document.documentElement.style.setProperty(
 			'--text-color',
 			'hsl(235, 21%, 11%)'
 		);
+		document.documentElement.style.setProperty(
+			'--outline-col',
+			'hsl(236, 33%, 92%)'
+		);
+		document.documentElement.style.setProperty(
+			'--bottom-msg',
+			'hsl(236, 9%, 61%)'
+		);
 
-      mainElement.style.backgroundImage = 'url(images/bg-desktop-light.jpg)';
+		mainElement.style.backgroundImage = 'url(images/bg-desktop-light.jpg)';
 	} else {
 		iconElement.setAttribute('src', './images/icon-moon.svg');
 		document.documentElement.style.setProperty('--main-bg', mainBgDark);
@@ -82,13 +84,20 @@ function handleThemeSwitch(darkMode) {
 			'--newtodo',
 			'hsl(235, 24%, 19%)'
 		);
-      document.documentElement.style.setProperty(
+		document.documentElement.style.setProperty(
 			'--text-color',
 			'hsl(234, 39%, 85%)'
 		);
-      
+		document.documentElement.style.setProperty(
+			'--outline-col',
+			'hsl(233, 14%, 35%)'
+		);
+		document.documentElement.style.setProperty(
+			'--bottom-msg',
+			'hsl(237, 14%, 26%)'
+		);
 
-      mainElement.style.backgroundImage = 'url(images/bg-desktop-dark.jpg)';
+		mainElement.style.backgroundImage = 'url(images/bg-desktop-dark.jpg)';
 	}
 }
 

@@ -2,13 +2,13 @@
    display: flex;
    gap: 25px;
    padding: 1.25rem 1.5rem;
-   border-bottom: 1px solid var(--dark-very-dark-grayish-blue);
+   border-bottom: 1px solid var(--outline-col);
    align-items: center;
 
    .checkbox {
       width: 20px;
       aspect-ratio: 1/1;
-      // outline: 1px var(--dark-very-dark-grayish-blue) solid;
+      outline: 1px var(--dark-very-dark-grayish-blue) solid;
       border-radius: 100%;
       display: flex;
       align-items: center;
@@ -25,7 +25,6 @@
       width: 100%;
       height: 100%;
       border-radius: 100%;
-      background-color: red;
       z-index: -1;
    }
 
