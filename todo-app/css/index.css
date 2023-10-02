@@ -215,6 +215,7 @@ main > .container > p {
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--outline-col);
   align-items: center;
+  cursor: move;
 }
 .todo .checkbox {
   width: 20px;
@@ -253,6 +254,10 @@ main > .container > p {
 .todo.completed {
   text-decoration: line-through;
   color: var(--text-color-lighter);
+}
+
+.todo.dragging {
+  opacity: 1;
 }
 
 .todo:hover > img {

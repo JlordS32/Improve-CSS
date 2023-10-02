@@ -32,6 +32,7 @@ function showCompletedTodoItems() {
 		}
 	});
 }
+
 function clearCompletedTodoItems() {
 	const todoItems = document.querySelectorAll('.todo');
 	todoItems.forEach((item) => {
@@ -45,14 +46,11 @@ function handleThemeSwitch(darkMode) {
 	const switchThemeElement = document.querySelector('.switch-theme');
 	const iconElement = switchThemeElement.querySelector('img');
 	const rootStyles = getComputedStyle(document.documentElement);
-	const mainElement = document.querySelector('main');
 
 	// Colors
 
 	const mainBgDark = rootStyles.getPropertyValue('--dark-very-dark-blue');
 	const mainBgLight = rootStyles.getPropertyValue('--light-very-light-gray');
-
-	console.log(mainBgLight);
 
 	if (darkMode) {
 		iconElement.setAttribute('src', './images/icon-sun.svg');
@@ -71,8 +69,6 @@ function handleThemeSwitch(darkMode) {
 			'--bottom-msg',
 			'hsl(236, 9%, 61%)'
 		);
-
-		mainElement.style.backgroundImage = 'url(images/bg-desktop-light.jpg)';
 	} else {
 		iconElement.setAttribute('src', './images/icon-moon.svg');
 		document.documentElement.style.setProperty('--main-bg', mainBgDark);
@@ -96,8 +92,6 @@ function handleThemeSwitch(darkMode) {
 			'--bottom-msg',
 			'hsl(237, 14%, 26%)'
 		);
-
-		mainElement.style.backgroundImage = 'url(images/bg-desktop-dark.jpg)';
 	}
 }
 
@@ -129,6 +123,69 @@ document.addEventListener('DOMContentLoaded', () => {
 		todoStateElement.style.boxShadow = '0';
 		todosDragDrogMsgElement.style.display = 'none';
 	}
+
+	// Function to check what is the current after element
+	function getDragAfterElement(container, y) {
+		const draggableTodos = [
+			...container.querySelectorAll('.todo:not(.dragging)'),
+		];
+
+		return draggableTodos.reduce(
+			(closest, child) => {
+				const box = child.getBoundingClientRect();
+				const offset = y - box.top - box.height / 2;
+
+				if (offset < 0 && offset > closest.offset) {
+					return {
+						offset: offset,
+						element: child,
+					};
+				} else {
+					return closest;
+				}
+			},
+			{ offset: Number.NEGATIVE_INFINITY, element: null }
+		).element; // Provide a default element value
+	}
+
+	// Function to toggle the checkbox
+	function toggleCheckbox(checkbox, todo) {
+		if (checkbox.classList.contains('checked')) {
+			checkbox.classList.remove('checked');
+			todo.classList.remove('completed');
+			checkbox.innerHTML = '';
+			return;
+		}
+
+		checkbox.classList.add('checked');
+		todo.classList.add('completed');
+
+		// Creating checked image element
+		const imgElement = document.createElement('img');
+		imgElement.setAttribute('src', './images/icon-check.svg');
+		imgElement.classList.add('animate--fast');
+		imgElement.classList.add('fadeIn');
+		checkbox.appendChild(imgElement);
+	}
+
+	function updateBackgroundImage() {
+		const mainElement = document.querySelector('main');
+      const isDarkMode = localStorage.getItem('isDarkMode') || true;
+
+      console.log(isDarkMode);
+
+		if (window.innerWidth < 600) {
+			mainElement.style.backgroundImage = `url('./images/bg-mobile-dark.jpg')`;
+		} else {
+         mainElement.style.backgroundImage = isDarkMode === true ? `url('./images/bg-desktop-light.jpg')` : `url('./images/bg-desktop-dark.jpg')`;
+      }
+	}
+
+	// Initial setup when the page loads
+	updateBackgroundImage();
+
+	// Listen for the window resize event and update the background image accordingly
+	window.addEventListener('resize', updateBackgroundImage);
 
 	// Add click event listeners to the filter buttons
 	allButton.addEventListener('click', () => {
@@ -187,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			newTodo.classList.add('todo');
 			newTodo.classList.add('animate');
 			newTodo.classList.add('fadeIn');
+			newTodo.setAttribute('draggable', 'true');
 			newTodo.setAttribute('data-id', uuidv4());
 			newTodo.innerHTML = `<div class="checkbox"></div><p>${newTodoElement.value}</p><img src="./images/icon-cross.svg" alt="close-todo"/>`;
 
@@ -214,28 +272,33 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			});
 
+			newTodo.addEventListener('dragstart', () => {
+				newTodo.classList.add('dragging');
+
+				showNotDraggedTodoItems();
+			});
+
+			newTodo.addEventListener('dragend', () => {
+				newTodo.classList.remove('dragging');
+
+				showNotDraggedTodoItems();
+			});
+
 			todoStateElement.style.display = 'flex';
 			todosDragDrogMsgElement.style.display = 'block';
 		}
 	});
 
-	// Function to toggle the checkbox
-	function toggleCheckbox(checkbox, todo) {
-		if (checkbox.classList.contains('checked')) {
-			checkbox.classList.remove('checked');
-			todo.classList.remove('completed');
-			checkbox.innerHTML = '';
-			return;
-		}
+	todosElement.addEventListener('dragover', (e) => {
+		e.preventDefault();
 
-		checkbox.classList.add('checked');
-		todo.classList.add('completed');
+		// Get after element
+		const afterElement = getDragAfterElement(todosElement, e.clientY);
 
-		// Creating checked image element
-		const imgElement = document.createElement('img');
-		imgElement.setAttribute('src', './images/icon-check.svg');
-		imgElement.classList.add('animate--fast');
-		imgElement.classList.add('fadeIn');
-		checkbox.appendChild(imgElement);
-	}
+		// Get element current being dragged
+		const draggable = document.querySelector('.dragging');
+
+		// Insert dragged element before the after element;
+		todosElement.insertBefore(draggable, afterElement);
+	});
 });
