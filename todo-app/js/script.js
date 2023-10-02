@@ -168,24 +168,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		checkbox.appendChild(imgElement);
 	}
 
-	function updateBackgroundImage() {
+	function updateBackgroundImage(darkMode) {
 		const mainElement = document.querySelector('main');
-      const isDarkMode = localStorage.getItem('isDarkMode') || true;
-
-      console.log(isDarkMode);
 
 		if (window.innerWidth < 600) {
-			mainElement.style.backgroundImage = `url('./images/bg-mobile-dark.jpg')`;
+			if (darkMode) {
+				mainElement.style.backgroundImage = `url('./images/bg-mobile-light.jpg')`;
+			} else {
+				mainElement.style.backgroundImage = `url('./images/bg-mobile-dark.jpg')`;
+			}
 		} else {
-         mainElement.style.backgroundImage = isDarkMode === true ? `url('./images/bg-desktop-light.jpg')` : `url('./images/bg-desktop-dark.jpg')`;
-      }
+			if (darkMode) {
+				mainElement.style.backgroundImage = `url('./images/bg-desktop-light.jpg')`;
+			} else {
+				mainElement.style.backgroundImage = `url('./images/bg-desktop-dark.jpg')`;
+			}
+		}
 	}
 
 	// Initial setup when the page loads
-	updateBackgroundImage();
+	updateBackgroundImage(
+		JSON.parse(localStorage.getItem('isDarkMode')) || false
+	);
 
 	// Listen for the window resize event and update the background image accordingly
-	window.addEventListener('resize', updateBackgroundImage);
+	window.addEventListener('resize', () => updateBackgroundImage(JSON.parse(localStorage.getItem('isDarkMode')) || false));
 
 	// Add click event listeners to the filter buttons
 	allButton.addEventListener('click', () => {
@@ -222,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Update the theme icon immediately based on the current darkMode value
 		handleThemeSwitch(!darkMode);
+		updateBackgroundImage(!darkMode);
 
 		// Toggle the localStorage value
 		localStorage.setItem('isDarkMode', !darkMode);
@@ -274,14 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			newTodo.addEventListener('dragstart', () => {
 				newTodo.classList.add('dragging');
-
-				showNotDraggedTodoItems();
 			});
 
 			newTodo.addEventListener('dragend', () => {
 				newTodo.classList.remove('dragging');
-
-				showNotDraggedTodoItems();
 			});
 
 			todoStateElement.style.display = 'flex';
