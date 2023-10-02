@@ -12,35 +12,42 @@ async function loadJSON() {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+function createCommentElement(
+	score,
+	image,
+	username,
+	createdDate,
+	commentContent
+) {
+	const commentElement = document.createElement('div');
 	const commentsContainer = document.querySelector('.comments-container');
 
-	const data = await loadJSON();
-	const { currentUser, comments } = data;
+	commentElement.classList.add('comment');
+	commentElement.setAttribute('data-id', uuidv4());
 
-	comments.forEach((comment) => {
-		const commentElement = document.createElement('div');
-		commentElement.classList.add('comment');
-		commentElement.setAttribute('data-id', uuidv4());
-		commentElement.innerHTML = `
+	commentElement.innerHTML = `
          <div class="vote-comment">
             <div class="vote-wrapper">
-               <img src="./images/icon-plus.svg" alt="upvote-comment" />
-               <p class="vote-number">${comment.score}</p>
-               <img src="./images/icon-minus.svg" alt="upvote-comment" />
+               <div class="upvote">
+                  <img src="./images/icon-plus.svg" alt="upvote-comment" />
+               </div>
+               <p class="vote-number">${score}</p>
+               <div class="downvote">
+                  <img src="./images/icon-minus.svg" alt="upvote-comment" />
+               </div>
             </div>
          </div>
          <div class="wrapper"> 
             <div class="commenter"> 
                <div class="user">
                   <div class="user-img">
-                     <img src="${comment.user.image.png}" alt="user-img" />
+                     <img src="${image}" alt="user-img" />
                   </div>
                   <div class="user-name">
-                     ${comment.user.username}
+                     ${username}
                   </div>
-                  <div class="user-comment-data">
-                     <p>${comment.createdAt}</p>
+                  <div class="comment-created">
+                     <p>${createdDate}</p>
                   </div>
                </div>
                <div class="reply">
@@ -49,11 +56,49 @@ document.addEventListener('DOMContentLoaded', async () => {
                </div>
             </div>
             <div class="comment-content">
-               ${comment.content}
+               ${commentContent}
             </div>
          </div>
       `;
 
-		commentsContainer.appendChild(commentElement);
+	commentsContainer.appendChild(commentElement);
+}
+
+function sanitizeHTML(str) {
+	const div = document.createElement('div');
+	div.textContent = str;
+	return div.innerHTML;
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+	const commentsContainer = document.querySelector('.comments-container');
+	const newCommentBtn = document.querySelector('.my-comment-container button');
+	const newCommentInput = document.querySelector(
+		'.my-comment-container textarea'
+	);
+
+	const data = await loadJSON();
+	const { currentUser, comments } = data;
+
+	comments.forEach((comment) => {
+		const { score, user, createdAt, content } = comment;
+
+		createCommentElement(
+			score,
+			user.image.png,
+			user.username,
+			createdAt,
+			content
+		);
+	});
+
+	newCommentBtn.addEventListener('click', () => {
+		createCommentElement(
+			0,
+			currentUser.image.png,
+			currentUser.username,
+			'2 days ago',
+			sanitizeHTML(newCommentInput.value)
+		);
 	});
 });
