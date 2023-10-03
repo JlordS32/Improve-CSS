@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-
 export function scrollToBottom() {
 	const commentsContainer = document.querySelector('.comments-container');
 	// Scroll all the way to the bottom
@@ -16,7 +14,6 @@ export function createCommentElement(
    const commentsContainer = document.querySelector('.comments-container');
 	const commentElement = document.createElement('div');
 	commentElement.classList.add('comment');
-	commentElement.setAttribute('data-id', uuidv4());
 
 	if (isUser) {
 		commentElement.classList.add('my-comment');
