@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			const replyContainer = document.createElement('div'); // Create a new div for the replies container
 			replyContainer.classList.add('reply-container'); // Add a CSS class to the replies container
 			autoAnimate(replyContainer);
+         let hasReplied = false;
 
 			replies.forEach((reply) => {
 				// Create a new reply comment element using the createCommentElement function
@@ -148,15 +149,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 				);
 
 				newReply.querySelector('.reply').addEventListener('click', () => {
-					let hasReplied = false;
 
 					if (!hasReplied) {
                   hasReplied = true;
-						const newReplyContainer = createReplyContainer(currentUser, user);
+						const newReplyContainer = createReplyContainer(currentUser, reply.user);
 						const replyBtn = newReplyContainer.querySelector('button');
 
 						replyBtn.addEventListener('click', () => {
 							newReplyContainer.remove();
+                     hasReplied = false;
 
 							let replyContainer =
 								commentWrapper.querySelector('.reply-container');
