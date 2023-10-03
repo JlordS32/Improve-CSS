@@ -67,7 +67,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 500px;
+  max-height: 700px;
   overflow-y: auto;
 }
 

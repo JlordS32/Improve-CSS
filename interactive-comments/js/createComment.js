@@ -13,6 +13,7 @@ export function createCommentElement(
 	commentContent,
 	isUser = false
 ) {
+   const commentsContainer = document.querySelector('.comments-container');
 	const commentElement = document.createElement('div');
 	commentElement.classList.add('comment');
 	commentElement.setAttribute('data-id', uuidv4());
@@ -98,7 +99,7 @@ export function createCommentElement(
 			commentElement.appendChild(updateComment);
 			commentElement.appendChild(updateBtn);
 
-			scrollToBottom();
+         commentsContainer.scrollTop = commentElement.parentElement.scrollHeight;
 
 			updateBtn.addEventListener('click', () => {
 				if (updateComment.value.trim() === '') return;

@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 	autoAnimate(commentsContainer); // Apply auto-animation to the comments container
 
 	const newCommentBtn = document.querySelector('.my-comment-container button'); // Select the new comment button
-	const newCommentInput = document.querySelector('.my-comment-container textarea'); // Select the new comment textarea
+	const newCommentInput = document.querySelector(
+		'.my-comment-container textarea'
+	); // Select the new comment textarea
 
 	const data = await loadJSON(); // Load JSON data asynchronously
 	const { currentUser, comments } = data; // Destructure data into currentUser and comments
@@ -50,42 +52,57 @@ document.addEventListener('DOMContentLoaded', async () => {
 		);
 
 		const replyElement = newComment.querySelector('.reply'); // Select the reply button in the new comment
+		let hasReplied = false;
 
 		// Event listener for when the reply button is clicked
 		replyElement.addEventListener('click', () => {
-			const newReplyContainer = document.createElement('div'); // Create a new div for the reply container
-			newReplyContainer.classList.add('new-reply-container'); // Add a CSS class to the reply container
-			newReplyContainer.innerHTML = `
-            <img src=${currentUser.image.png} alt="${currentUser.username}"/>
-            <textarea id="new-reply" placeholder="Enter reply here...">@${user.username}</textarea>
-            <button>Reply</button>
-         `; // HTML content for the reply container
+			if (!hasReplied) {
+				hasReplied = true;
 
-			const replyBtn = newReplyContainer.querySelector('button'); // Select the reply button in the reply container
+				const newReplyContainer = document.createElement('div'); // Create a new div for the reply container
+				newReplyContainer.classList.add('new-reply-container'); // Add a CSS class to the reply container
+				newReplyContainer.innerHTML = `
+               <img src=${currentUser.image.png} alt="${currentUser.username}"/>
+               <textarea id="new-reply" placeholder="Enter reply here...">@${user.username}</textarea>
+               <button>Reply</button>
+            `; // HTML content for the reply container
 
-			commentWrapper.appendChild(newReplyContainer); // Append the reply container to the comment
+				const replyBtn = newReplyContainer.querySelector('button'); // Select the reply button in the reply container
 
-			// Event listener for when the reply button in the reply container is clicked
-			replyBtn.addEventListener('click', () => {
-				newReplyContainer.remove(); // Remove the reply container
+				commentWrapper.appendChild(newReplyContainer); // Append the reply container to the comment
 
-				const replyContainer = document.createElement('div'); // Create a new div for the reply
-				replyContainer.classList.add('reply-container'); // Add a CSS class to the reply container
-				const newReplyInput = newReplyContainer.querySelector('textarea').value; // Get the text from the reply textarea
+				// Event listener for when the reply button in the reply container is clicked
+				replyBtn.addEventListener('click', () => {
+					newReplyContainer.remove(); // Remove the reply container
 
-				// Create a new reply comment element using the createCommentElement function
-				const newReply = createCommentElement(
-					0,
-					currentUser.image.png,
-					currentUser.username,
-					'2 days ago',
-					sanitizeHTML(newReplyInput),
-					true
-				);
+					let replyContainer = commentWrapper.querySelector('.reply-container');
 
-				replyContainer.appendChild(newReply); // Append the reply to the reply container
-				commentWrapper.appendChild(replyContainer); // Append the reply container to the comment
-			});
+					if (!replyContainer) {
+						replyContainer = document.createElement('div'); // Create a new div for the replies container
+						replyContainer.classList.add('reply-container'); // Add a CSS class to the replies container
+					}
+
+					const newReplyInput =
+						newReplyContainer.querySelector('textarea').value; // Get the text from the reply textarea
+
+					// Create a new reply comment element using the createCommentElement function
+					const newReply = createCommentElement(
+						0,
+						currentUser.image.png,
+						currentUser.username,
+						'2 days ago',
+						sanitizeHTML(newReplyInput),
+						true
+					);
+
+					hasReplied = false;
+
+					replyContainer.appendChild(newReply); // Append the reply to the reply container
+					commentWrapper.appendChild(replyContainer); // Append the reply container to the comment
+				});
+
+				commentsContainer.scrollTop = commentWrapper.offsetTop;
+			}
 		});
 
 		commentWrapper.appendChild(newComment); // Append the new comment to the comment wrapper
