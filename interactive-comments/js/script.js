@@ -27,11 +27,11 @@ function createCommentElement(
 	commentContent,
 	isUser = false
 ) {
-   const commentWrapper = document.createElement('div');
+	const commentWrapper = document.createElement('div');
 	const commentElement = document.createElement('div');
 	const commentsContainer = document.querySelector('.comments-container');
-
-   commentWrapper.classList.add('comment-wrapper');
+   
+	commentWrapper.classList.add('comment-wrapper');
 	commentElement.classList.add('comment');
 	commentElement.setAttribute('data-id', uuidv4());
 
@@ -118,7 +118,7 @@ function createCommentElement(
 			scrollToBottom();
 
 			updateBtn.addEventListener('click', () => {
-            if (updateComment.value.trim() === '') return;
+				if (updateComment.value.trim() === '') return;
 
 				// Update user comment value
 				commentContentElement.textContent = updateComment.value;
@@ -134,7 +134,34 @@ function createCommentElement(
 		commentElement.appendChild(editBtn);
 	}
 
-   commentWrapper.appendChild(commentElement);
+   const voteWrapper = commentElement.querySelector('.vote-wrapper');
+   const upvote = voteWrapper.querySelector('.upvote');
+   const downvote = voteWrapper.querySelector('.downvote');
+   const voteNumber = voteWrapper.querySelector('.vote-number');
+   let hasUpvote = false;
+   let hasDownvote = false;
+
+   upvote.addEventListener('click', () => {
+      if (!hasUpvote && !hasDownvote) {
+         voteNumber.textContent = parseInt(voteNumber.textContent) + 1;
+         hasUpvote = true;
+      } else if (!hasUpvote && hasDownvote) {
+         voteNumber.textContent = parseInt(voteNumber.textContent) + 1;
+         hasDownvote = false;
+      }
+   })
+
+   downvote.addEventListener('click', () => {
+      if (!hasDownvote && !hasUpvote) {
+         voteNumber.textContent = parseInt(voteNumber.textContent) - 1;
+         hasDownvote = true;
+      } else if (!hasDownvote && hasUpvote) {
+         voteNumber.textContent = parseInt(voteNumber.textContent) - 1;
+         hasUpvote = false;
+      }
+   })
+
+	commentWrapper.appendChild(commentElement);
 	commentsContainer.appendChild(commentWrapper);
 }
 
@@ -151,8 +178,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const newCommentInput = document.querySelector(
 		'.my-comment-container textarea'
 	);
-
-   const voteWrapperElement = document.querySelectorAll('.vote-wrapper');
 
 	const data = await loadJSON();
 	const { currentUser, comments } = data;
@@ -186,14 +211,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 		// Clear input
 		newCommentInput.value = '';
 	});
-
-   voteWrapperElement.forEach(voteElement => {
-      const upvote = voteElement.querySelector('.upvote');
-      const downvote = voteElement.querySelector('.downvote');
-      const voteCount = voteElement.querySelector('.vote-number');
-
-      upvote.addEventListener('click', () => {
-         console.log(voteCount.textContent);
-      })
-   })
 });
