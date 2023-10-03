@@ -40,11 +40,14 @@
   font-family: inherit;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -69,48 +72,79 @@ main {
 }
 
 .comment {
-  display: flex;
+  display: grid;
   background-color: var(--white);
   padding: 1.5rem 1.25rem;
   border-radius: 5px;
+  grid-template-columns: 0.1fr 1fr repeat(3, 0.2fr);
+  grid-template-rows: 45px auto;
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 0.1fr;
+  gap: 0.5rem 0;
 }
-.comment .wrapper {
-  flex: 1;
+.comment .delete-comment {
+  grid-area: 1/3/1/3;
+  color: var(--soft-red);
 }
-.comment .commenter {
+.comment .edit-comment {
+  grid-area: 1/4/1/4;
+  color: var(--moderate-blue);
+}
+.comment .edit-comment, .comment .delete-comment {
   display: flex;
   align-items: center;
-  padding-bottom: 0.5rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: 100ms;
 }
-.comment .commenter .user {
+.comment .user {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.6rem;
+  grid-area: 1/2/1/2;
 }
-.comment .commenter .user .user-name {
+.comment .user .user-img > img {
+  aspect-ratio: 1/1;
+  height: 40px;
+}
+.comment .user .user-name {
   font-weight: 500;
 }
-.comment .commenter .user .comment-created {
-  font-size: 0.9rem;
+.comment .user .comment-created {
+  font-size: 0.8rem;
   color: var(--grayish-blue);
 }
-.comment .commenter .user .user-img > img {
-  width: 40px;
-  aspect-ratio: 1/1;
+.comment .user .you-tag {
+  background-color: var(--moderate-blue);
+  color: var(--white);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  text-align: center;
 }
-.comment .commenter > .reply {
-  margin-left: auto;
+.comment .reply {
+  grid-area: 1/5/1/5;
+  justify-self: flex-end;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: var(--moderate-blue);
-  align-self: flex-start;
-  cursor: pointer;
-}
-.comment .commenter > .reply p {
   font-weight: 500;
+  font-size: 0.85rem;
+  transition: 100ms;
+}
+.comment .reply:hover, .comment .edit-comment:hover, .comment .delete-comment:hover {
+  cursor: pointer;
+  transform: translateY(-3%) scale(1.02);
+}
+.comment .comment-content {
+  grid-area: 2/2/2/6;
 }
 .comment .vote-comment {
   padding-right: 1.5rem;
+  grid-area: 1/1/3/1;
 }
 .comment .vote-comment .vote-wrapper {
   color: var(--moderate-blue);
@@ -177,6 +211,37 @@ main {
 }
 .my-comment-container button:active {
   filter: brightness(100%);
+}
+
+.comment.my-comment textarea {
+  resize: none;
+  border-radius: 5px;
+  grid-area: 2/2/4/6;
+  border: 0;
+  outline: 1px solid var(--light-gray);
+  padding: 1rem;
+  overflow-y: auto;
+}
+.comment.my-comment textarea:focus {
+  outline: 1px solid var(--moderate-blue);
+}
+.comment.my-comment .update-comment-btn {
+  grid-area: 4/5/4/5;
+  border: 0;
+  color: var(--white);
+  background-color: var(--moderate-blue);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  justify-self: center;
+  align-self: center;
+  transition: 100ms;
+}
+.comment.my-comment .update-comment-btn:hover {
+  cursor: pointer;
+  filter: brightness(120%);
 }
 
 ::-webkit-scrollbar {
