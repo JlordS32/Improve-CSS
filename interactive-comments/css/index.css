@@ -108,6 +108,7 @@ main {
 .comment .user .user-img > img {
   aspect-ratio: 1/1;
   height: 40px;
+  border-radius: 50%;
 }
 .comment .user .user-name {
   font-weight: 500;
@@ -137,7 +138,7 @@ main {
 }
 .comment .reply:hover, .comment .edit-comment:hover, .comment .delete-comment:hover {
   cursor: pointer;
-  transform: translateY(-3%) scale(1.02);
+  transform: scale(1.01);
 }
 .comment .comment-content {
   grid-area: 2/2/2/6;
@@ -169,20 +170,37 @@ main {
   cursor: pointer;
 }
 
-.my-comment-container {
+.reply-container {
+  margin: 1rem 0;
+  margin-left: 2rem;
+  padding-left: 2rem;
+  border-left: var(--light-gray) 2px solid;
+}
+.reply-container .comment {
+  margin-bottom: 1rem;
+}
+
+.new-reply-container {
+  margin: 0 !important;
+  margin-top: 0.5rem !important;
+}
+
+.my-comment-container, .new-reply-container {
   margin-top: 2rem;
   padding: 1rem;
+  border-radius: 5px;
   display: flex;
   gap: 0.5rem;
   background-color: var(--white);
   align-items: center;
 }
-.my-comment-container img {
+.my-comment-container img, .new-reply-container img {
   width: 40px;
   align-self: flex-start;
   aspect-ratio: 1/1;
+  border-radius: 50%;
 }
-.my-comment-container textarea {
+.my-comment-container textarea, .new-reply-container textarea {
   flex: 1;
   resize: none;
   overflow-y: auto;
@@ -192,10 +210,10 @@ main {
   border-radius: 5px;
   outline: 1px solid var(--light-gray);
 }
-.my-comment-container textarea:focus {
+.my-comment-container textarea:focus, .new-reply-container textarea:focus {
   outline: 1px solid var(--moderate-blue);
 }
-.my-comment-container button {
+.my-comment-container button, .new-reply-container button {
   border: 0;
   background-color: var(--moderate-blue);
   color: var(--white);
@@ -205,11 +223,11 @@ main {
   padding: 0.5rem 1.4rem;
   border-radius: 5px;
 }
-.my-comment-container button:hover {
+.my-comment-container button:hover, .new-reply-container button:hover {
   cursor: pointer;
   filter: brightness(150%);
 }
-.my-comment-container button:active {
+.my-comment-container button:active, .new-reply-container button:active {
   filter: brightness(100%);
 }
 

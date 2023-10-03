@@ -76,6 +76,7 @@ main {
 		.user-img > img {
 			aspect-ratio: 1 / 1;
 			height: 40px;
+         border-radius: 50%;
 		}
 
 		.user-name {
@@ -111,7 +112,7 @@ main {
 
    .reply:hover, .edit-comment:hover, .delete-comment:hover {
       cursor: pointer;
-      transform: translateY(-3%) scale(1.02);
+      transform: scale(1.01);
    }
 
 	.comment-content {
@@ -149,9 +150,27 @@ main {
 	}
 }
 
-.my-comment-container {
+.reply-container {
+   margin: 1rem 0;
+   margin-left: 2rem;
+   padding-left: 2rem;
+   border-left: var(--light-gray) 2px solid;
+
+   .comment {
+      margin-bottom: 1rem;
+   }
+}
+
+.new-reply-container {
+   margin: 0 !important;
+
+   margin-top: 0.5rem !important;
+}
+
+.my-comment-container, .new-reply-container {
 	margin-top: 2rem;
 	padding: 1rem;
+   border-radius: 5px;
 	display: flex;
 	gap: 0.5rem;
 	background-color: var(--white);
@@ -161,6 +180,7 @@ main {
 		width: 40px;
 		align-self: flex-start;
 		aspect-ratio: 1 / 1;
+      border-radius: 50%;
 	}
 
 	textarea {
