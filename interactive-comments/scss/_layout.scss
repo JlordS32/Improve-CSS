@@ -24,7 +24,7 @@ main {
 }
 
 .container {
-	width: 720px;
+	width: clamp(350px, 90%, 720px);
 }
 
 .comments-container {
@@ -162,14 +162,23 @@ main {
 }
 
 .new-reply-container {
-   margin: 0 !important;
+   padding: 1rem;
+}
 
-   margin-top: 0.5rem !important;
+.comment-wrapper > .new-reply-container {
+   margin-top: 0.5rem;
+}
+
+.reply-container > .new-reply-container {
+   margin-bottom: 1rem;
+}
+
+.my-comment-container {
+   margin-top: 2rem;
+   padding: 1rem;
 }
 
 .my-comment-container, .new-reply-container {
-	margin-top: 2rem;
-	padding: 1rem;
    border-radius: 5px;
 	display: flex;
 	gap: 0.5rem;

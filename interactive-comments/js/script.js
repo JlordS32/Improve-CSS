@@ -22,6 +22,18 @@ function sanitizeHTML(str) {
 	return div.innerHTML;
 }
 
+function createReplyContainer(currentUser, user) {
+	const newReplyContainer = document.createElement('div'); // Create a new div for the reply container
+	newReplyContainer.classList.add('new-reply-container'); // Add a CSS class to the reply container
+	newReplyContainer.innerHTML = `
+               <img src=${currentUser.image.png} alt="${currentUser.username}"/>
+               <textarea id="new-reply" placeholder="Enter reply here...">@${user.username}</textarea>
+               <button>Reply</button>
+               `;
+
+	return newReplyContainer;
+}
+
 function handleReplies(newComment, commentWrapper, currentUser, user) {
 	const replyElement = newComment.querySelector('.reply'); // Select the reply button in the new comment
 	let hasReplied = false;
@@ -31,13 +43,7 @@ function handleReplies(newComment, commentWrapper, currentUser, user) {
 		if (!hasReplied) {
 			hasReplied = true;
 
-			const newReplyContainer = document.createElement('div'); // Create a new div for the reply container
-			newReplyContainer.classList.add('new-reply-container'); // Add a CSS class to the reply container
-			newReplyContainer.innerHTML = `
-               <img src=${currentUser.image.png} alt="${currentUser.username}"/>
-               <textarea id="new-reply" placeholder="Enter reply here...">@${user.username}</textarea>
-               <button>Reply</button>
-            `; // HTML content for the reply container
+			const newReplyContainer = createReplyContainer(currentUser, user);
 
 			const replyBtn = newReplyContainer.querySelector('button'); // Select the reply button in the reply container
 
@@ -72,10 +78,6 @@ function handleReplies(newComment, commentWrapper, currentUser, user) {
 					'data-reply-for',
 					commentWrapper.getAttribute('data-id')
 				);
-
-				newReply.querySelector('.reply').addEventListener('click', () => {
-					console.log('i am ');
-				});
 
 				hasReplied = false;
 
@@ -127,6 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		if (replies.length > 0) {
 			const replyContainer = document.createElement('div'); // Create a new div for the replies container
 			replyContainer.classList.add('reply-container'); // Add a CSS class to the replies container
+			autoAnimate(replyContainer);
 
 			replies.forEach((reply) => {
 				// Create a new reply comment element using the createCommentElement function
@@ -143,6 +146,54 @@ document.addEventListener('DOMContentLoaded', async () => {
 					'data-reply-for',
 					commentWrapper.getAttribute('data-id')
 				);
+
+				newReply.querySelector('.reply').addEventListener('click', () => {
+					let hasReplied = false;
+
+					if (!hasReplied) {
+                  hasReplied = true;
+						const newReplyContainer = createReplyContainer(currentUser, user);
+						const replyBtn = newReplyContainer.querySelector('button');
+
+						replyBtn.addEventListener('click', () => {
+							newReplyContainer.remove();
+
+							let replyContainer =
+								commentWrapper.querySelector('.reply-container');
+
+							const newReplyInput =
+								newReplyContainer.querySelector('textarea').value;
+
+							// Create a new reply comment element using the createCommentElement function
+							const newReplyElement = createCommentElement(
+								0,
+								currentUser.image.png,
+								currentUser.username,
+								'2 days ago',
+								sanitizeHTML(newReplyInput),
+								true
+							);
+
+							newReplyElement.classList.add('comment-reply');
+
+							newReplyElement.setAttribute(
+								'data-reply-for',
+								commentWrapper.getAttribute('data-id')
+							);
+
+                     replyContainer.insertBefore(
+                        newReplyElement,
+                        newReply.nextSibling
+                     );
+						});
+
+						replyContainer.insertBefore(
+							newReplyContainer,
+							newReply.nextSibling
+						);
+					}
+					scrollToBottom();
+				});
 
 				replyContainer.appendChild(newReply); // Append the reply to the replies container
 			});
@@ -169,12 +220,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 			sanitizeHTML(newCommentInput.value),
 			true
 		);
-
-		const userReplyElement = newComment.querySelector('.reply');
-
-		userReplyElement.addEventListener('click', () => {
-			console.log('hello');
-		});
 
 		commentWrapper.appendChild(newComment); // Append the new comment to the comment wrapper
 		commentsContainer.appendChild(commentWrapper); // Append the comment wrapper to the comments container
