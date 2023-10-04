@@ -71,13 +71,18 @@ export function createCommentElement(
          <p>Delete</p>
       `;
 
+		let hasClickedDialog = false;
 		deleteBtn.addEventListener('click', () => {
-			const dialogElement = document.createElement('dialog');
-			dialogElement.classList.add('confirm-delete-dialog');
+			if (!hasClickedDialog) {
+				hasClickedDialog = true;
+				const dialogElement = document.createElement('dialog');
+				dialogElement.classList.add('confirm-delete-dialog');
 
-			document.querySelector('main').append(dialogElement);
-			dialogElement.textContent='i like pussies'
-			dialogElement.showModal();
+				document.querySelector('body').append(dialogElement);
+
+				dialogElement.textContent = 'i like pussies';
+				dialogElement.showModal();
+			}
 
 			// if (commentElement.parentElement.childElementCount === 1) {
 			// 	commentElement.parentElement.remove();

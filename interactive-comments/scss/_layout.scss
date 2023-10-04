@@ -150,6 +150,20 @@ main {
 	}
 }
 
+.comment.my-comment.comment-reply {
+	> .delete-comment {
+		grid-area: 1 / 4 / 1 / 4;
+	}
+
+	> .edit-comment {
+		grid-area: 1 / 5 / 1 / 5;
+	}
+
+	> .reply {
+		display: none;
+	}
+}
+
 .reply-container {
    margin: 1rem 0;
    margin-left: 2rem;

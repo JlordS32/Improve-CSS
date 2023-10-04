@@ -59,7 +59,7 @@ function handleReplies(newComment, commentWrapper, currentUser, user) {
 					replyContainer = document.createElement('div'); // Create a new div for the replies container
 					replyContainer.classList.add('reply-container'); // Add a CSS class to the replies container
 				}
-
+				
 				const newReplyInput = newReplyContainer.querySelector('textarea').value; // Get the text from the reply textarea
 
 				// Create a new reply comment element using the createCommentElement function
