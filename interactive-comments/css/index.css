@@ -285,3 +285,10 @@ main {
   overflow: auto;
   max-height: 300px;
 }
+
+.confirm-delete-dialog {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}

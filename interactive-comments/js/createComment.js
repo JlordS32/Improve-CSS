@@ -11,7 +11,7 @@ export function createCommentElement(
 	commentContent,
 	isUser = false
 ) {
-   const commentsContainer = document.querySelector('.comments-container');
+	const commentsContainer = document.querySelector('.comments-container');
 	const commentElement = document.createElement('div');
 	commentElement.classList.add('comment');
 
@@ -72,7 +72,18 @@ export function createCommentElement(
       `;
 
 		deleteBtn.addEventListener('click', () => {
-			commentElement.parentElement.remove();
+			const dialogElement = document.createElement('dialog');
+			dialogElement.classList.add('confirm-delete-dialog');
+
+			document.querySelector('main').append(dialogElement);
+			dialogElement.textContent='i like pussies'
+			dialogElement.showModal();
+
+			// if (commentElement.parentElement.childElementCount === 1) {
+			// 	commentElement.parentElement.remove();
+			// } else {
+			// 	commentElement.remove();
+			// }
 		});
 
 		// Edit Button
@@ -96,7 +107,7 @@ export function createCommentElement(
 			commentElement.appendChild(updateComment);
 			commentElement.appendChild(updateBtn);
 
-         commentsContainer.scrollTop = commentElement.parentElement.scrollHeight;
+			commentsContainer.scrollTop = commentElement.parentElement.scrollHeight;
 
 			updateBtn.addEventListener('click', () => {
 				if (updateComment.value.trim() === '') return;
