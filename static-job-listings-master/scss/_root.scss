@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
 :root {
   /* Layout */
   --mobile-width: 375px;
@@ -11,8 +13,15 @@
   --very-dark-grayish-cyan-color: hsl(180, 14%, 20%);
 
   /* Typography */
-  --body-copy-font-size: 15px;
-  --headings-font-family: 'League Spartan', sans-serif;
-  --headings-font-weight-500: 500;
-  --headings-font-weight-700: 700;
+  --font-size: 15px;
+  --font-family: 'League Spartan', sans-serif;
+  --font-weight-normal: 500;
+  --font-weight-thicc: 700;
+
+  background-color:  var(--background-color);
+  color: black;
+
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size);
 }

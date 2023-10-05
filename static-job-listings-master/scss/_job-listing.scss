@@ -1,0 +1,67 @@
+.job-listing {
+   display: flex;
+   background-color: white;
+   padding: 2rem;
+   border-radius: 5px;
+   box-shadow: 0px 10px 15px -3px hsla(180, 14%, 20%, 0.1);
+
+   .jobtags {
+      margin-left: auto;
+      align-self: center;
+   }
+
+   img {
+      border-radius: 50%;
+   }
+
+   > .job-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.8rem;
+      padding-left: 1.5rem;
+
+      .job-meta, .employer-info {
+         display: flex;
+         gap: 1rem;
+      }
+
+      .employer-info {
+         align-items: center;
+
+         .job-company {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+         }
+
+         .new {
+            background-color: var(--primary-color);
+         }
+
+         .featured { 
+            background-color: black;
+         }
+
+         > .new, .featured {
+            color: white;
+            border-radius: 10px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-align: center;
+         }
+      }
+
+      .job-title {
+         color: var(--very-dark-grayish-cyan-color);
+         transition: 150ms;
+         font-size: 0.8rem;
+      }
+
+      .job-title:hover {
+         cursor: pointer;
+         color: var(--primary-color);
+      }
+   }
+}

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan&display=swap");
 :root {
   /* Layout */
   --mobile-width: 375px;
@@ -9,8 +10,117 @@
   --dark-grayish-cyan-color: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan-color: hsl(180, 14%, 20%);
   /* Typography */
-  --body-copy-font-size: 15px;
-  --headings-font-family: "League Spartan", sans-serif;
-  --headings-font-weight-500: 500;
-  --headings-font-weight-700: 700;
+  --font-size: 15px;
+  --font-family: "League Spartan", sans-serif;
+  --font-weight-normal: 500;
+  --font-weight-thicc: 700;
+  background-color: var(--background-color);
+  color: black;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  position: relative;
+}
+
+.bg-header {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background-image: url(../images/bg-header-desktop.svg);
+  background-color: var(--primary-color);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .job-container {
+  padding-top: 15rem;
+  width: clamp(350px, 90%, 900px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.job-listing {
+  display: flex;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px -3px hsla(180, 14%, 20%, 0.1);
+}
+.job-listing .jobtags {
+  margin-left: auto;
+  align-self: center;
+}
+.job-listing img {
+  border-radius: 50%;
+}
+.job-listing > .job-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  padding-left: 1.5rem;
+}
+.job-listing > .job-info .job-meta, .job-listing > .job-info .employer-info {
+  display: flex;
+  gap: 1rem;
+}
+.job-listing > .job-info .employer-info {
+  align-items: center;
+}
+.job-listing > .job-info .employer-info .job-company {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+.job-listing > .job-info .employer-info .new {
+  background-color: var(--primary-color);
+}
+.job-listing > .job-info .employer-info .featured {
+  background-color: black;
+}
+.job-listing > .job-info .employer-info > .new, .job-listing > .job-info .employer-info .featured {
+  color: white;
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.job-listing > .job-info .job-title {
+  color: var(--very-dark-grayish-cyan-color);
+  transition: 150ms;
+  font-size: 0.8rem;
+}
+.job-listing > .job-info .job-title:hover {
+  cursor: pointer;
+  color: var(--primary-color);
 }
