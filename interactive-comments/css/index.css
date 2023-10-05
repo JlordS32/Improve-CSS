@@ -49,7 +49,6 @@
 html,
 body {
   height: 100%;
-  background-color: var(--very-light-gray);
 }
 
 main {
@@ -57,6 +56,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 100%;
+  background-color: var(--very-light-gray);
 }
 
 .container {
@@ -141,7 +141,7 @@ main {
 }
 .comment .reply:hover, .comment .edit-comment:hover, .comment .delete-comment:hover {
   cursor: pointer;
-  transform: scale(1.01);
+  opacity: 0.5;
 }
 .comment .comment-content {
   grid-area: 2/2/2/6;
@@ -173,13 +173,16 @@ main {
   cursor: pointer;
 }
 
-.comment.my-comment.comment-reply > .delete-comment {
+.comment.my-comment.comment-reply > .delete-comment,
+.comment.my-comment > .delete-comment {
   grid-area: 1/4/1/4;
 }
-.comment.my-comment.comment-reply > .edit-comment {
+.comment.my-comment.comment-reply > .edit-comment,
+.comment.my-comment > .edit-comment {
   grid-area: 1/5/1/5;
 }
-.comment.my-comment.comment-reply > .reply {
+.comment.my-comment.comment-reply > .reply,
+.comment.my-comment > .reply {
   display: none;
 }
 
