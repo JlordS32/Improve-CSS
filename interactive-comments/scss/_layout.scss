@@ -13,6 +13,7 @@
 html,
 body {
 	height: 100%;
+	background-color: var(--very-light-gray);
 }
 
 main {
@@ -20,11 +21,11 @@ main {
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	background-color: var(--very-light-gray);
 }
 
 .container {
 	width: clamp(350px, 90%, 720px);
+	max-height: 100%;
 }
 
 .comments-container {
@@ -285,9 +286,4 @@ main {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--moderate-blue);
 	border-radius: 4px;
-}
-
-.scrollable {
-	overflow: auto;
-	max-height: 300px;
 }

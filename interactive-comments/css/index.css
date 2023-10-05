@@ -49,6 +49,7 @@
 html,
 body {
   height: 100%;
+  background-color: var(--very-light-gray);
 }
 
 main {
@@ -56,11 +57,11 @@ main {
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: var(--very-light-gray);
 }
 
 .container {
   width: clamp(350px, 90%, 720px);
+  max-height: 100%;
 }
 
 .comments-container {
@@ -291,11 +292,6 @@ main {
   border-radius: 4px;
 }
 
-.scrollable {
-  overflow: auto;
-  max-height: 300px;
-}
-
 .confirm-delete-dialog {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -304,10 +300,13 @@ main {
 }
 
 @media screen and (max-width: 650px) {
+  .container {
+    padding-top: 2rem;
+  }
   .comment.comment-reply {
     grid-template-columns: 1fr repeat(2, 0.4fr);
     grid-template-rows: 0.5fr 1fr 0.5fr;
-    gap: 0.7rem;
+    gap: 0.5rem 1rem;
   }
   .comment.comment-reply .user {
     grid-area: 1/1/1/-1;
@@ -336,19 +335,43 @@ main {
     width: auto;
     padding: 0.5rem 1rem;
   }
+  .new-reply-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 0.3fr;
+    gap: 1rem 0;
+  }
+  .new-reply-container textarea {
+    grid-area: 1/1/1/-1;
+  }
+  .new-reply-container img {
+    grid-area: 2/1/2/1;
+  }
+  .new-reply-container button {
+    grid-area: 2/2/2/2;
+  }
 }
 @media screen and (max-width: 550px) {
   .comment {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr repeat(3, 0.4fr);
     grid-template-rows: repeat(3, 1fr);
+    gap: 0.5rem 1rem;
   }
   .comment .user {
     grid-area: 1/1/1/-1;
   }
-  .comment .reply {
-    grid-area: 3/3/3/3 !important;
+  .comment .edit-comment, .comment .reply, .comment .delete-comment {
     align-self: center;
     justify-self: center;
+  }
+  .comment .reply {
+    grid-area: 3/4/3/4 !important;
+  }
+  .comment .edit-comment {
+    grid-area: 3/3/3/3 !important;
+  }
+  .comment .delete-comment {
+    grid-area: 3/2/3/2 !important;
   }
   .comment .comment-content {
     grid-area: 2/1/2/-1;
@@ -356,12 +379,27 @@ main {
   .comment .vote-comment {
     grid-area: 3/1/3/1;
     align-self: center;
-    justify-self: center;
+    justify-self: flex-start;
     padding: 0;
   }
   .comment .vote-comment .vote-wrapper {
     flex-direction: row;
     width: auto;
     padding: 0.5rem 1rem;
+  }
+  .my-comment-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 0.3fr;
+    gap: 1rem 0;
+  }
+  .my-comment-container textarea {
+    grid-area: 1/1/1/-1;
+  }
+  .my-comment-container img {
+    grid-area: 2/1/2/1;
+  }
+  .my-comment-container button {
+    grid-area: 2/2/2/2;
   }
 }
