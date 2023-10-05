@@ -1,0 +1,18 @@
+:root {
+  /* Layout */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
+
+  /* Colors */
+  --primary-color: hsl(180, 29%, 50%);
+  --background-color: hsl(180, 52%, 96%);
+  --filter-tablets-color: hsl(180, 31%, 95%);
+  --dark-grayish-cyan-color: hsl(180, 8%, 52%);
+  --very-dark-grayish-cyan-color: hsl(180, 14%, 20%);
+
+  /* Typography */
+  --body-copy-font-size: 15px;
+  --headings-font-family: 'League Spartan', sans-serif;
+  --headings-font-weight-500: 500;
+  --headings-font-weight-700: 700;
+}
