@@ -62,13 +62,15 @@ main {
 .container {
   width: clamp(350px, 90%, 720px);
   max-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 0.2fr;
+  padding: 1rem 0;
 }
 
 .comments-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 700px;
   overflow-y: auto;
 }
 
@@ -292,11 +294,68 @@ main {
   border-radius: 4px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .confirm-delete-dialog {
-  position: absolute;
+  position: fixed;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  border: 0;
+  outline: 0;
+  padding: 1.5rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: clamp(330px, 90%, 400px);
+  animation: fadeIn 150ms ease-in-out;
+}
+.confirm-delete-dialog h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--dark-blue);
+}
+.confirm-delete-dialog p {
+  color: var(--grayish-blue);
+}
+.confirm-delete-dialog .dialog-delete-confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+.confirm-delete-dialog .dialog-delete-confirm button {
+  color: var(--white);
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  flex: 1;
+  transition: all 150ms;
+}
+.confirm-delete-dialog .dialog-delete-confirm button:last-child {
+  background-color: var(--soft-red);
+}
+.confirm-delete-dialog .dialog-delete-confirm button:first-child {
+  background-color: var(--grayish-blue);
+}
+.confirm-delete-dialog .dialog-delete-confirm button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.confirm-delete-dialog .dialog-delete-confirm button:active {
+  cursor: pointer;
+  transform: scale(1);
 }
 
 @media screen and (max-width: 650px) {

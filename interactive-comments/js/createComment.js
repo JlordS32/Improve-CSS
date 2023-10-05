@@ -80,15 +80,34 @@ export function createCommentElement(
 
 				document.querySelector('body').append(dialogElement);
 
-				dialogElement.textContent = 'i like pussies';
+				dialogElement.innerHTML = `
+					<h1>Delete Comment</h1>
+					<p>Are you sure you want to delete this commnet? This will remove the comment and can't be undone.</p>
+					<div class="dialog-delete-confirm">
+						<button class="cancel-btn">No, Cancel</button>
+						<button class="delete-btn">Yes, Delete</button>
+					</div>
+				`;
 				dialogElement.showModal();
-			}
 
-			// if (commentElement.parentElement.childElementCount === 1) {
-			// 	commentElement.parentElement.remove();
-			// } else {
-			// 	commentElement.remove();
-			// }
+				dialogElement.querySelector('.cancel-btn').addEventListener('click', () => {
+					dialogElement.close();
+					dialogElement.remove();
+					hasClickedDialog = false;
+				});
+
+				dialogElement.querySelector('.delete-btn').addEventListener('click', () => {
+					if (commentElement.parentElement.childElementCount === 1) {
+						commentElement.parentElement.remove();
+					} else {
+						commentElement.remove();
+					}
+
+					dialogElement.close();
+					dialogElement.remove();
+					hasClickedDialog = false;
+				});
+			}
 		});
 
 		// Edit Button

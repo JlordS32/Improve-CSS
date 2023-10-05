@@ -1,6 +1,73 @@
+@keyframes fadeIn {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
 .confirm-delete-dialog {
-   position: absolute;
+   position: fixed;
    transform: translate(-50%, -50%);
    top: 50%;
    left: 50%;
+   border: 0;
+   outline: 0;
+   padding: 1.5rem;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   gap: 1em;
+   width: clamp(330px, 90%, 400px);
+   animation: fadeIn 150ms ease-in-out;
+
+   h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--dark-blue);
+   }
+
+   p {
+      color: var(--grayish-blue);
+   }
+
+   .dialog-delete-confirm {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 0.5rem;
+
+      button {
+         color: var(--white);
+         font-size: 1rem;
+         text-transform: uppercase;
+         padding: 0.6rem 1rem;
+         border-radius: 5px;
+         border: 0;
+         outline: 0;
+         flex: 1;
+         transition: all 150ms;
+      }
+
+      button:last-child {
+         background-color: var(--soft-red);
+      }
+      button:first-child {
+         background-color: var(--grayish-blue);
+      }
+
+      button:hover {
+         cursor: pointer;
+         transform: scale(1.02);
+      }
+
+      button:active {
+         cursor: pointer;
+         transform: scale(1);
+      }
+   }
 }
