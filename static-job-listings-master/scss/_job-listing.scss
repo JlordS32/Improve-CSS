@@ -2,12 +2,29 @@
    display: flex;
    background-color: white;
    padding: 2rem;
-   border-radius: 5px;
+   border-radius: 10px;
    box-shadow: 0px 10px 15px -3px hsla(180, 14%, 20%, 0.1);
 
    .jobtags {
       margin-left: auto;
       align-self: center;
+      display: flex;
+      gap: 1rem;
+
+      .tag {
+         background-color: var(--filter-tablets-color);
+         font-weight: 700;
+         color: var(--primary-color);
+         padding: 0.6rem;
+         border-radius: 5px;
+         transition: 150ms ease-in;
+      }
+
+      .tag:hover, .tag:active {
+        background-color: var(--primary-color); 
+        color: var(--filter-tablets-color);
+        cursor: pointer;
+      }
    }
 
    img {
@@ -59,7 +76,7 @@
          font-size: 0.8rem;
       }
 
-      .job-title:hover {
+      .job-title:hover, .job-title:active {
          cursor: pointer;
          color: var(--primary-color);
       }

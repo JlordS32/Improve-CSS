@@ -1,0 +1,32 @@
+@media screen and (max-width:900px){
+   .job-listing {
+      padding-top: 3.5rem;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      margin-bottom: 2rem;
+
+      .jobtags {
+         margin: 0;
+         align-self: flex-start;
+         flex-wrap: wrap;
+      }
+
+      .job-info {
+         padding: 0;
+         border-bottom: 1px solid var(--very-dark-grayish-cyan-color);
+         padding-bottom: 1rem;
+      }
+
+      .company-logo {
+         position: absolute;
+         top: 0;
+         transform: translate(0, -50%);
+
+         img {
+            width: 70px;
+            aspect-ratio: 1/1;
+         }
+      }
+   }
+}
