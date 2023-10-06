@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+body {
+	height: 100vh;
+}
+
+main {
+	height: 100%;
+}
+
+.container {
+	display: flex;
+	background-color: white;
+	width: clamp(350px, 90%, 900px);
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1rem;
+	border-radius: 18px;
+	justify-content: space-between;
+
+	.checkout-container {
+		background-color: var(--very-dark-cyan-color);
+		flex: 1;
+		border-radius: 18px;
+		padding: 1rem;
+	}
+
+	.tip-calculator {
+		flex: 1;
+		padding: 1rem;
+	}
+}

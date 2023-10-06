@@ -1,0 +1,17 @@
+{
+  "name": "tip-calculator",
+  "version": "1.0.0",
+  "description": "![Design preview for the Tip calculator app coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.69.0"
+  }
+}
