@@ -213,6 +213,10 @@ body {
   color: var(--primary-color);
 }
 
+.filtered-out {
+  display: none !important;
+}
+
 @media screen and (max-width: 900px) {
   .job-listing {
     padding-top: 3.5rem;
