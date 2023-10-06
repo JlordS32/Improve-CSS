@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 					// Add a click event listener to each remove button
 					const searchTagElements =
 						searchTagsContainer.querySelectorAll('.search-tag');
-					searchTagElements.forEach((searchTagElement) => {
+					searchTagElements.forEach((searchTagElement) => { 
 						searchTagElement
 							.querySelector('button')
 							.addEventListener('click', () => {
@@ -225,8 +225,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 							});
 					});
 				}
-
-				console.log('cic');
 				updateFilters(selectedSearchTags, jobContainer);
 			});
 		});
