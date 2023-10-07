@@ -10,7 +10,7 @@
          background-color: var(--input);
          display: flex;
          align-items: center;
-         padding: 0 1rem;
+         padding: 0.25rem 1rem;
          border-radius: 5px;
 
          input {
@@ -21,6 +21,7 @@
             font-size: 1rem;
             color: var(--very-dark-cyan-color);
             flex: 1;
+            width: 100%;
          }
 
          input:focus {
@@ -44,22 +45,53 @@
       
       .percentage {
          display: grid;
-         grid-template-columns: repeat(3, 1fr);
+         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
          gap: 0.5rem;
 
-         div {
+         .default-percentage {
             background-color: var(--very-dark-cyan-color);
             color: white;
             text-align: center;
             border-radius: 5px;
             padding: 0.2rem 0.5rem;
+            transition: 150ms;
          }
 
-         div.custom {
-            background-color: var(--input);
+         .default-percentage.active {
+            background-color: var(--primary-color);
             color: var(--very-dark-cyan-color);
          }
+
+         .default-percentage:hover {
+            cursor: pointer;
+            background-color: var(--hover-button);
+            color: var(--very-dark-cyan-color);
+         }
+
+         .custom {
+            background-color: var(--input);
+            color: var(--very-dark-cyan-color);
+            border: 0;
+            direction: ltr;
+            text-align: right;
+            width: 100%;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            height: 100%;
+         }
+
+         .custom:focus, .custom:hover {
+            outline: 2px var(--primary-color) solid;
+         }
+
+         .custom::placeholder {
+            color: var(--very-dark-cyan-color);
+         }
+
+         
       }
+
    }
 
    .number-of-people {
@@ -74,7 +106,7 @@
          background-color: var(--input);
          display: flex;
          align-items: center;
-         padding: 0 1rem;
+         padding: 0.25rem 1rem;
          border-radius: 5px;
 
          input {
@@ -85,6 +117,7 @@
             font-size: 1rem;
             color: var(--very-dark-cyan-color);
             flex: 1;
+            width: 100%;
          }
 
          input:focus {

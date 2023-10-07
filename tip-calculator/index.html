@@ -24,6 +24,10 @@
 	</head>
 	<body>
 		<main>
+			<div class="logo">
+				<span>Spli</span>
+				<span>Tter</span>
+			</div>
 			<div class="container">
 				<div class="tip-calculator">
 					<div class="input-wrapper">
@@ -34,8 +38,10 @@
 								alt="dollar"
 							/>
 							<input
-								type="text"
+								type="number"
 								placeholder="0"
+								min="0"
+								max="100"
 							/>
 						</div>
 					</div>
@@ -43,22 +49,33 @@
 					<div class="tip-percentage">
 						<p>Select Tip %</p>
 						<div class="percentage">
-							<div>5%</div>
-							<div>10%</div>
-							<div>15%</div>
-							<div>25%</div>
-							<div>50%</div>
-							<div class="custom">Custom</div>
+							<div class="default-percentage">5%</div>
+							<div class="default-percentage">10%</div>
+							<div class="default-percentage">15%</div>
+							<div class="default-percentage">25%</div>
+							<div class="default-percentage">50%</div>
+							<div class="custom-percentage">
+								<input
+									type="number"
+									placeholder="Custom"
+									class="custom"
+									min="0"
+								/>
+							</div>
 						</div>
 					</div>
 
 					<div class="number-of-people">
 						<p>Number of People</p>
-                  <div>
-                     <img src="images/icon-person.svg" alt="person" />
+						<div>
+							<img
+								src="images/icon-person.svg"
+								alt="person"
+							/>
 							<input
-								type="text"
+								type="number"
 								placeholder="0"
+								min="0"
 							/>
 						</div>
 					</div>
@@ -69,27 +86,41 @@
 							<p>Tip Amount</p>
 							<p>/ person</p>
 						</div>
-						<div class="amount">0.00</div>
+						<div class="amount">$0.00</div>
 					</div>
 					<div class="total-wrapper">
 						<div>
 							<p>Total</p>
 							<p>/ person</p>
 						</div>
-						<div class="amount">0.00</div>
+						<div class="amount">$0.00</div>
 					</div>
+
+					<button>Reset</button>
 				</div>
 			</div>
 		</main>
 
-		<!-- <div class="attribution">
-			Challenge by
-			<a
-				href="https://www.frontendmentor.io?ref=challenge"
-				target="_blank"
-        rel="noopener"
-				>Frontend Mentor</a
-			>. Coded by <a href="#">Your Name Here</a>.
-		</div> -->
+		<footer>
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					rel="noopener"
+					>Frontend Mentor</a
+				>. Coded by
+				<a
+					href="https://github.com/JlordS32"
+					target="_blank"
+					rel="noopener"
+					>Jaylou Rasonabe</a
+				>.
+			</div>
+		</footer>
 	</body>
+	<script
+		src="js/script.js"
+		type="module"
+	></script>
 </html>

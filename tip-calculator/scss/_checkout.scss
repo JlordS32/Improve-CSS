@@ -1,0 +1,47 @@
+.checkout-container {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem 0;
+
+   .tip-wrapper, .total-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      p {
+         color: var(--white-color);
+      }
+   }
+
+   .amount {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+   }
+
+   .tip-wrapper p:first-child, .total-wrapper p:first-child {
+      font-size: 0.7rem;
+   }
+
+   .tip-wrapper p:last-child, .total-wrapper p:last-child {
+      font-size: 0.6rem;
+      color: var(--grayish-cyan-color)
+   }
+
+   button {
+      border: 0;
+      background-color: var(--primary-color);
+      font-size: 0.8rem;
+      width: 100%;
+      margin-top: auto;
+      padding: 0.2rem;
+      text-transform: uppercase;
+      border-radius: 5px;
+      transition: 150ms;
+      opacity: 0.3;
+   }
+
+   button:hover {
+      cursor: pointer;
+      background-color: var(--hover-button);
+   }
+}
