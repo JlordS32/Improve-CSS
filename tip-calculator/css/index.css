@@ -221,6 +221,9 @@ footer a:hover {
 .tip-calculator .number-of-people div input::placeholder {
   color: var(--grayish-cyan-color);
 }
+.tip-calculator .number-of-people div.invalid {
+  outline: 2px red solid;
+}
 
 .checkout-container {
   display: flex;

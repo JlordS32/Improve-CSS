@@ -129,5 +129,9 @@
             color: var(--grayish-cyan-color);
          }
       }
+
+      div.invalid {
+         outline: 2px red solid;
+      }
    }
 }
