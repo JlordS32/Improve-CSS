@@ -19,11 +19,13 @@ function updateFilters(selectedFilters, jobContainer) {
 	jobContainer.querySelectorAll('.job-listing').forEach((jobListing) => {
 		// Check if the job listing matches the selected filters
 		const jobTags = jobListing.querySelectorAll('.tag');
-		const shouldShow = Array.from(jobTags).some((tag) =>
-			selectedFilters.includes(tag.innerText)
+
+		const tagsArray = Array.from(jobTags).map((tag) => tag.innerText.trim());
+
+		const shouldShow = selectedFilters.every((item) =>
+			tagsArray.includes(item)
 		);
 
-		// Toggle the CSS class to show or hide the job listing
 		jobListing.classList.toggle('filtered-out', !shouldShow);
 	});
 }
@@ -131,13 +133,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 		// Add a click event listener to the job listing element
 		jobListingElement.querySelectorAll('.tag').forEach((tagElement) => {
 			tagElement.addEventListener('click', () => {
-            
-            const tagText = tagElement.innerText;
+				const tagText = tagElement.innerText;
 
-            if (!selectedSearchTags.includes(tagText)) {
-               selectedSearchTags.push(tagText); // Add the selected tag to the array
-               updateFilters(selectedSearchTags, jobContainer); // Update filters based on selected tags
-            }
+				if (!selectedSearchTags.includes(tagText)) {
+					selectedSearchTags.push(tagText); // Add the selected tag to the array
+					updateFilters(selectedSearchTags, jobContainer); // Update filters based on selected tags
+				}
 
 				if (!jobContainer.querySelector('.filter')) {
 					const filterElement = document.createElement('div');
@@ -178,9 +179,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 								selectedSearchTags = selectedSearchTags.filter(
 									(tag) => tag !== selectedTag
 								);
+								updateFilters(selectedSearchTags, jobContainer);
 								searchTagElement.remove(); // Remove the clicked search tag
-								updateFilters(selectedSearchTags, jobContainer); // Update filters
 							});
+					});
+
+					clearBtn.addEventListener('click', () => {
+						selectedSearchTags = [];
+
+						console.log(searchTagElements);
+						searchTagElements.forEach((searchTagElement) => {
+							console.log(searchTagElement);
+						});
 					});
 
 					// Append filter elements to the job container
@@ -210,7 +220,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 					// Add a click event listener to each remove button
 					const searchTagElements =
 						searchTagsContainer.querySelectorAll('.search-tag');
-					searchTagElements.forEach((searchTagElement) => { 
+					searchTagElements.forEach((searchTagElement) => {
 						searchTagElement
 							.querySelector('button')
 							.addEventListener('click', () => {
@@ -225,7 +235,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 							});
 					});
 				}
-				updateFilters(selectedSearchTags, jobContainer);
 			});
 		});
 
