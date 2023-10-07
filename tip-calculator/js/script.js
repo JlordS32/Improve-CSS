@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	percentageElement
 		.querySelector('.custom-percentage input')
-		.addEventListener('change', (e) => {
+		.addEventListener('input', (e) => {
 			const isGreaterThanNegative = parseInt(e.target.value) > -1;
 
 			if (isGreaterThanNegative) {
