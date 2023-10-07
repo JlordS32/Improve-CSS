@@ -1,5 +1,5 @@
 function updateCheckout(bill, tip, numberOfPeople) {
-	if (!bill || !tip || !numberOfPeople) {
+	if (!bill || !numberOfPeople) {
 		return;
 	}
 
@@ -60,13 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	percentageElement
 		.querySelector('.custom-percentage input')
 		.addEventListener('input', (e) => {
-			selectedTip = parseInt(e.target.value);
+			const isGreaterThanNegative = parseInt(e.target.value) > -1;
 
-			updateCheckout(
-				billElement.value,
-				selectedTip,
-				numberOfPeopleElement.value
-			);
+			if (isGreaterThanNegative) {
+				selectedTip = parseInt(e.target.value);
+
+				updateCheckout(
+					billElement.value,
+					selectedTip,
+					numberOfPeopleElement.value
+				);
+			}
 		});
 
 	billElement.addEventListener('input', () => {
@@ -75,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	numberOfPeopleElement.addEventListener('input', () => {
 		const isGreaterThanZero = parseInt(numberOfPeopleElement.value) > 0;
-
-		console.log(isGreaterThanZero);
 
 		if (isGreaterThanZero) {
 			updateCheckout(
