@@ -187,10 +187,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 					clearBtn.addEventListener('click', () => {
 						selectedSearchTags = [];
 
-						console.log(searchTagElements);
-						searchTagElements.forEach((searchTagElement) => {
-							console.log(searchTagElement);
-						});
+						searchTagsContainer
+							.querySelectorAll('.search-tag')
+							.forEach((searchTag) => {
+								searchTag.remove();
+							});
+
+						updateFilters(selectedSearchTags, jobContainer);
 					});
 
 					// Append filter elements to the job container
